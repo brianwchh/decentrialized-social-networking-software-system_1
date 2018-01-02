@@ -1,6 +1,6 @@
 # decentralized social networking software system for network freedom
 
-## it has a special meaning for C-country. the ultimate GOAL of this project behind decentralization is trying to realise the freedom of network in the mechanism of "helping others helps yourself",so that people without techincal background can freely get access to information outside the wall. 
+## it has a special meaning for C-country. the ultimate GOAL of this project behind decentralization is trying to achieve the freedom of network in the mechanism of "helping others helps yourself",so that people without techincal background can freely get access to information outside the wall. 
 ### technology is only part of human civilization,there are many people have done their contribution to this field, but there are many more other civilization should flow freely into C-country, a freedom network is critical to carry the human civilization to any corner of the world, I was raised up in side a network wall with censorship,and used to be a typical nationalist,I know exactly how a freedom network can change a people, not just techincal skills but many other that are more valuable in one's life. 
 
 ### My personal experience and observation tells me that I should agree with Elon Musk's view on AI . but Mars is over a hunder miles away,democracy is just outside my door!
