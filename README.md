@@ -1,5 +1,4 @@
-# decentralized social network system -- a revolution
-# build your own website that talks to each other
+# Build website that talks to each other - A decentralized social network revolution
 click below image to watch video on youtube.
 English : https://youtu.be/Vv0f_0YaJx0
 Chinese : https://youtu.be/-DBLz-AOfPo
