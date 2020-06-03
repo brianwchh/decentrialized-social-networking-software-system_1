@@ -1,4 +1,19 @@
 # decentralized social network system -- a revolution
+if only Chinese people had the option to overcome the Great Fire Wall,and talked to eachother freely, people all over the world could have the chance to know the outbreak of the COVID-19 in WuHan China at the very begining,and many many people would not suffer the lose of their families and friends, and many many more would not suffer the physical pain from this virus. 
+It is the CCP(Chinese Communist Party)'s information censorship Virus, that is more deadly than the virus itself! same mistake happened in 2003,now in 2019, without doubt, it will continue to product more virus like this one if people all over the world can't get the immediate information from China freely! 
+So it is very important to change how the world connect to each other, so as to change China to be the same as TaiWan, hopefull in peaceful way ! let's pray !
+that is the importance of free flow of information !  
+
+### update 3 June 2020
+have tried to learn web development for several months starting from 2020. the source code I updated here is just a very rough prototype demo of the idea that how we can connect to each other via our own website.  
+I use vue as the frontend, Hapi nodejs as the backend. 
+
+### todos 
+1. password protection, token based authentication, database for public get/post/... access .
+1. add authentication to websocket
+2. add database connecting to backend via websocket as client 
+...
+
 
 ## it has a special meaning for China. the ultimate GOAL of this project behind decentralization is trying to achieve the freedom of network in the mechanism of "helping others helps yourself",so that people without techincal background can freely get access to information outside the wall. 
 ### technology is only part of human civilization,there are many people have done their contribution to this field, but there are many more other civilization should flow freely into Chiina, a freedom network is critical to carry the human civilization to any corner of the world, I was raised up in side a network wall with censorship,and used to be a typical nationalist,I know exactly how a freedom network can change a people, not just techincal skills but many other that are more valuable in one's life. 
@@ -10,7 +25,7 @@
 ### I am looking for people who have the same opinions out there.
 
 # why user would like it as I do
-1. anyone in C-country can get access to any good website like Gxxgle and yxxtube without any technical background.
+1. anyone in China can get access to any good website like Gxxgle and yxxtube without any technical background.
 2. it is impossible to block a user,it can reach to anyone in any place,it is more secure.
 
 3. more and more people have VPS for various purposes. a lot of those people are deep learning / AI guys,they know best what AI can do. like I mention before, owning a VPS of your own will be a trend,imagine 20 years ago not every one has a laptop, now more and more people has many computers. it will be very convenient for one to have a VPS on the cloud for multiple purposes .
