@@ -1,4 +1,4 @@
-# decentralized social networking software system for network freedom
+# decentralized social network system -- a revolution
 
 ## it has a special meaning for China. the ultimate GOAL of this project behind decentralization is trying to achieve the freedom of network in the mechanism of "helping others helps yourself",so that people without techincal background can freely get access to information outside the wall. 
 ### technology is only part of human civilization,there are many people have done their contribution to this field, but there are many more other civilization should flow freely into Chiina, a freedom network is critical to carry the human civilization to any corner of the world, I was raised up in side a network wall with censorship,and used to be a typical nationalist,I know exactly how a freedom network can change a people, not just techincal skills but many other that are more valuable in one's life. 
@@ -34,4 +34,4 @@ more providers and more competition,user has more options,evil companies use AI 
 ### 我是个外行人，在内行人看来这可能是个很naive的想法，但我相信再天真的想法，万一行动起来证明可行呢，那将是整个社交媒体网络生态的一种革新。这样的话，每个小公司都有机会来参与进入这个生态，而不是只有几个巨头可以玩。
 # 这个生态就会更加民主
 
-### update : someone introduced a decentralized social networking system opensource project to me : https://diasporafoundation.org/ . they are wonderful, but it might not be designed for the ultimate goal for people like me in C-country dream of 
+
