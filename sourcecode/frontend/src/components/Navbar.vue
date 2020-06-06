@@ -11,11 +11,11 @@
         <!-- <v-app-bar-nav-icon class="white--text" @click="drawer=!drawer" ></v-app-bar-nav-icon> -->
 
         <v-toolbar-title class="text-uppercase white--text">
-          <span style="font-size:2vw;color:blue;">p2p</span>
-          <span style="font-size:2vw;;">Chat</span>
+            <span style="font-size:1.5vw;color:blue;">p2p</span>
+            <span style="font-size:1.5vw;color:white;">Chat</span>
         </v-toolbar-title>
         <v-spacer></v-spacer>
-        <span style="font-size:2vw;" class="text-uppercase white--text">A social network <span class="text-uppercase font-weight-dark blue--text"> revolution</span></span> 
+        <span style="font-size:1.5vw;" class="text-uppercase white--text">A social network <span class="text-uppercase font-weight-dark blue--text"> revolution</span></span> 
         <v-spacer></v-spacer>
         <div style="height:100%;display:flex; flex-direction: column;">
           <p style="margin:0;font-size:1vw;">{{signal_server_ip}}</p>
@@ -89,6 +89,7 @@ export default {
                   {id: 7, showtime: "always", icon: 'mdi-shopping', text: 'Your Shop', route:'/shop'},
                   {id: 8, showtime: "always", icon: 'mdi-image-album', text: 'Photo album', route:'/photoalbum'},
                   {id: 9, showtime: "always", icon: 'mdi-account-group', text: 'Following', route:'/following'},
+                  {id: 10, showtime: "always", icon: 'mdi-github', text: 'project github', route:'/github'},
                 ],
             }
     },

@@ -12,6 +12,7 @@ import Chat from '../containers/Chat'
 import Shop from '../containers/Shop'
 import PhotoAlbum from '../containers/PhotoAlbum'
 import Following from '../containers/Following'
+import Github from '../containers/Github'
 
 
 Vue.use(VueRouter)
@@ -87,6 +88,12 @@ Vue.use(VueRouter)
     path: '/following',
     name: 'Following',
     component: Following
+  },
+
+  {
+    path: '/github',
+    name: 'Github',
+    component: Github
   },
 
 ]

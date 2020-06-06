@@ -49,7 +49,7 @@
   </div>
 
   
-  <div v-show="otherUserName" class="rightSide" >
+  <div v-if="otherUserName" class="rightSide" >
 
     <div class="messageComp">
       <MessageComp 
@@ -94,6 +94,23 @@
       </div>
 
     </div>
+  </div>
+
+  <div v-else class="rightSide_emty">
+        <p class="textCont"> because I don't have domain name for this website now,so in order to
+          use webrtc for video chat, the temporary simple solution is to set unsafely-treat-insecure-origin-as-secure
+          option in your browser, and reset it back to defualt after you finish the video chat demo, below is the video tutorial 
+        </p>
+        <p class="textCont">
+          chrome://flags/#unsafely-treat-insecure-origin-as-secure
+          http://52.79.86.10
+          http://52.78.225.18
+        </p>
+        <div class="video_container">
+          <iframe class="tu_video"
+            src="https://www.youtube.com/embed/8IpbgL5GlIM">
+          </iframe>
+        </div>
   </div>
 
 
@@ -1105,15 +1122,35 @@ export default {
 #grid-container .rightSide_emty {
   width: 100%;
   height: 100%;
-  display: grid;
-  grid-template-rows: 100%;
-  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  background-color:  rgba(54, 52, 46,1);
+  overflow-x: hidden;
+  overflow-y: scroll;
 }
 
-#grid-container .rightSide_emty > img {
+#grid-container .rightSide_emty > .textCont {
   width: 100%;
-  height: 100%;
-  opacity: 0.6;
+  color: white;
+  margin-top: 1vw;
+  margin-left: 1vw;
+  margin-right: 1vw;
+}
+
+#grid-container .rightSide_emty > .video_container {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    padding-top: 56.25%;
+}
+
+#grid-container .rightSide_emty > .video_container > .tu_video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
 }
 
 #grid-container .rightSide > .messageComp {

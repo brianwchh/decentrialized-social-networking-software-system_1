@@ -1,7 +1,13 @@
 <template>
 <div id="component-root">
 
-hello shop
+    <div style="margin-left: 2rem; margin-top:2rem;">
+        <a href="https://github.com/brianwchh/decentrialized-social-networking-software-system_1" 
+            >
+            project github : https://github.com/brianwchh/decentrialized-social-networking-software-system_1
+        </a>
+    </div>
+    
 </div>
     
 </template>
