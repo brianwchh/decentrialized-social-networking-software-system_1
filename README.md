@@ -1,5 +1,6 @@
-# Build website that talks to each other - A decentralized social network revolution
+# World is Changed when our websites talk to each other - A social network revolution
 #### demo website : http://52.79.86.10
+![alt text](https://raw.githubusercontent.com/brianwchh/decentrialized-social-networking-software-system_1/master/pic/blockDiagram.png)
 ####
 click below image to watch video on youtube.
 English : https://youtu.be/Vv0f_0YaJx0
