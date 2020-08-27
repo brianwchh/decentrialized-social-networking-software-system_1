@@ -20,8 +20,8 @@
     <div id="profile">
           <img id="profile_img" src="https://5b0988e595225.cdn.sohucs.com/images/20191103/0f67a5b5b70f4416852885e48c14ae6a.jpeg" class="online" alt="" />
           <form id="input_username">
-            <input class="IP" type="text" maxlength="60" v-model="vBindMyIP" placeholder="input your IP">
-            <input class="usrname" type="text" maxlength="30" v-model="inputName" placeholder="input a Username">
+            <input class="IP" type="text" maxlength="60" v-model="vBindMyIP" placeholder="http://52.79.86.10:8964">
+            <input class="usrname" type="text" maxlength="30" v-model="inputName" placeholder="Username">
   
             <input class="btn" type="button" name="login" value="Log in" v-on:click="register">
           </form>
@@ -97,6 +97,20 @@
   </div>
 
   <div v-else class="rightSide_emty">
+        <div id="wakeup">
+          <p class="important">
+            Protecting data = protecting brain, <span>PRIVACY MATTERS</span> 
+          </p>
+          <p class="txt">
+            Why people spend tremendous time on chat apps that collect privacy for free 
+          </p>
+          <p class="txt">
+            it's time to make our own website talk to eachother, store our data at home 
+          </p>
+        </div>
+
+        <img src="https://raw.githubusercontent.com/brianwchh/decentrialized-social-networking-software-system_1/master/pic/blockDiagram.png" alt="">
+        <img src="https://github.com/brianwchh/decentrialized-social-networking-software-system_1/blob/master/pic/p2p.png?raw=true" alt="">
         <p class="textCont"> because I don't have domain name for this website now,so in order to
           use webrtc for video chat, the temporary simple solution is to set unsafely-treat-insecure-origin-as-secure
           option in your browser, and reset it back to defualt after you finish the video chat demo, below is the video tutorial 
@@ -109,6 +123,11 @@
         <div class="video_container">
           <iframe class="tu_video"
             src="https://www.youtube.com/embed/8IpbgL5GlIM">
+          </iframe>
+        </div>
+        <div class="video_container">
+          <iframe class="tu_video"
+            src="https://www.youtube.com/embed/Vv0f_0YaJx0">
           </iframe>
         </div>
   </div>
@@ -129,7 +148,7 @@ export default {
   data () {
       return {
 
-        vBindMyIP: '' ,
+        vBindMyIP: 'http://52.79.86.10:8964' ,
         myIP : '',
         vBindFriendIP : '' ,
         inputFriendName: '' ,
@@ -162,6 +181,7 @@ export default {
         acceptOrRefuse : '',
 
         inCall: '' ,
+        isVideoCall: true ,
 
       }
   },
@@ -493,10 +513,16 @@ export default {
         // on it.
 
         // if (this.localStream.srcObject) {
-            this.localStream.getTracks().forEach(track => {
+            // this.localStream.getTracks().forEach(track => {
+            //   track.stop();
+            // });
+        // }
+
+        if(this.localStream){
+          this.localStream.getTracks().forEach(track => {
               track.stop();
             });
-        // }
+        }
 
         // Close the peer connection
 
@@ -513,6 +539,38 @@ export default {
 
     async onClickMakeVideoCall (e) {
         e.preventDefault;
+
+        if(this.localStream){
+          this.localStream.getTracks().forEach(track => {
+              track.stop();
+            });
+        }
+
+        this.isVideoCall = true ;
+
+        this.sock_conn.send(JSON.stringify(
+            {
+                type : "message",
+                to   : { 
+                      ip : this.otherUserIP,
+                      name: this.otherUserName,
+              },
+              from : { 
+                      ip : this.myIP,
+                      name: this.myUserName,
+              },
+                data : {
+                    "type" : "media_type" ,
+                    "data" : "video" 
+                }
+            }
+        ))
+
+        if(this.localStream){
+          this.localStream.getTracks().forEach(track => {
+              track.stop();
+            });
+        }
 
         this.inCall = true ;
 
@@ -546,6 +604,32 @@ export default {
 
     async onClickMakeAudioCall (e) {
         e.preventDefault;
+
+        if(this.localStream){
+          this.localStream.getTracks().forEach(track => {
+              track.stop();
+            });
+        }
+
+        this.sock_conn.send(JSON.stringify(
+            {
+                type : "message",
+                to   : { 
+                      ip : this.otherUserIP,
+                      name: this.otherUserName,
+              },
+              from : { 
+                      ip : this.myIP,
+                      name: this.myUserName,
+              },
+                data : {
+                    "type" : "media_type" ,
+                    "data" : "audio" 
+                }
+            }
+        ))
+
+        this.isVideoCall = false ;
 
         this.inCall = true ;
 
@@ -590,6 +674,12 @@ export default {
 
         this.createPeerConnection();
 
+        if(this.localStream){
+          this.localStream.getTracks().forEach(track => {
+              track.stop();
+            });
+        }
+
         // get local media 
 
         try {
@@ -603,10 +693,20 @@ export default {
             console.log(" ***** signaling is not stable")
         }
 
-        const mediaConstraints = {
+        let mediaConstraints ;
+
+        if (this.isVideoCall === true){
+            mediaConstraints = {
                                 'video': true,
                                 'audio': true,
                             };
+        } else {
+            mediaConstraints = {
+                                'video': false,
+                                'audio': true,
+                            };
+        }
+        
         try {
             const localStream = await navigator.mediaDevices.getUserMedia(mediaConstraints);
             // attach stream to local html for display
@@ -699,6 +799,14 @@ export default {
 
             case "text" : 
                 this.onRecieveText(data.data);
+                break;
+
+            case "media_type": 
+                if(data.data === "video"){
+                  this.isVideoCall = true ;
+                } else {
+                  this.isVideoCall = false ;
+                }
                 break;
 
             default :
@@ -1129,12 +1237,66 @@ export default {
   overflow-y: scroll;
 }
 
+#wakeup  {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color:  rgba(54, 52, 46,1);
+}
+
+#SonicAttack {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color:  rgba(54, 52, 46,1);
+}
+
+#SonicAttack .important {
+  color: white;
+  font-size: 1.2em;
+  margin-left: 1em;
+  margin-bottom: 0.5em;
+}
+
+#SonicAttack .linktoyoutube {
+  color: white;
+  font-size: 0.9em;
+  margin-left: 1em;
+  margin-bottom: 0.5em;
+}
+
+#wakeup .important {
+  color: red;
+  font-size: 1em;
+  text-transform: uppercase;
+  margin-left: 1em;
+  margin-bottom: 0.5em;
+}
+
+#wakeup .important span {
+  color: blue;
+  font-size: 1em;
+  text-transform: uppercase;
+  margin-bottom: 0.5em;
+}
+
+#wakeup .txt {
+  color: red;
+  font-size: 1em;
+  margin-left: 1em;
+  margin-bottom: 0.2em;
+}
+
 #grid-container .rightSide_emty > .textCont {
   width: 100%;
   color: white;
   margin-top: 1vw;
   margin-left: 1vw;
   margin-right: 1vw;
+}
+
+#grid-container .rightSide_emty img {
+  width: 100%;
 }
 
 #grid-container .rightSide_emty > .video_container {

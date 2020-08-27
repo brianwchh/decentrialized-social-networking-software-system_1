@@ -92,7 +92,10 @@ export default {
       checkbox: false,
     }),
 
-    computed : mapGetters(['getIsLogin']),
+    computed : {
+      // ...mapGetters(['getLoginStatus']),
+      ...mapGetters({isLogin: 'getLoginStatus'}),
+    },
 
     methods: {
       validate () {

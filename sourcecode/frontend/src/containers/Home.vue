@@ -66,11 +66,17 @@
       <div class="right">
         <p class="evidence">video that highly prove the Sonic attack on me from CCP </p>
         <div class="video_container">
+          <!-- <iframe class="evidence_video"
+            src="https://www.youtube.com/embed/L_dbZssEKas?t=769">
+          </iframe> -->
           <iframe class="evidence_video"
-            src="https://www.youtube.com/embed/Y0IqPZQVAnY">
+            src="https://www.youtube.com/embed/L_dbZssEKas?start=769" 
+            frameborder="0" 
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen>
           </iframe>
         </div>
-        <p class="more"> more videos on my youtube channel </p>
+        <p class="evidence2"> for more evidence, please visit my youtube channel </p>
         <p class="evidence"> two secret methods CCP uses to torture their targets </p>
         <p class="evidence2">(1) chemical gas emited near by your room</p>
         <p class="evidence2">(2) Sonic attack </p>

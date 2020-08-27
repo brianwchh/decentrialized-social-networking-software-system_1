@@ -2,17 +2,56 @@
 const Hapi = require('@hapi/hapi') 
 const ipport = require('./ipport')
 
-// const clientWebSocket = require('ws');
-// const client_ws = new clientWebSocket('ws://localhost:8989')
+const url = require('url');
+
+const {isCurrentOrSuper} = require('./auth_validates/isCurrentOrSuper');
+const {isSuperUser} = require('./auth_validates/isSuperUser')
 
 const init = async () => {
 
     let server = Hapi.server({
         port: ipport.port,
         host: ipport.host,
+        routes: {
+            cors: {
+                origin: ['*'], // an array of origins or 'ignore'    
+                // credentials: true // boolean - 'Access-Control-Allow-Credentials'
+            }
+        }
     });
 
     try {
+
+        await server.register({
+            plugin: require('./plugins/auth/token'),
+
+        })
+
+        server.auth.strategy('isSuperUser', 'token', { validate: isSuperUser.validate });
+        server.auth.strategy('isCurrentOrSuper', 'token', { validate: isCurrentOrSuper.validate });
+
+        await server.register({
+            plugin : require('./plugins/chat'),
+        });
+
+        await server.register({
+            plugin: require('./plugins/insert')
+        })
+
+        await server.register({
+            plugin: require('./plugins/mydb'),
+            options: {
+                connectionLimit: 5,
+                host: 'localhost' ,
+                user: 'root',
+                password: '1983wchh',
+                database: 'chatapp'
+            }
+        })
+
+        await server.register({
+            plugin: require('./plugins/fileop'),
+        });
 
         await server.register({
             plugin: require('hapi-router'),
@@ -22,35 +61,31 @@ const init = async () => {
         });
 
         await server.register({
-            plugin : require('./chat'),
-        });
+            plugin: require('./plugins/staticFileServer')
+        })
+
+        server.ext('onRequest', async (req,h) => {
+
+            let path = req.path ;
+            const len = path.length ;
+            if (path[len-1] === '/'){
+                req.path = path.slice(0,-1);
+            }
+
+            // console.log(req.headers['content-type'])
+
+            // if ('application/csp-report' === req.headers['content-type']) {
+            //     req.headers['content-type'] = 'application/json';
+            //     req.headers['x-content-type'] = 'application/csp-report';
+            //   }
+
+            return h.continue ;
+
+        }); 
 
     } catch (err) {
         throw err ;
     }
-
-    server.ext('onRequest', async (req,h) => {
-            
-        // let path = req.path ;
-        // const len = path.length ;
-        // if (path[len-1] === '/'){
-        //     req.path = path.slice(0,-1);
-        // }
-
-        // pass the pool to routes 
-        // h.request.server.app = {
-        //     connections : connections,
-        // }
-
-        // console.log("***************************");
-        return h.continue
-    })
-
-    // register server methods here 
-    // server.method({
-    //     name : 'queryDB',
-    //     method : queryDB,
-    // });
 
 
     server.start();

@@ -1,6 +1,6 @@
-const ip='http://localhost:8964' ;
+const ip='http://localhost:6464' ;
 const host='localhost';
-const port='8964' ;
+const port='6464' ;
 
 exports.ip = ip ;
 exports.port = port ;

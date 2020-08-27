@@ -64,10 +64,7 @@ export default {
     componnets : {
     },
     computed: {
-      ...mapGetters({
-      isLogin :'getIsLogin',
-      loging:'getLoging'
-      }),
+      ...mapGetters({isLogin: 'getLoginStatus'}),
 
     },
     data : () => {
@@ -107,15 +104,17 @@ export default {
         }
       }
 
-      console.log(this.isLogin);
-      this.register({
-        username:'brian',
-        password1: "123"
-      });
-      console.log(this.loging)
+      // console.log(this.isLogin);
+      // this.register({
+      //   username:'brian',
+      //   password1: "123"
+      // });
+      // console.log(this.loging)
     },
     methods: {
-      ...mapActions({register : 'register'}),
+      ...mapActions({
+        
+      }),
 
       onClickEvent(){
         // console.log("on click event")

@@ -26,7 +26,7 @@
         >
           <v-text-field
             prepend-icon="mdi-account-circle"
-            v-model="name"
+            v-model="username"
             :counter="30"
             :rules="nameRules"
             label="Username"
@@ -36,7 +36,7 @@
 
           <v-text-field
             prepend-icon="mdi-email"
-            v-model="email1"
+            v-model="email"
             :rules="emailRules"
             label="E-mail"
             required
@@ -45,7 +45,7 @@
 
           <v-text-field
             prepend-icon="mdi-email"
-            v-model="email2"
+            v-model="repeat_email"
             :rules="emailRules"
             label="E-mail"
             placeholder="please retype your email here"
@@ -56,8 +56,8 @@
             :append-icon="showpassword1 ? 'mdi-eye' : 'mdi-eye-off'"
             prepend-icon="mdi-lock"
             :type="showpassword1 ? 'text' : 'password'"
-            v-model="password1"
-            :rules="emailRules"
+            v-model="password"
+            :rules="passwordRules"
             label="password"
             @click:append="showpassword1 = !showpassword1"
             placeholder="please input your password here"
@@ -67,8 +67,8 @@
           <v-text-field
             prepend-icon="mdi-lock"
             :append-icon="showpassword2 ? 'mdi-eye' : 'mdi-eye-off'"
-            v-model="password2"
-            :rules="emailRules"
+            v-model="repeat_password"
+            :rules="passwordRules"
             :type="showpassword2 ? 'text' : 'password'"
             label="password"
             placeholder="retype your password here"
@@ -78,7 +78,7 @@
 
           <v-select
             prepend-icon="mdi-face"
-            v-model="select"
+            v-model="user_type"
             :items="items"
             :rules="[v => !!v || 'Item is required']"
             label="Type"
@@ -89,7 +89,7 @@
         </v-card-text>
         <v-card-actions>
           <v-spacer></v-spacer>
-          <v-btn color="primary">Login</v-btn>
+          <v-btn color="primary" v-on:click = "onSubmitEvent">Submit</v-btn>
           <v-spacer></v-spacer>
         </v-card-actions>
         </v-card>
@@ -99,7 +99,10 @@
 </template>
 
 <script>
-import {mapGetters} from 'vuex' ;
+// import {mapGetters,mapActions} from 'vuex' ;
+import {user_register_url} from '../ipconfig';
+import {debug_} from '../global_config' ;
+import axios from 'axios'
 
 export default {
   name: 'Register',
@@ -110,34 +113,45 @@ export default {
    data: () => ({
       showpassword1: '',
       showpassword2: '',
-      password1: '',
-      password2: '',
-      email1: '',
-      email2: '',
+      password: '',
+      repeat_password: '',
+      email: '',
+      repeat_email: '',
       valid: true,
-      name: '',
+      username: '',
       nameRules: [
         v => !!v || 'Name is required',
         v => (v && v.length <= 30) || 'Name must be less than 30 characters',
       ],
-      email: '',
       emailRules: [
         v => !!v || 'E-mail is required',
         v => /.+@.+\..+/.test(v) || 'E-mail must be valid',
       ],
-      select: null,
+      passwordRules: [
+        v => !!v || 'password is required',
+      ],
+      user_type: '',
       items: [
         'admin',
-        'pet adopter',
-        'pet foster',
-        'pet shelter',
+        'customer',
+        // 'pet adopter',
+        // 'pet foster',
+        // 'pet shelter',
       ],
       checkbox: false,
     }),
 
-    computed : mapGetters(['getIsLogin']),
+    created() {
+
+    },
+
+    computed : {
+      // ...mapGetters(['getLoginStatus']),
+      // ...mapGetters({isLogin: 'getLoginStatus'}),
+    },
 
     methods: {
+
       validate () {
         this.$refs.form.validate()
       },
@@ -147,6 +161,61 @@ export default {
       resetValidation () {
         this.$refs.form.resetValidation()
       },
+
+      async onSubmitEvent () {
+        // create form data 
+        let formData = new FormData();
+        formData.append('username',this.username);
+        formData.append('password',this.password);
+        formData.append('repeat_password',this.repeat_password);
+        formData.append('email',this.email);
+        formData.append('repeat_email',this.repeat_email);
+        if (this.user_type === 'admin'){
+          formData.append('isSuper', true);
+        } else {
+          formData.append('isSuper',false);
+        }
+        // convert formData to Json format
+        let formDataObj = {};
+        formData.forEach((value,key) => {
+          formDataObj[key] = value ;
+        });
+        const formDataJson = JSON.stringify(formDataObj);
+
+        const config = {
+          headers: { 
+            'Content-Type': 'application/json', 
+          },
+        } 
+
+        if (debug_ === true) {
+          console.log(formDataJson);
+        }
+
+        try {
+
+          const res = await axios.post(user_register_url,
+                                      formDataJson,
+                                      config  
+                                    );
+
+          if(debug_ === true){
+            console.log('res.data,res : ', res.data.res);
+          }
+          
+          const resp = res.data.res ;
+
+          if(resp && resp.insertId){
+            alert('registration successful ! ')
+          }
+
+        } catch (err) {
+            console.log(err);
+        }
+        
+        
+      }
+
     },
 
 }
