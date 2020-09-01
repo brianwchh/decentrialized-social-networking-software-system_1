@@ -32,6 +32,14 @@ Img.getImg = (ImgID) => {
 
 }
 
+Img.getImgs = (item_id) => {
+
+    return `SELECT uri
+            FROM Img
+            WHERE item_id = ${item_id}`;
+
+}
+
 Img.deleteImg = (imgId) => {
 
     return `DELETE 

@@ -188,7 +188,7 @@ function () {
             _context2.t0 = _context2["catch"](2);
             console.log(_context2.t0);
             return _context2.abrupt("return", {
-              msg: _context2.t0.details
+              err: _context2.t0.details
             });
 
           case 11:
@@ -272,7 +272,8 @@ function () {
   var _ref3 = _asyncToGenerator(
   /*#__PURE__*/
   regeneratorRuntime.mark(function _callee3(req, h) {
-    var schema, username, password, connection, hashPW, errMsg, isValid, userID, token;
+    var schema, _req$payload, username, password, connection, hashPW, errMsg, isValid, userID, token;
+
     return regeneratorRuntime.wrap(function _callee3$(_context3) {
       while (1) {
         switch (_context3.prev = _context3.next) {
@@ -285,8 +286,8 @@ function () {
             _context3.prev = 1;
             _context3.next = 4;
             return schema.validateAsync({
-              username: req.headers.username,
-              password: req.headers.password
+              username: req.payload.username,
+              password: req.payload.password
             });
 
           case 4:
@@ -302,55 +303,54 @@ function () {
             });
 
           case 10:
-            username = req.headers.username;
-            password = req.headers.password;
-            _context3.prev = 12;
-            _context3.next = 15;
+            _req$payload = req.payload, username = _req$payload.username, password = _req$payload.password;
+            _context3.prev = 11;
+            _context3.next = 14;
             return req.app.db.getConnection();
 
-          case 15:
+          case 14:
             connection = _context3.sent;
-            _context3.next = 22;
+            _context3.next = 21;
             break;
 
-          case 18:
-            _context3.prev = 18;
-            _context3.t1 = _context3["catch"](12);
+          case 17:
+            _context3.prev = 17;
+            _context3.t1 = _context3["catch"](11);
             console.log(_context3.t1);
             return _context3.abrupt("return", {
               err: _context3.t1
             });
 
-          case 22:
-            _context3.prev = 22;
-            _context3.next = 25;
+          case 21:
+            _context3.prev = 21;
+            _context3.next = 24;
             return req.app.db.query(connection, User.queryPassword(username));
 
-          case 25:
+          case 24:
             hashPW = _context3.sent;
             hashPW = hashPW[0]['password'];
-            _context3.next = 33;
+            _context3.next = 32;
             break;
 
-          case 29:
-            _context3.prev = 29;
-            _context3.t2 = _context3["catch"](22);
+          case 28:
+            _context3.prev = 28;
+            _context3.t2 = _context3["catch"](21);
             console.log(_context3.t2.sqlMessage);
             errMsg = _context3.t2.sqlMessage;
 
-          case 33:
-            _context3.prev = 33;
-            _context3.next = 36;
+          case 32:
+            _context3.prev = 32;
+            _context3.next = 35;
             return bcrypt.compare(password, hashPW);
 
-          case 36:
+          case 35:
             isValid = _context3.sent;
-            _context3.next = 44;
+            _context3.next = 43;
             break;
 
-          case 39:
-            _context3.prev = 39;
-            _context3.t3 = _context3["catch"](33);
+          case 38:
+            _context3.prev = 38;
+            _context3.t3 = _context3["catch"](32);
             console.log(_context3.t3);
             connection.release();
             return _context3.abrupt("return", {
@@ -358,54 +358,55 @@ function () {
               msg: 'login failed'
             });
 
-          case 44:
-            _context3.prev = 44;
-            _context3.next = 47;
+          case 43:
+            _context3.prev = 43;
+            _context3.next = 46;
             return req.app.db.query(connection, User.queryUserID(username));
 
-          case 47:
+          case 46:
             userID = _context3.sent;
             userID = userID[0]['id'];
-            _context3.next = 55;
+            _context3.next = 54;
             break;
 
-          case 51:
-            _context3.prev = 51;
-            _context3.t4 = _context3["catch"](44);
+          case 50:
+            _context3.prev = 50;
+            _context3.t4 = _context3["catch"](43);
             console.log(_context3.t4.sqlMessage);
             errMsg = _context3.t4.sqlMessage;
 
-          case 55:
+          case 54:
             connection.release();
 
             if (!(isValid === true)) {
-              _context3.next = 63;
+              _context3.next = 62;
               break;
             }
 
             token = uuid4(); // console.log(token);
 
-            _context3.next = 60;
+            _context3.next = 59;
             return req.app.redis.save(token, 3600, userID);
 
-          case 60:
+          case 59:
             return _context3.abrupt("return", {
-              password: isValid,
+              isPasswordValid: isValid,
               err: errMsg,
               token: token
             });
 
-          case 63:
+          case 62:
             return _context3.abrupt("return", {
+              isPasswordValid: isValid,
               err: 'login failed, please check password'
             });
 
-          case 64:
+          case 63:
           case "end":
             return _context3.stop();
         }
       }
-    }, _callee3, null, [[1, 6], [12, 18], [22, 29], [33, 39], [44, 51]]);
+    }, _callee3, null, [[1, 6], [11, 17], [21, 28], [32, 38], [43, 50]]);
   }));
 
   return function (_x5, _x6) {
@@ -413,42 +414,45 @@ function () {
   };
 }();
 
-UserView.userList =
+UserView.logout =
 /*#__PURE__*/
 function () {
   var _ref4 = _asyncToGenerator(
   /*#__PURE__*/
   regeneratorRuntime.mark(function _callee4(req, h) {
-    var connection, res, errMsg;
+    var token, token_new;
     return regeneratorRuntime.wrap(function _callee4$(_context4) {
       while (1) {
         switch (_context4.prev = _context4.next) {
           case 0:
-            _context4.next = 2;
-            return req.app.db.getConnection();
+            console.log('UserView logout payload : ', req.payload);
+            token = req.payload.token;
+            _context4.next = 4;
+            return req.app.redis.delete(token);
 
-          case 2:
-            connection = _context4.sent;
-            _context4.prev = 3;
-            _context4.next = 6;
-            return req.app.db.query(connection, User.getUserList);
+          case 4:
+            _context4.prev = 4;
+            _context4.next = 7;
+            return req.app.redis.get(token);
 
-          case 6:
-            res = _context4.sent;
-            _context4.next = 13;
+          case 7:
+            token_new = _context4.sent;
+
+            if (!token_new) {
+              console.log('token deleted');
+            }
+
+            _context4.next = 14;
             break;
 
-          case 9:
-            _context4.prev = 9;
-            _context4.t0 = _context4["catch"](3);
-            console.log(_context4.t0.sqlMessage);
-            errMsg = _context4.t0.sqlMessage;
+          case 11:
+            _context4.prev = 11;
+            _context4.t0 = _context4["catch"](4);
+            console.log(_context4.t0);
 
-          case 13:
-            connection.release();
+          case 14:
             return _context4.abrupt("return", {
-              res: res,
-              err: errMsg
+              msg: 'logout successfully'
             });
 
           case 15:
@@ -456,7 +460,7 @@ function () {
             return _context4.stop();
         }
       }
-    }, _callee4, null, [[3, 9]]);
+    }, _callee4, null, [[4, 11]]);
   }));
 
   return function (_x7, _x8) {
@@ -464,63 +468,50 @@ function () {
   };
 }();
 
-UserView.getUser =
+UserView.userList =
 /*#__PURE__*/
 function () {
   var _ref5 = _asyncToGenerator(
   /*#__PURE__*/
   regeneratorRuntime.mark(function _callee5(req, h) {
-    var userID, connection, res, errMsg;
+    var connection, res, errMsg;
     return regeneratorRuntime.wrap(function _callee5$(_context5) {
       while (1) {
         switch (_context5.prev = _context5.next) {
           case 0:
-            userID = req.params.id;
-            _context5.next = 3;
+            _context5.next = 2;
             return req.app.db.getConnection();
 
-          case 3:
+          case 2:
             connection = _context5.sent;
-            _context5.prev = 4;
-            _context5.next = 7;
-            return req.app.db.query(connection, User.getUser(userID));
+            _context5.prev = 3;
+            _context5.next = 6;
+            return req.app.db.query(connection, User.getUserList);
 
-          case 7:
+          case 6:
             res = _context5.sent;
-            res = res[0];
-            _context5.next = 15;
+            _context5.next = 13;
             break;
 
-          case 11:
-            _context5.prev = 11;
-            _context5.t0 = _context5["catch"](4);
+          case 9:
+            _context5.prev = 9;
+            _context5.t0 = _context5["catch"](3);
             console.log(_context5.t0.sqlMessage);
             errMsg = _context5.t0.sqlMessage;
 
-          case 15:
+          case 13:
             connection.release();
-
-            if (res) {
-              _context5.next = 18;
-              break;
-            }
-
             return _context5.abrupt("return", {
-              err: 'user not exist'
-            });
-
-          case 18:
-            return _context5.abrupt("return", {
-              user: res,
+              res: res,
               err: errMsg
             });
 
-          case 19:
+          case 15:
           case "end":
             return _context5.stop();
         }
       }
-    }, _callee5, null, [[4, 11]]);
+    }, _callee5, null, [[3, 9]]);
   }));
 
   return function (_x9, _x10) {
@@ -528,7 +519,7 @@ function () {
   };
 }();
 
-UserView.putUser =
+UserView.getUser =
 /*#__PURE__*/
 function () {
   var _ref6 = _asyncToGenerator(
@@ -539,15 +530,6 @@ function () {
       while (1) {
         switch (_context6.prev = _context6.next) {
           case 0:
-            // update a row in database
-
-            /**
-             * UPDATE table 
-             * SET      name = 'brian12',
-             *          email = 'brianwchh@gmail.com,
-             *          password = 'xxxxxxxjjjj',
-             * WHERE    id = userID 
-             */
             userID = req.params.id;
             _context6.next = 3;
             return req.app.db.getConnection();
@@ -601,7 +583,7 @@ function () {
   };
 }();
 
-UserView.deleteUser =
+UserView.putUser =
 /*#__PURE__*/
 function () {
   var _ref7 = _asyncToGenerator(
@@ -612,6 +594,15 @@ function () {
       while (1) {
         switch (_context7.prev = _context7.next) {
           case 0:
+            // update a row in database
+
+            /**
+             * UPDATE table 
+             * SET      name = 'brian12',
+             *          email = 'brianwchh@gmail.com,
+             *          password = 'xxxxxxxjjjj',
+             * WHERE    id = userID 
+             */
             userID = req.params.id;
             _context7.next = 3;
             return req.app.db.getConnection();
@@ -620,36 +611,100 @@ function () {
             connection = _context7.sent;
             _context7.prev = 4;
             _context7.next = 7;
-            return req.app.db.query(connection, User.deleteUser(userID));
+            return req.app.db.query(connection, User.getUser(userID));
 
           case 7:
             res = _context7.sent;
-            _context7.next = 14;
+            res = res[0];
+            _context7.next = 15;
             break;
 
-          case 10:
-            _context7.prev = 10;
+          case 11:
+            _context7.prev = 11;
             _context7.t0 = _context7["catch"](4);
             console.log(_context7.t0.sqlMessage);
             errMsg = _context7.t0.sqlMessage;
 
+          case 15:
+            connection.release();
+
+            if (res) {
+              _context7.next = 18;
+              break;
+            }
+
+            return _context7.abrupt("return", {
+              err: 'user not exist'
+            });
+
+          case 18:
+            return _context7.abrupt("return", {
+              user: res,
+              err: errMsg
+            });
+
+          case 19:
+          case "end":
+            return _context7.stop();
+        }
+      }
+    }, _callee7, null, [[4, 11]]);
+  }));
+
+  return function (_x13, _x14) {
+    return _ref7.apply(this, arguments);
+  };
+}();
+
+UserView.deleteUser =
+/*#__PURE__*/
+function () {
+  var _ref8 = _asyncToGenerator(
+  /*#__PURE__*/
+  regeneratorRuntime.mark(function _callee8(req, h) {
+    var userID, connection, res, errMsg;
+    return regeneratorRuntime.wrap(function _callee8$(_context8) {
+      while (1) {
+        switch (_context8.prev = _context8.next) {
+          case 0:
+            userID = req.params.id;
+            _context8.next = 3;
+            return req.app.db.getConnection();
+
+          case 3:
+            connection = _context8.sent;
+            _context8.prev = 4;
+            _context8.next = 7;
+            return req.app.db.query(connection, User.deleteUser(userID));
+
+          case 7:
+            res = _context8.sent;
+            _context8.next = 14;
+            break;
+
+          case 10:
+            _context8.prev = 10;
+            _context8.t0 = _context8["catch"](4);
+            console.log(_context8.t0.sqlMessage);
+            errMsg = _context8.t0.sqlMessage;
+
           case 14:
             connection.release();
-            return _context7.abrupt("return", {
+            return _context8.abrupt("return", {
               msg: "delete user".concat(userID),
               err: errMsg
             });
 
           case 16:
           case "end":
-            return _context7.stop();
+            return _context8.stop();
         }
       }
-    }, _callee7, null, [[4, 10]]);
+    }, _callee8, null, [[4, 10]]);
   }));
 
-  return function (_x13, _x14) {
-    return _ref7.apply(this, arguments);
+  return function (_x15, _x16) {
+    return _ref8.apply(this, arguments);
   };
 }();
 

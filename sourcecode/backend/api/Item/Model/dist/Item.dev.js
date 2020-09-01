@@ -1,5 +1,7 @@
 'use strict';
 
+require("core-js/modules/es.array.concat");
+
 var Item = {};
 Item.createItemTable = "CREATE TABLE IF NOT EXISTS Item(\n        id int primary key auto_increment,\n        item_name varchar(128)not null,\n        market_price FLOAT ,\n        price FLOAT \n    )";
 
@@ -9,7 +11,14 @@ Item.insertItem = function (item_name, market_price, price) {
 
 Item.getItem = function (itemID) {
   return "SELECT *\n            FROM Item\n            WHERE id = ".concat(itemID);
-};
+}; // Item.getItemList = 'SELECT it.id, it.item_name, it.market_price, it.price, im.uri \
+//                     FROM Item it\
+//                     LEFT JOIN Img im\
+//                     ON   im.item_id = it.id' ;
+
+
+Item.getItemList = 'SELECT * \
+                    FROM Item ';
 
 Item.updateItem = function (itemID, item_name, market_price, price) {
   return "UPDATE Item\n                SET item_name = '".concat(item_name, "', market_price = ").concat(market_price, ", price = ").concat(price, "\n                WHERE id = ").concat(itemID, ";");

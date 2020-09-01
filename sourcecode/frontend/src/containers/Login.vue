@@ -26,7 +26,7 @@
       >
         <v-text-field
           prepend-icon="mdi-account-circle"
-          v-model="name"
+          v-model="username"
           :counter="30"
           :rules="nameRules"
           label="Username"
@@ -39,7 +39,7 @@
           prepend-icon="mdi-lock"
           :type="showpassword ? 'text' : 'password'"
           v-model="password"
-          :rules="emailRules"
+          :rules="passwordRules"
           label="password"
           @click:append="showpassword = !showpassword"
           placeholder="please input your password here"
@@ -49,7 +49,7 @@
       </v-card-text>
       <v-card-actions>
         <v-spacer></v-spacer>
-        <v-btn color="primary">Login</v-btn>
+        <v-btn color="primary" v-on:click="handle_onClick">Login</v-btn>
         <v-spacer></v-spacer>
       </v-card-actions>
 
@@ -60,7 +60,9 @@
 </template>
 
 <script>
-import {mapGetters} from 'vuex' ;
+import {mapGetters, mapActions} from 'vuex' ;
+import {login_status_values} from '../store/modules/auth/mutations/auth_mutations'
+import {debug_} from '../global_config'
 
 export default {
   name: 'Login',
@@ -72,15 +74,14 @@ export default {
       showpassword: '',
       password: '',
       valid: true,
-      name: '',
+      username: '',
       nameRules: [
         v => !!v || 'Name is required',
         v => (v && v.length <= 30) || 'Name must be less than 30 characters',
       ],
-      email: '',
-      emailRules: [
-        v => !!v || 'E-mail is required',
-        v => /.+@.+\..+/.test(v) || 'E-mail must be valid',
+      passwordRules: [
+        v => !!v || 'password is required',
+        // v => /.+@.+\..+/.test(v) || 'E-mail must be valid',
       ],
       select: null,
       items: [
@@ -92,21 +93,59 @@ export default {
       checkbox: false,
     }),
 
+    created () {
+    },
+
     computed : {
       // ...mapGetters(['getLoginStatus']),
-      ...mapGetters({isLogin: 'getLoginStatus'}),
+      ...mapGetters({getLoginStatus: 'getLoginStatus'}),
     },
 
     methods: {
-      validate () {
-        this.$refs.form.validate()
+                       
+      ...mapActions({
+        login: 'login'
+      }),
+
+      async handle_onClick ( ) {
+        const payload = {
+          username: this.username,
+          password: this.password
+        };
+
+        await this.login(payload);
+
+        if(debug_) {
+          console.log('this.getLoginStatus: ', this.getLoginStatus);
+        }
+        
+        if(this.getLoginStatus === login_status_values.SUCCEED){
+          this.reset_form();
+          // alert('login succeed')
+          this.$router.push({name: 'Home'})
+        } else {
+          alert('check the username and password');
+        }
       },
-      reset () {
-        this.$refs.form.reset()
-      },
-      resetValidation () {
-        this.$refs.form.resetValidation()
-      },
+
+      reset_form() {
+        this.password = '';
+        this.username = '';
+      }
+
+      // validate () {
+      //   this.$refs.form.validate()
+      // },
+      // reset () {
+      //   if(debug_) {
+      //     console.log('reseting the form in login');
+      //   }
+      //   this.$refs.form.reset()
+      // },
+      // resetValidation () {
+      //   this.$refs.form.resetValidation()
+      // },
+
     },
 
 }

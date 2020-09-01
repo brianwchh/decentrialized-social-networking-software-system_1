@@ -27,6 +27,16 @@ Item.getItem = (itemID) => {
 
 }
 
+// Item.getItemList = 'SELECT it.id, it.item_name, it.market_price, it.price, im.uri \
+//                     FROM Item it\
+//                     LEFT JOIN Img im\
+//                     ON   im.item_id = it.id' ;
+
+Item.getItemList = 'SELECT * \
+                    FROM Item ' ;
+
+
+
 Item.updateItem = (itemID,item_name,market_price,price) => {
     return `UPDATE Item
                 SET item_name = '${item_name}', market_price = ${market_price}, price = ${price}

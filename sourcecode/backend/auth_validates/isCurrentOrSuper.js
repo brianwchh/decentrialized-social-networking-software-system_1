@@ -9,8 +9,8 @@ isCurrentOrSuper.validate = async (req) => {
     let isValid = false ;
     let credentials = null ;
 
-    const token = req.headers.token ;
-    const queriedUserID = Number(req.params.id) ;
+    const token = req.query.token ;
+    // const queriedUserID = Number(req.params.id) ;
     
     if (!token) {
         credentials = {err: 'no token found'} ;
@@ -31,20 +31,17 @@ isCurrentOrSuper.validate = async (req) => {
         }
     }
 
-    console.log(user_id)
-
-    // check if user is in the database 
-    let connection ; 
-
-    try {
-        connection = await req.app.db.getConnection() ; //connect to mysql
-    } catch (err){
-        console.log(err);
-        credentials = {err: err} ;
+    if (!user_id){
+        credentials = {err: 'token invalid'} ;
         return {
             isValid, credentials
         }
     }
+
+    console.log(user_id)
+
+    // check if user is in the database 
+    let connection ; 
 
     let res ;
     let errMsg ;
@@ -58,15 +55,13 @@ isCurrentOrSuper.validate = async (req) => {
     } catch (err) {
         console.log(err.sqlMessage) ;
         errMsg = err.sqlMessage ;
-        connection.release();
         credentials = {err: err} ;
         return {isValid, credentials};
     }
 
-    connection.release();
 
     const user = res;
-    if(user.id === queriedUserID || user.isSuper){
+    if(user.id ){  // user exist 
         isValid = true ;
         credentials = user;
     } else {

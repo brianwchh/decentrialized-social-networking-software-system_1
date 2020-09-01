@@ -5,17 +5,17 @@ const Joi = require('@hapi/joi')
 const {rootname} = require('../../../config')
 const {Item} = require('../Model/Item');
 const {Img} = require('../Model/Img');
-const {ChartItem} = require('../Model/ChartItem');
+const {CartItem} = require('../Model/CartItem');
 const {v4:uuid4} = require('uuid');
 const fs = require('fs');
 const {STATIC_ROOT} = require('../../../config')
 
 
-const ChartItemView = {
+const CartItemView = {
 
 }
 
-ChartItemView.createChartItemTable = async (req,h) => { 
+CartItemView.createCartItemTable = async (req,h) => { 
 
     // connect to mysql 
     const connection = await req.app.db.getConnection() ;
@@ -24,8 +24,10 @@ ChartItemView.createChartItemTable = async (req,h) => {
     let res ;
     let errMsg ;
     try {
-        res = await req.app.db.query(connection,ChartItem.createChartItemTable);
+        console.log(CartItem.createCartItemTable)
+        res = await req.app.db.query(connection,CartItem.createCartItemTable);
     } catch (err) {
+        console.log(err);
         console.log(err.sqlMessage) ;
         errMsg = err.sqlMessage ;
         connection.release();
@@ -43,19 +45,30 @@ ChartItemView.createChartItemTable = async (req,h) => {
 }
 
 
-ChartItemView.add2Chart = async (req,h) => { 
+CartItemView.add2Cart = async (req,h) => { 
 
     // item_id,user_id,item_cnt,price,total_price
     const {payload} = req ;
 
-    console.log(payload)
+    const token = req.query.token ;
 
-    const user_id = payload.user_id ;
+    // check if token is valid 
+    let user_id = null;
+    try {
+        user_id = await req.app.redis.get(token);
+    } catch (err) {
+        console.log(err);
+        return {
+            err, err
+        }
+    }
+
     const item_id = payload.item_id ;
     const item_cnt = Number(payload.item_cnt) ;
     const price = Number(payload.price) ;
-    const total_price = Number(item_cnt) * Number(price) ;
     const isSelected = payload.isSelected ;
+
+    const total_price = Number(item_cnt) * Number(price) ;
 
     // connect to mysql 
     const connection = await req.app.db.getConnection() ;
@@ -63,9 +76,9 @@ ChartItemView.add2Chart = async (req,h) => {
     let res ;
     let errMsg ;
     try {
-        res = await req.app.db.query(connection,ChartItem.getChartItem(item_id,user_id));
+        res = await req.app.db.query(connection,CartItem.getCartItem(item_id,user_id));
         res = res[0];
-        console.log('getChartItem : ', res);
+        console.log('getCartItem : ', res);
     } catch (err) {
         console.log(err.sqlMessage) ;
         errMsg = err.sqlMessage ;
@@ -73,11 +86,11 @@ ChartItemView.add2Chart = async (req,h) => {
             err: errMsg
         }
     }
-    // if exist then increase the item_cnt, and update,otherwise insert new ChartItem
+    // if exist then increase the item_cnt, and update,otherwise insert new CartItem
     if (!res){
 
         try {
-            res = await req.app.db.query(connection,ChartItem.insertChartItem(item_id,user_id,item_cnt,isSelected,price,total_price));
+            res = await req.app.db.query(connection,CartItem.insertCartItem(item_id,user_id,item_cnt,isSelected,price,total_price));
             res = res[0];
         } catch (err) {
             console.log(err.sqlMessage) ;
@@ -96,7 +109,7 @@ ChartItemView.add2Chart = async (req,h) => {
         const updated_total_price = Number(sel_total_price) + Number(price * item_cnt) ;
 
         try {
-            res = await req.app.db.query(connection,ChartItem.updateChartItem(item_id,user_id,updated_item_cnt,isSelected,price,updated_total_price));
+            res = await req.app.db.query(connection,CartItem.updateCartItem(item_id,user_id,updated_item_cnt,isSelected,price,updated_total_price));
             // res = res[0];
         } catch (err) {
             console.log(err.sqlMessage) ;
@@ -110,9 +123,9 @@ ChartItemView.add2Chart = async (req,h) => {
     }
 
     try {
-        res = await req.app.db.query(connection,ChartItem.getChartItem(item_id,user_id));
+        res = await req.app.db.query(connection,CartItem.getCartItem(item_id,user_id));
         res = res[0];
-        console.log('getChartItem : ', res);
+        console.log('getCartItem : ', res);
     } catch (err) {
         console.log(err.sqlMessage) ;
         errMsg = err.sqlMessage ;
@@ -129,9 +142,20 @@ ChartItemView.add2Chart = async (req,h) => {
 
 }
 
-ChartItemView.listChartItem = async (req,h) => {  
+CartItemView.listCartItem = async (req,h) => {  
 
-    const {user_id} = req.headers ;
+    const token = req.query.token ;
+
+    // check if token is valid 
+    let user_id = null;
+    try {
+        user_id = await req.app.redis.get(token);
+    } catch (err) {
+        console.log(err);
+        return {
+            err, err
+        }
+    }
 
     // connect to mysql 
     const connection = await req.app.db.getConnection() ;
@@ -139,9 +163,9 @@ ChartItemView.listChartItem = async (req,h) => {
     let res ;
     let errMsg ;
     try {
-        res = await req.app.db.query(connection,ChartItem.queryByUserId(user_id));
+        res = await req.app.db.query(connection,CartItem.queryByUserId(user_id));
         // res = res[0];
-        console.log('getChartItem : ', res);
+        console.log('getCartItem : ', res);
     } catch (err) {
         console.log(err.sqlMessage) ;
         errMsg = err.sqlMessage ;
@@ -154,14 +178,14 @@ ChartItemView.listChartItem = async (req,h) => {
     connection.release();
 
     return {
-        msg: res
+        data: res
     }
 
 }
 
 
 
-ChartItemView.delteChartItems = async (req,h) => {  
+CartItemView.delteCartItems = async (req,h) => {  
     /**
      * SELECT * 
         FROM orders 
@@ -177,9 +201,9 @@ ChartItemView.delteChartItems = async (req,h) => {
     let res ;
     let errMsg ;
     try {
-        res = await req.app.db.query(connection,ChartItem.deleteChartItems(item_ids,user_id));
+        res = await req.app.db.query(connection,CartItem.deleteCartItems(item_ids,user_id));
         // res = res[0];
-        console.log('getChartItem : ', res);
+        console.log('getCartItem : ', res);
     } catch (err) {
         console.log(err.sqlMessage) ;
         errMsg = err.sqlMessage ;
@@ -197,11 +221,11 @@ ChartItemView.delteChartItems = async (req,h) => {
 
 }
 
-ChartItemView.editChart = async (req,h) => {
+CartItemView.editCart = async (req,h) => {
 
     return {
-        msg: 'editChart'
+        msg: 'editCart'
     }
 }
 
-exports.ChartItemView = ChartItemView ;
+exports.CartItemView = CartItemView ;

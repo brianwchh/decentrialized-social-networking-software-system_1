@@ -17,9 +17,104 @@ const ItemView = {
 
 ItemView.listItems = async (req,h) => {
 
-    return {
-        msg: 'get item list'
+    // connect to mysql 
+    const connection = await req.app.db.getConnection() ;
+    // console.log('get connection')
+
+    let res ;
+    let errMsg ;
+
+    try {
+        res = await req.app.db.query(connection,Item.getItemList);
+        if (!res) {
+            connection.release();
+            return {
+                err: '',
+                data : '',
+                msg : 'empty query set'
+            }
+        }
+        
+        // console.log(res)
+
+        // add image info to array
+        const cnt = res.length;
+        let i = 0;
+        for(i=0;i<cnt;++i){
+            const item_id = res[i].id ;
+            // query images on item_id 
+            try{
+                const img_res = await req.app.db.query(connection,Img.getImgs(item_id))
+                const img_len = img_res.length;
+                let img_array = [];
+                let j=0; 
+                for(j=0;j<img_len;++j){
+                    const url = img_res[j].uri;
+                    img_array.push(`${req.server.info.uri}${url}`);
+                }
+                // console.log(img_res);
+                res[i]['imgArray'] = img_array;
+                // console.log(res[i]);
+            } catch (err) {
+                console.log(err);
+            }
+        }
+
+        // let resObj = {}; // key = id, value = {item_name: item_name,market_price: market_price,uri: uri ...}
+
+        // res.forEach(el => {
+        //     console.log("***************************")
+        //     console.log('el :', el);
+        //     if(el.uri !== null) {
+        //         console.log('el:' , el.uri);
+        //         const url = el.uri ;
+        //         el.uri = `${req.server.info.uri}${url}`;
+        //     }
+        //     // check if has key = el.id, if not,create one, 
+        //     console.log('is key exist : ',resObj.hasOwnProperty(el.id));
+        //     if(resObj.hasOwnProperty(el.id) === false){
+        //         console.log('if key not exist');
+        //         let uri_arry = [];
+        //         console.log(el.uri);
+        //         if (el.uri !== null){
+        //             console.log('xxxooo')
+        //             uri_arry.push(el.uri);
+        //             console.log('whatwhathaihl')
+        //         }
+        //         console.log(uri_arry);
+        //         resObj[el.id] = {
+        //             item_name: el.item_name ,
+        //             market_price : el.market_price ,
+        //             price : el.price ,
+        //             uri : uri_arry,
+        //         }
+        //         console.log(resObj)
+        //     } else {
+        //         // otherwise append uri to existing uri array
+        //         const key = String(el.id) ;
+        //         if(el.uri){
+        //             resObj[key].uri.push(el.uri);
+        //         }
+        //     }
+
+        // });
+
+        // console.log(resObj)
+        connection.release();
+        return {
+            err: '',
+            data: res
+        }
+    } catch (err) {
+        console.log(err.sqlMessage) ;
+        errMsg = err.sqlMessage ;
+        connection.release() // bad method, should release() right after each operation.
+        return {
+            err : err.sqlMessage,
+            data: ''
+        }
     }
+
 }
 
 ItemView.createItem = async (req,h) => {
@@ -108,28 +203,60 @@ ItemView.createItem = async (req,h) => {
 ItemView.itemDetail = async (req,h) => {
 
 
-    const itemID = req.params.id ;
+    const item_id = req.params.id ;
 
     const connection = await req.app.db.getConnection() ;
 
     let res ;
     let errMsg ;
     try {
-        res = await req.app.db.query(connection,Item.getItem(itemID));
+        res = await req.app.db.query(connection,Item.getItem(item_id));
         res = res[0];
+
+        // query images on item_id 
+        try{
+            const img_res = await req.app.db.query(connection,Img.getImgs(item_id))
+            const img_len = img_res.length;
+            let img_array = [];
+            let j=0; 
+            for(j=0;j<img_len;++j){
+                const url = img_res[j].uri;
+                img_array.push(`${req.server.info.uri}${url}`);
+            }
+            // console.log(img_res);
+            res['imgArray'] = img_array;
+
+        } catch (err) {
+            errMsg = err.sqlMessage ;
+            console.log(err);
+            connection.release();
+            return {
+                err: errMsg
+            }
+        }
+
+        connection.release();
+
+        console.log(res);
+        
+        return {
+            err: '',
+            data: res
+        }
+
+
     } catch (err) {
         console.log(err.sqlMessage) ;
         errMsg = err.sqlMessage ;
+        connection.release();
         return {
             err: errMsg
         }
     }
      
-    connection.release();
+    
 
-    return {
-        item: res,
-    }
+
 }
 
 ItemView.updateItem = async (req,h) => {
@@ -242,84 +369,6 @@ ItemView.deleteItem = async (req,h) => {
 
 }
 
-ItemView.chartList = async (req,h) => {
-
-    return {
-        msg: 'chart list view',
-    };
-}
-
-ItemView.add2Chart = async (req,h) => {
-    
-    return {
-        msg: 'add2Chart'
-    }
-
-}
-
-
-ItemView.getOrderList = async (req,h) => {
-
-    return {
-        msg: 'get order items'
-    }
-}
-
-ItemView.createOrder = async (req,h) => {
-
-    return {
-        msg: 'createOrder from chart'
-    }
-}
-
-ItemView.editOrder = async (req,h) => {
-
-    return {
-        msg: 'editOrder'
-    }
-}
-
-ItemView.deleteOrder = async (req,h) => {
-
-    return {
-        msg: 'deleteOrder'
-    }
-}
-
-ItemView.createAddress = async (req,h) => {
-
-    return {
-        msg: 'createAddress'
-    }
-}
-
-ItemView.getAddressList = async (req,h) => {
-
-    return {
-        msg: 'getAddressList'
-    }
-}
-
-ItemView.getAddressDetail = async (req,h) => {
-
-    return {
-        msg: 'getAddressDetail'
-    }
-}
-
-ItemView.editAddress = async (req,h) => {
-
-    return {
-        msg: 'editAddress'
-    }
-}
-
-ItemView.deleteAddress = async (req,h) => {
-
-    return {
-        msg: 'deleteAddress'
-    }
-}
 
 ItemView.uploadImage = async (req,h) => {
 

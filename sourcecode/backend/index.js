@@ -16,6 +16,8 @@ const init = async () => {
             cors: {
                 origin: ['*'], // an array of origins or 'ignore'    
                 // credentials: true // boolean - 'Access-Control-Allow-Credentials'
+                // headers: ['*'], // Access-Control-Allow-Headers 
+                // additionalHeaders: ['*'],
             }
         }
     });
@@ -41,7 +43,7 @@ const init = async () => {
         await server.register({
             plugin: require('./plugins/mydb'),
             options: {
-                connectionLimit: 5,
+                connectionLimit: 1000,
                 host: 'localhost' ,
                 user: 'root',
                 password: '1983wchh',
@@ -67,12 +69,13 @@ const init = async () => {
         server.ext('onRequest', async (req,h) => {
 
             let path = req.path ;
+            console.log(path)
             const len = path.length ;
             if (path[len-1] === '/'){
                 req.path = path.slice(0,-1);
             }
 
-            // console.log(req.headers['content-type'])
+            // console.log(req.headers['content-type']);
 
             // if ('application/csp-report' === req.headers['content-type']) {
             //     req.headers['content-type'] = 'application/json';

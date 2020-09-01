@@ -2,7 +2,9 @@
 const Joi = require('@hapi/joi')
 
 const {ItemView} = require('../View/ItemView')
-const {ChartItemView} = require('../View/ChartItemView')
+const {CartItemView} = require('../View/CartItemView')
+const {OrderView} = require('../View/OrderView')
+const {AddressView} = require('../View/AddressView')
 
 
 Route = [
@@ -20,8 +22,8 @@ Route = [
         options: {
             payload: {
                 parse: true,
-                allow: 'multipart/form-data',
-                multipart: true
+                allow: 'application/json',
+                // multipart: false
             },
             auth: 'isSuperUser',
         },
@@ -68,28 +70,70 @@ Route = [
         handler : ItemView.deleteItem
     },
 
-    // *****************ChartItem block***************************************
+    // *****************CartItem block***************************************
 
     {
-        path: '/api/item/createChartItemTable',
+        path: '/api/item/createcartitemtable',
         method: 'POST', 
-        options: {
-            auth: 'isCurrentOrSuper',
-        },
-        handler : ChartItemView.createChartItemTable
+        // options: {
+        //     // auth: 'isCurrentOrSuper',
+        // },
+        handler : CartItemView.createCartItemTable
     },
 
     {
-        path: '/api/item/chart', // each user can only have one chart
+        path: '/api/item/cart', // each user can only have one cart
         method: 'GET', 
         options: {
             auth: 'isCurrentOrSuper',
         },
-        handler : ChartItemView.listChartItem
+        handler : CartItemView.listCartItem
     },
 
     {
-        path: '/api/item/chart', // each user can only have one chart
+        path: '/api/item/cart', // each user can only have one cart
+        method: 'POST', 
+        options: {
+            payload: {
+                parse: true,
+                allow: 'multipart/form-data',
+                multipart: true
+            },
+            // auth: 'isCurrentOrSuper',
+        },
+        handler : CartItemView.add2Cart
+    },
+
+    {
+        path: '/api/item/cart',
+        method: 'PUT', 
+        options: {
+            auth: 'isCurrentOrSuper',
+        },
+        handler : CartItemView.editCart
+    },
+
+    {
+        path: '/api/item/cart',
+        method: 'DELETE', 
+        options: {
+            auth: 'isCurrentOrSuper',
+        },
+        handler : CartItemView.delteCartItems
+    },
+
+
+    {
+        path: '/api/address/createaddresstable',
+        method: 'POST', 
+        options: {
+            // auth: 'isCurrentOrSuper',
+        },
+        handler : AddressView.createaddresstable
+    },
+
+    {
+        path: '/api/address',
         method: 'POST', 
         options: {
             payload: {
@@ -99,132 +143,18 @@ Route = [
             },
             auth: 'isCurrentOrSuper',
         },
-        handler : ChartItemView.add2Chart
+        handler : AddressView.insertAddress
     },
 
     {
-        path: '/api/item/chart',
-        method: 'PUT', 
-        options: {
-            auth: 'isCurrentOrSuper',
-        },
-        handler : ChartItemView.editChart
-    },
-
-    {
-        path: '/api/item/chart',
-        method: 'DELETE', 
-        options: {
-            auth: 'isCurrentOrSuper',
-        },
-        handler : ChartItemView.delteChartItems
-    },
-
-    {
-        path: '/api/item/order',
+        path: '/api/address',
         method: 'GET', 
         options: {
             auth: 'isCurrentOrSuper',
         },
-        handler : ItemView.getOrderList
+        handler : AddressView.getAddressbyUserId
     },
 
-    {
-        path: '/api/item/order',
-        method: 'POST', 
-        options: {
-            auth: 'isCurrentOrSuper',
-        },
-        handler : ItemView.createOrder
-    },
-
-    {
-        path: '/api/item/order/{id}',
-        method: 'PUT', 
-        options: {
-            validate: {
-                params: Joi.object({
-                    id: Joi.number()
-                })
-            },
-            auth: 'isCurrentOrSuper',
-        },
-        handler : ItemView.editOrder
-    },
-
-    {
-        path: '/api/item/order/{id}',
-        method: 'DELETE', 
-        options: {
-            validate: {
-                params: Joi.object({
-                    id: Joi.number()
-                })
-            },
-            auth: 'isCurrentOrSuper',
-        },
-        handler : ItemView.deleteOrder
-    },
-
-    {
-        path: '/api/item/address',
-        method: 'POST', 
-        options: {
-            auth: 'isCurrentOrSuper',
-        },
-        handler : ItemView.createAddress
-    },
-
-    {
-        path: '/api/item/address',
-        method: 'GET', 
-        options: {
-            auth: 'isCurrentOrSuper',
-        },
-        handler : ItemView.getAddressList
-    },
-
-    {
-        path: '/api/item/address/{id}',
-        method: 'GET', 
-        options: {
-            validate: {
-                params: Joi.object({
-                    id: Joi.number()
-                })
-            },
-            auth: 'isCurrentOrSuper',
-        },
-        handler : ItemView.getAddressDetail
-    },
-
-    {
-        path: '/api/item/address/{id}',
-        method: 'PUT', 
-        options: {
-            validate: {
-                params: Joi.object({
-                    id: Joi.number()
-                })
-            },
-            auth: 'isCurrentOrSuper',
-        },
-        handler : ItemView.editAddress
-    },
-
-    {
-        path: '/api/item/address/{id}',
-        method: 'DELETE', 
-        options: {
-            validate: {
-                params: Joi.object({
-                    id: Joi.number()
-                })
-            },
-            auth: 'isCurrentOrSuper',
-        },
-        handler : ItemView.deleteAddress
-    },
 
     {
         path: '/api/item/image',
@@ -238,6 +168,9 @@ Route = [
                 allow: 'multipart/form-data',
                 multipart: true
             },
+
+            // auth : 'isSuperUser' ,
+
             validate:{
                 payload: Joi.object({
                     file: Joi.binary().required(),
@@ -263,6 +196,42 @@ Route = [
         handler : ItemView.deleteImage
     },
 
+
+    //************* Order ************************************ */
+    {
+        path: '/api/order/createordertable',
+        method: 'POST', 
+        options: {
+            // auth: 'isCurrentOrSuper',
+        },
+        handler : OrderView.createOrderTable
+    },
+
+    {
+        path: '/api/order',
+        method: 'POST', 
+        options: {
+            auth: 'isCurrentOrSuper',
+            payload: {
+                parse: true,
+                allow: 'application/json',
+                // multipart: true
+            },
+        },
+        handler : OrderView.inserOrder
+    },
+
+
+    {
+        path: '/api/order',
+        method: 'GET', 
+        options: {
+            auth: 'isCurrentOrSuper',
+
+        },
+        handler : OrderView.getOrderDetail
+    },
+    
 
 ]
 

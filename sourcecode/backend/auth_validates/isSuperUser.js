@@ -9,9 +9,18 @@ isSuperUser.validate = async (req) => {
     let isValid = false ;
     let credentials = null ;
 
-    const token = req.headers.token ;
+    // console.log(req.query)
+
+    const token = req.query.token ;
     if (!token) {
         credentials = {err: 'no token found'} ;
+        return {
+            isValid, credentials
+        }
+    }
+
+    if (!user_id){
+        credentials = {err: 'token invalid'} ;
         return {
             isValid, credentials
         }
@@ -64,7 +73,10 @@ isSuperUser.validate = async (req) => {
 
     const user = res;
 
-    if (user.isSuper ) {
+    if (!user){
+        isValid = false;
+        credentials = {err: 'token invalid'}
+    }else if (user.isSuper ) {
         isValid = true ;
         credentials = user;
     } else {
@@ -75,3 +87,11 @@ isSuperUser.validate = async (req) => {
 };
 
 exports.isSuperUser = isSuperUser ;
+
+
+
+
+
+
+
+

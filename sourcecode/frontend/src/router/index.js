@@ -5,14 +5,18 @@ import Register from '../containers/Register'
 import Login from '../containers/Login'
 import Logout from '../containers/Logout'
 import Profile from '../containers/Profile'
-import AddNewDog from '../containers/AddNewDog'
 import Blog from '../containers/Blog'
 import ContactUs from '../containers/Contactus'
 import Chat from '../containers/Chat'
-import Shop from '../containers/Shop'
 import PhotoAlbum from '../containers/PhotoAlbum'
 import Following from '../containers/Following'
 import Github from '../containers/Github'
+import AddNewItem from '../containers/addNewItem'
+import addNewImg2Item from '../containers/addNewImg2Item'
+import itemList from '../containers/itemList'
+import itemDetail from '../containers/itemDetail'
+import cartItemList from '../containers/cartItemList'
+import  orderDetail     from '../containers/orderDetail'
 
 
 Vue.use(VueRouter)
@@ -20,7 +24,7 @@ Vue.use(VueRouter)
   const routes = [
   {
     path: '/',
-    name: 'home',
+    name: 'Home',
     component: Home
   },
 
@@ -49,14 +53,44 @@ Vue.use(VueRouter)
   },
 
   {
-    path: '/addnewdog',
-    name: 'AddNewDog',
-    component: AddNewDog
+    path: '/item/addnewitem',
+    name: 'AddNewItem',
+    component: AddNewItem
+  },
+
+  {
+    path: '/item/:itemId/addnewimage',
+    name: 'addNewImg2Item',
+    component: addNewImg2Item
+  },
+
+  {
+    path: '/item',
+    name: 'itemList',
+    component: itemList
+  },
+
+  {
+    path: '/item/:itemId',
+    name: 'itemDetail',
+    component: itemDetail
+  },
+
+  {
+    path: '/order/:orderId',
+    name: 'orderDetail',
+    component: orderDetail
+  },
+
+  {
+    path: '/cartitems',
+    name: 'cartItemList',
+    component: cartItemList
   },
 
   {
     path: '/blog',
-    name: 'blog',
+    name: 'Blog',
     component: Blog
   },
 
@@ -70,12 +104,6 @@ Vue.use(VueRouter)
     path: '/chat',
     name: 'Chat',
     component: Chat
-  },
-
-  {
-    path: '/shop',
-    name: 'Your Shop',
-    component: Shop
   },
 
   {

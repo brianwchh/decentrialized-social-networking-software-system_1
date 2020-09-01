@@ -148,7 +148,7 @@ fop.upload = async (path,filename,name_suffix,payload_file) => {
         isExisted = err.isExisted ;
     }
 
-    if (isExisted === true) {
+    // if (isExisted === true) {
         // append random letters 
         const r = Math.random().toString(36).substring(7);
         const filename_split = filename.split('.');
@@ -158,7 +158,7 @@ fop.upload = async (path,filename,name_suffix,payload_file) => {
         
         filename = first_part+'_' + name_suffix + '_' + r + '.' + last_part ;
 
-    } 
+    // } 
 
     try {
         await fop.upload_promise(path,filename,payload_file)

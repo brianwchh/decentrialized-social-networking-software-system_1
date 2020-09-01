@@ -36,6 +36,8 @@ function () {
                 cors: {
                   origin: ['*'] // an array of origins or 'ignore'    
                   // credentials: true // boolean - 'Access-Control-Allow-Credentials'
+                  // headers: ['*'], // Access-Control-Allow-Headers 
+                  // additionalHeaders: ['*'],
 
                 }
               }
@@ -111,11 +113,12 @@ function () {
                     switch (_context.prev = _context.next) {
                       case 0:
                         path = req.path;
+                        console.log(path);
                         len = path.length;
 
                         if (path[len - 1] === '/') {
                           req.path = path.slice(0, -1);
-                        } // console.log(req.headers['content-type'])
+                        } // console.log(req.headers['content-type']);
                         // if ('application/csp-report' === req.headers['content-type']) {
                         //     req.headers['content-type'] = 'application/json';
                         //     req.headers['x-content-type'] = 'application/csp-report';
@@ -124,7 +127,7 @@ function () {
 
                         return _context.abrupt("return", h.continue);
 
-                      case 4:
+                      case 5:
                       case "end":
                         return _context.stop();
                     }

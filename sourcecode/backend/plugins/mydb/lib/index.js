@@ -27,9 +27,21 @@ redis_cache.init = async () => {
 
 redis_cache.save = async (token,expireT,userID) => {
 
-    await redis_cache.redis_client.setex(token,expireT,userID);
-
+    try {
+        await redis_cache.redis_client.setex(token,expireT,userID);
+    } catch(err) {
+        console.log(err);
+    }
+    
 };
+
+redis_cache.delete = async (token) => {
+    try {
+        await redis_cache.redis_client.del(token);
+    } catch (err) {
+        console.log(err);
+    }
+}
 
 redis_cache.get = async (token) => {
 
@@ -37,10 +49,6 @@ redis_cache.get = async (token) => {
         return redis_cache.redis_client.get(token,(err,data)=>{
             if (err) {
                 return reject(err);
-            }
-
-            if (!data) {
-                return reject('token not valid')
             }
 
             return resolve(data) ;
@@ -63,17 +71,37 @@ db.attachConnection = async (request, h) => {
 
 }
 
-db.query = async (connection,queryOption) => {
+db.query_core = async (connection,queryOption) => {
     // return queryset or err 
     return new Promise((resolve,reject)=>{
         return connection.query(queryOption,(err,res,field)=>{
             if (err) {
                 return reject(err);
             } 
-
             return resolve(res);
         })
     })
+}
+
+db.query = async (connection,queryOption) => {
+    // get connection from pool
+    let conn = '' ;
+    try {
+        conn = await db.getConn();
+    } catch (err) {
+        console.log(err);
+        return err ;
+    }
+
+    try {
+        const querySet = await db.query_core(conn,queryOption);
+
+        conn.release();
+        return querySet ;
+    } catch (err) {
+        conn.release();
+        console.log('in db ',err);
+    }
 }
 
 /**
@@ -82,7 +110,26 @@ db.query = async (connection,queryOption) => {
  *  2. release connection back to pool })
  * callback function = function(err,connection)
  */
+
+const dontCrash = {
+    release : ()=>{console.log("okay,lazy");}
+} 
 db.getConnection = async () => {
+    // return a fake one so dun't have to change the code everywhere....
+
+    return dontCrash ;
+    // return new Promise((resolve,reject)=>{
+    //    return db.pool.getConnection((err,connection)=>{
+    //         if(err){
+    //            return reject(err);
+    //         }
+    //         return resolve(connection); // return a connection in resolve 
+            
+    //     })
+    // })
+}
+
+db.getConn = async () => {
     // return a connection
     return new Promise((resolve,reject)=>{
        return db.pool.getConnection((err,connection)=>{

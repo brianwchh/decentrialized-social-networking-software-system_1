@@ -12,7 +12,7 @@ internal.scheme_callback = (server,options) => {
 
     return {
         authenticate: async (request,h) => {
-
+            
             const { isValid, credentials} = await options.validate(request);
 
             if (!isValid) {

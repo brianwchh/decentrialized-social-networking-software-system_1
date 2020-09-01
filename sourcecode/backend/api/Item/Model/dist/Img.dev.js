@@ -1,5 +1,7 @@
 'use strict';
 
+require("core-js/modules/es.array.concat");
+
 var _require = require('./Item'),
     Item = _require.Item;
 
@@ -12,6 +14,10 @@ Img.insertImg = function (item_id, uri) {
 
 Img.getImg = function (ImgID) {
   return "SELECT *\n            FROM Img\n            WHERE id = ".concat(ImgID);
+};
+
+Img.getImgs = function (item_id) {
+  return "SELECT uri\n            FROM Img\n            WHERE item_id = ".concat(item_id);
 };
 
 Img.deleteImg = function (imgId) {

@@ -152,15 +152,15 @@ export default {
 
     methods: {
 
-      validate () {
-        this.$refs.form.validate()
-      },
-      reset () {
-        this.$refs.form.reset()
-      },
-      resetValidation () {
-        this.$refs.form.resetValidation()
-      },
+      // validate () {
+      //   this.$refs.form.validate()
+      // },
+      // reset () {
+      //   this.$refs.form.reset()
+      // },
+      // resetValidation () {
+      //   this.$refs.form.resetValidation()
+      // },
 
       async onSubmitEvent () {
         // create form data 
@@ -206,11 +206,17 @@ export default {
           const resp = res.data.res ;
 
           if(resp && resp.insertId){
-            alert('registration successful ! ')
+            // alert('registration successful ! ');
+            this.$router.push({name:'Login'});
+          } else {
+            const err = res.data.err[0];
+            console.log(err)
+            alert(err.message);
           }
 
         } catch (err) {
             console.log(err);
+            alert('register failed');
         }
         
         

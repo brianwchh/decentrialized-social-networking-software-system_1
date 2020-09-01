@@ -127,7 +127,7 @@ UserView.register = async (req,h) => {
     } catch (err) {
         console.log(err);
         return {
-            msg : err.details
+            err : err.details
         }
     }
 
@@ -191,8 +191,8 @@ UserView.login = async (req,h) => {
 
     try {
         await schema.validateAsync({
-            username: req.headers.username,
-            password: req.headers.password,
+            username: req.payload.username,
+            password: req.payload.password,
         })
     } catch (err) {
         console.log(err);
@@ -201,8 +201,7 @@ UserView.login = async (req,h) => {
         }
     }
 
-    const username = req.headers.username ;
-    const password = req.headers.password ;
+    const {username,password} = req.payload ;
     
     let connection ; 
     
@@ -267,18 +266,49 @@ UserView.login = async (req,h) => {
         // console.log(res);
 
         return {
-            password: isValid ,
+            isPasswordValid: isValid ,
             err: errMsg,
             token: token 
         }
     } else {
         return {
+            isPasswordValid: isValid ,
             err: 'login failed, please check password'
         }
     }
 
     
 };
+
+
+UserView.logout = async (req,h) => {
+
+    console.log('UserView logout payload : ', req.payload)
+
+    const {token} = req.payload ;
+    
+    await req.app.redis.delete(token);
+
+    try {
+        const token_new = await req.app.redis.get(token);
+        if(!token_new){
+            console.log('token deleted');
+        }
+    } catch (err) {
+        console.log(err);
+    }
+
+    return {
+        msg: 'logout successfully'
+    }
+
+};
+
+UserView.validatetoken = async(req,h) => {
+    return {
+        isLogin: true
+    }
+}
 
 UserView.userList = async(req, h) => {
 

@@ -57,35 +57,6 @@
     <p class="ccpisnotChina3">CCP is NOT China</p>
   </div>
 
-  <div id="flex3">
-    <div id="gridContainer-3">
-      <a href="https://edition.cnn.com/2019/12/19/health/sonic-attack-brain-study/index.html#:~:text=The%20%22sonic%20attacks%2C%22%20as,expanding%20a%20health%20alert%20there." 
-        class="left">
-        <img src="https://pbs.twimg.com/media/EZqwPg6WsAE72lT?format=jpg&name=large" alt="">
-      </a>
-      <div class="right">
-        <p class="evidence">video that highly prove the Sonic attack on me from CCP </p>
-        <div class="video_container">
-          <!-- <iframe class="evidence_video"
-            src="https://www.youtube.com/embed/L_dbZssEKas?t=769">
-          </iframe> -->
-          <iframe class="evidence_video"
-            src="https://www.youtube.com/embed/L_dbZssEKas?start=769" 
-            frameborder="0" 
-            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
-            allowfullscreen>
-          </iframe>
-        </div>
-        <p class="evidence2"> for more evidence, please visit my youtube channel </p>
-        <p class="evidence"> two secret methods CCP uses to torture their targets </p>
-        <p class="evidence2">(1) chemical gas emited near by your room</p>
-        <p class="evidence2">(2) Sonic attack </p>
-        <p class="evidence2"> both can cause insomnia problem</p>
-      </div>
-    </div>
-
-  </div>
-
 
 </div>
 

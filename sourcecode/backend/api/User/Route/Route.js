@@ -21,6 +21,15 @@ Route = [
     },
 
     {
+        path: '/api/user/validatetoken',
+        method: 'POST', 
+        options: {
+            auth: 'isCurrentOrSuper',
+        },
+        handler : UserView.validatetoken
+    },
+
+    {
         path: '/api/user/register',
         method: 'POST', 
         options:{
@@ -31,6 +40,19 @@ Route = [
             },
         },
         handler : UserView.register
+    },
+
+    {
+        path: '/api/user/logout',
+        method: 'POST', 
+        options:{
+            payload: {
+                parse: true,
+                allow: 'application/json',
+                // multipart: true
+            },
+        },
+        handler : UserView.logout
     },
 
     {

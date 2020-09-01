@@ -11,19 +11,22 @@
         <!-- <v-app-bar-nav-icon class="white--text" @click="drawer=!drawer" ></v-app-bar-nav-icon> -->
 
         <v-toolbar-title class="text-uppercase white--text">
-            <span style="font-size:1.5vw;color:blue;">p2p</span>
-            <span style="font-size:1.5vw;color:white;">Chat</span>
+            <span style="font-size:calc(0.35em + 1vw);color:white;">p2p</span>
+            <span style="font-size:calc(0.35em + 1vw);color:white;">Chat</span>
         </v-toolbar-title>
         <v-spacer></v-spacer>
-        <span style="font-size:1.5vw;" class="text-uppercase white--text">A social network <span class="text-uppercase font-weight-dark blue--text"> revolution</span></span> 
+        <v-toolbar-title class="text-uppercase white--text">
+          <span style="font-size:calc(0.3em + 1vw);" class="text-uppercase white--text"> connect website to website</span> 
+        </v-toolbar-title>
         <v-spacer></v-spacer>
-        <div style="height:100%;display:flex; flex-direction: column;">
+        <!-- <div style="height:100%;display:flex; flex-direction: column;">
           <p style="margin:0;font-size:1vw;">{{signal_server_ip}}</p>
           <p style="margin:0;font-size:1vw;">helping us helps yourselves</p>
-        </div>
-        <!-- <v-btn text color="blue accent-1">
-          <v-icon>mdi-account-plus</v-icon>
-        </v-btn> -->
+        </div> -->
+        <v-btn text color="white" v-on:click="handleCartButton">
+          <v-icon >mdi-cart</v-icon>
+          {{item_cnt}}
+        </v-btn>
       
     </v-app-bar>
 
@@ -58,19 +61,24 @@
 <script>
 import {mapGetters,mapActions} from 'vuex';
 import {wsuri} from '../ipconfig'
+import {auth_getters_strings} from '../store/modules/auth/getters/auth_getters'
+import {debug_} from '../global_config'
+import { login_status_values } from '../store/modules/auth/mutations/auth_mutations';
 
 export default {
     name : 'Navbar',
     componnets : {
     },
     computed: {
-      ...mapGetters({isLogin: 'getLoginStatus'}),
+      ...mapGetters({getLoginStatus: auth_getters_strings.GET_LOGIN_STATUS,
+                      getCartItemNumber : 'getCartItemNumber',
+                      getCartItems : 'getCartItems',
+                      }),
 
     },
     data : () => {
             return {
                 drawer : true,
-                loginStatus: false ,
                 link_array : [],
                 signal_server_ip : '',
                 
@@ -83,11 +91,13 @@ export default {
                   {id: 4, showtime: "login", icon: 'mdi-logout-variant', text: 'Logout', route:'/logout'},
                   {id: 5, showtime: "login", icon: 'mdi-card-account-details', text: 'Profile', route:'/profile'},
                   {id: 6, showtime: "always", icon: 'mdi-post', text: 'Blog', route:'/blog'},
-                  {id: 7, showtime: "always", icon: 'mdi-shopping', text: 'Your Shop', route:'/shop'},
+                  {id: 7, showtime: "always", icon: 'mdi-shopping', text: 'Your Shop', route:'/item'},
                   {id: 8, showtime: "always", icon: 'mdi-image-album', text: 'Photo album', route:'/photoalbum'},
                   {id: 9, showtime: "always", icon: 'mdi-account-group', text: 'Following', route:'/following'},
                   {id: 10, showtime: "always", icon: 'mdi-github', text: 'project github', route:'/github'},
                 ],
+
+                item_cnt : 0 ,
             }
     },
 
@@ -115,21 +125,26 @@ export default {
       ...mapActions({
         
       }),
-
-      onClickEvent(){
-        // console.log("on click event")
-        this.loginStatus = !this.loginStatus ;
-        console.log(this.loginStatus);
-      },
+    
+     handleCartButton () { 
+       this.$router.push({name: 'cartItemList'});
+    }
 
     },
 
     watch: {
-      loginStatus : function() {
-        // console.log("**************** loginStatus changed");
-        // console.log(this.loginStatus)
+      getLoginStatus : function() {
 
-        if (this.loginStatus === true) {
+        if(debug_){
+          console.log("Navbar.vue : **************** login Status changed");
+          console.log("Navbar.vue getLoginStatus: ", this.getLoginStatus);
+        }
+
+        if (this.getLoginStatus === login_status_values.LOGGING){
+          return ;
+        }
+        
+        if (this.getLoginStatus === login_status_values.SUCCEED) {
           this.link_array = this.links.filter(l => {
             if(l.showtime === "login" || l.showtime === "always"){
               return l ;
@@ -143,6 +158,13 @@ export default {
           })
         }
       },
+
+      getCartItemNumber : function(){
+        this.item_cnt = this.getCartItemNumber;
+        // const cartItemArray = this.getCartItems;
+        
+      }
+
 
     }
 

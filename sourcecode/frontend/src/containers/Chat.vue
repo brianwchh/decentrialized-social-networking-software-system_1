@@ -97,39 +97,16 @@
   </div>
 
   <div v-else class="rightSide_emty">
-        <div id="wakeup">
-          <p class="important">
-            Protecting data = protecting brain, <span>PRIVACY MATTERS</span> 
-          </p>
-          <p class="txt">
-            Why people spend tremendous time on chat apps that collect privacy for free 
-          </p>
-          <p class="txt">
-            it's time to make our own website talk to eachother, store our data at home 
-          </p>
-        </div>
 
-        <img src="https://raw.githubusercontent.com/brianwchh/decentrialized-social-networking-software-system_1/master/pic/blockDiagram.png" alt="">
         <img src="https://github.com/brianwchh/decentrialized-social-networking-software-system_1/blob/master/pic/p2p.png?raw=true" alt="">
-        <p class="textCont"> because I don't have domain name for this website now,so in order to
-          use webrtc for video chat, the temporary simple solution is to set unsafely-treat-insecure-origin-as-secure
-          option in your browser, and reset it back to defualt after you finish the video chat demo, below is the video tutorial 
-        </p>
-        <p class="textCont">
-          chrome://flags/#unsafely-treat-insecure-origin-as-secure
-          http://52.79.86.10
-          http://52.78.225.18
-        </p>
-        <div class="video_container">
-          <iframe class="tu_video"
-            src="https://www.youtube.com/embed/8IpbgL5GlIM">
-          </iframe>
-        </div>
+
+
         <div class="video_container">
           <iframe class="tu_video"
             src="https://www.youtube.com/embed/Vv0f_0YaJx0">
           </iframe>
         </div>
+
   </div>
 
 

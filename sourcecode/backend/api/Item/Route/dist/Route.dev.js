@@ -1,4 +1,3 @@
-"use strict";
 'user strict';
 
 var Joi = require('@hapi/joi');
@@ -20,8 +19,8 @@ Route = [// **********************Item block ***********************************
   options: {
     payload: {
       parse: true,
-      allow: 'multipart/form-data',
-      multipart: true
+      allow: 'application/json' // multipart: false
+
     },
     auth: 'isSuperUser'
   },
@@ -201,6 +200,7 @@ Route = [// **********************Item block ***********************************
       allow: 'multipart/form-data',
       multipart: true
     },
+    // auth : 'isSuperUser' ,
     validate: {
       payload: Joi.object({
         file: Joi.binary().required(),

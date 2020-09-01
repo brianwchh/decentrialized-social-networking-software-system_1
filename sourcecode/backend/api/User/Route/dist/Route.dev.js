@@ -28,6 +28,17 @@ Route = [{
   },
   handler: UserView.register
 }, {
+  path: '/api/user/logout',
+  method: 'POST',
+  options: {
+    payload: {
+      parse: true,
+      allow: 'application/json' // multipart: true
+
+    }
+  },
+  handler: UserView.logout
+}, {
   path: '/api/user/login',
   method: 'POST',
   handler: UserView.login
