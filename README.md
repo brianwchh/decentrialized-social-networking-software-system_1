@@ -1,10 +1,10 @@
 # World is Changed when our websites talk to each other - A social network revolution
 ## demo website : http://52.79.86.10
-![alt text](https://raw.githubusercontent.com/brianwchh/decentrialized-social-networking-software-system_1/master/pic/blockDiagram.png)
+![alt text](https://raw.githubusercontent.com/brianwchh/decentrialized-social-networking-software-system_1/master/pic/systemDiagram.png)
 ####
 click below image to watch video on youtube.
-English : https://youtu.be/Vv0f_0YaJx0
-Chinese : https://youtu.be/-DBLz-AOfPo
+English : https://www.youtube.com/playlist?list=PL4mHdDqV3T2ui7iklza2Lby5vEd8p9jF8
+Chinese : https://www.youtube.com/playlist?list=PL4mHdDqV3T2sWViQXYEoOxr_0GffWlZfn
 [![IMAGE ALT TEXT HERE](https://raw.githubusercontent.com/brianwchh/decentrialized-social-networking-software-system_1/master/pic/p2p.png)](https://youtu.be/Vv0f_0YaJx0)
 if only Chinese people had the option to overcome the Great Fire Wall,and talked to eachother freely, people all over the world could have the chance to know the outbreak of the COVID-19 in WuHan China at the very begining,and many many people would not suffer the lose of their families and friends, and many many more would not suffer the physical pain from this virus. 
 It is the CCP(Chinese Communist Party)'s information censorship Virus, that is more deadly than the virus itself! same mistake happened in 2003,now in 2019, NO doubt, it will repeat if people all over the world can't get the immediate information from China freely! 
