@@ -1,0 +1,97 @@
+
+/* ******************** small device******************* */
+@media only screen and (max-width: 600px) {
+    .imageListViewRoot {
+        width: 100%;
+        height: fit-content;
+    }
+
+    .imageListViewRoot > .albumName {
+        width: 100%;
+        height: 100px;
+
+        display: grid;
+        align-items: center;
+        justify-items: center;
+
+    }
+
+    .imageListViewRoot > .albumName > p {
+        font-size: xx-large;
+        font-weight: bold;
+        color: rgb(105, 103, 103);
+    }
+
+    .imageListViewRoot > .imgArray {
+        width: calc(100% - 6px );
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        padding:3px; 
+
+    }
+
+    .imageListViewRoot > .imgArray .album {
+        width: 100% ;
+        padding-bottom: 3px;
+    }
+
+    .imageListViewRoot > .imgArray .album  img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+
+
+
+
+/* ******************** large device******************* */
+@media only screen and (min-width: 600px) {
+    .imageListViewRoot {
+        width: 100%;
+        height: fit-content;
+
+    }
+
+    .imageListViewRoot > .albumName {
+        width: 100%;
+        height: 100px;
+
+        display: grid;
+        align-items: center;
+        justify-items: center;
+
+    }
+
+    .imageListViewRoot > .albumName > p {
+        font-size: xx-large;
+        font-weight: bold;
+        color: rgb(105, 103, 103);
+    }
+
+    .imageListViewRoot > .imgArray {
+        width: calc(100% - 80px );
+
+        display: flex;
+        flex-wrap: wrap;
+
+        padding:40px;
+
+    }
+
+    .imageListViewRoot > .imgArray .album {
+        width: calc( 25% - 20px);
+        padding: 10px;
+    }
+
+    .imageListViewRoot > .imgArray .album  img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+}

@@ -1,0 +1,87 @@
+*{
+    margin: 0;
+}
+
+
+
+
+/* ******************** small device******************* */
+@media only screen and (max-width: 600px) {
+
+    .appRoot {
+        width: 100%;
+        height: fit-content;
+        background-color: white;
+
+        /* overflow-y: scroll; */
+    }
+
+    .appRoot .navigationNcontent {
+        width: 100%;
+        position: relative;
+    }
+
+    .appRoot .navigationNcontent .navigationWrapper {
+        width: 100%;
+        height: fit-content;
+        z-index: 300;
+
+    }
+
+    .appRoot .navigationNcontent .contentWrapper {
+        width: 100%;
+        height: fit-content;
+    }
+
+    .appRoot .footerWrapper {
+        width: 100%;
+        height: 400px;
+
+        background-color: white;
+    }
+
+
+}
+
+
+
+/* ***** large device **************************** */
+@media only screen and (min-width: 600px) {
+
+    .appRoot {
+        width: 100%;
+        height: fit-content;
+        background-color: white;
+
+    }
+
+    .appRoot .navigationNcontent {
+        width: 100%;
+        height: fit-content;
+
+        z-index: 100;
+    }
+
+    .appRoot .navigationNcontent .navigationWrapper {
+        width: 100%;
+        height: 50px;
+
+        z-index: 200;
+
+    }
+
+    .appRoot .navigationNcontent .contentWrapper {
+        width: 100%;
+        height: fit-content;
+
+        z-index: 100;
+
+    }
+
+    .appRoot .footerWrapper {
+        width: 100%;
+        height: 500px;
+
+    }
+
+}

@@ -1,0 +1,42 @@
+/* ******************** small device******************* */
+@media only screen and (max-width: 600px) {
+    .profileMenuRoot {
+        height: fit-content;
+        width: 100%;
+    }
+
+    .profileMenuRoot   .item {
+        height: 30px;
+        width: 100%;
+
+    }
+
+    .profileMenuRoot .expand {
+        height: fit-content;
+        width: 100%;
+    }
+
+}
+
+
+
+
+
+/* ******************** large device******************* */
+@media only screen and (min-width: 600px) {
+    .profileMenuRoot {
+        height: 100%;
+        width: 100%;
+    }
+
+    .profileMenuRoot   .item {
+        height: 30px;
+        width: 100%;
+
+    }
+
+}
+
+
+
+

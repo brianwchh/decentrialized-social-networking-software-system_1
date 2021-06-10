@@ -1,0 +1,653 @@
+/* ******************** small device******************* */
+@media only screen and (max-width: 600px) {
+
+    .panelRoot p {
+        font-size: small;
+    }
+
+    .panelRoot {
+        width             : 100%;
+        height            : 100%;
+
+        overflow-y        : scroll;
+        overflow-y        : scroll;
+        -ms-overflow-style: none; 
+        scrollbar-width   : none;
+
+        background-color  : black;
+    }
+
+    .panelRoot::-webkit-scrollbar {
+        display: none;
+    }
+
+
+    .panelRoot > .searchBar {
+        margin-left  : 40px;
+        margin-top   : 10px;
+        padding      : 0px;
+        padding-left : 10px;
+        border       : 0;
+        border-radius: 3px;
+        height       : 30px;
+        width        : calc(100% - 60px);
+    }
+
+    .panelRoot > .whoAmI {
+        margin-left     : 40px;
+        margin-top      : 10px;
+        padding         : 0px;
+        padding-left    : 10px;
+        border          : 0;
+        border-radius   : 3px;
+        height          : 50px;
+        width           : calc(100% - 60px);
+        
+        display         : flex;
+        align-items     : center;
+    }
+
+    .panelRoot > .whoAmI > .myImageWrapper {
+        flex-grow: 0;
+        flex-shrink: 0;
+        flex-basis: 50px;
+        height: 100%;
+        border-radius: 50%;
+        overflow: hidden;
+    }
+
+    .panelRoot > .whoAmI > .myImageWrapper > img {
+        width: 100% ;
+        height: 100%;
+    }
+
+    .panelRoot > .whoAmI > .userName {
+        flex-grow: 1;
+        flex-shrink: 1;
+        flex-basis: 0px;
+        height: 100%;
+        color: white;
+        font-size: 20px;
+        display: grid;
+        align-items: center ;
+        padding-left: 20px
+    }
+
+    .panelRoot > .contactListWrapper {
+        min-height: 30px;
+        margin-top: 10px;
+        width     : 100%;
+        
+    }
+
+    .panelRoot .contactListWrapper .categoryWrapper {
+        width: 100%;
+        height: fit-content;
+        min-height: 30px;
+
+    }
+
+    .panelRoot .contactListWrapper .categoryWrapper > .nameNicoWrapper {
+        width        : calc(100% - 30px);
+        height       : 30px;
+        margin-left  : 30px;
+        display      : flex;
+        align-items  : center;
+        justify-items: center;
+
+    }
+
+    .panelRoot .contactListWrapper .categoryWrapper .nameNicoWrapper .iconWrapper {
+        flex-grow: 0;
+        flex-shrink: 0;
+        flex-basis: 40px;
+        height: 100%;
+
+        display: grid;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .panelRoot .contactListWrapper .categoryWrapper .nameNicoWrapper .menuName {
+        flex-grow  : 1;
+        flex-shrink: 0;
+        flex-basis : 0;
+        
+        display    : grid;
+        align-items: center;
+
+    }
+
+    .panelRoot .contactListWrapper .categoryWrapper .dropDownClick {
+        width: calc(100% - 30px);
+        margin-left: 30px;
+
+        height: fit-content;
+
+    }
+
+    .panelRoot .contactListWrapper > .addNewContact  {
+        width : 100%;
+        height: fit-content;
+    }
+
+    .panelRoot .contactListWrapper  .addNewContact > .titleNicon  {
+        margin-left  : 30px;;
+        width        : calc(100% - 30px );
+        min-height   : 30px;
+        
+        display      : flex;
+        justify-items: center;
+        align-items  : center;
+        
+        display      : flex;
+        justify-items: center;
+        align-items  : center;
+    }
+
+    .panelRoot .contactListWrapper .addNewContact > .titleNicon > .title {
+        flex-grow  : 1;
+        flex-shrink: 1;
+        flex-basis : 0px;
+        color      :white;
+        font-size  : small;
+    }
+
+    .panelRoot .contactListWrapper .addNewContact > .dropDownContent {
+        min-height      : 100px;
+        width           : calc(100% - 55px);
+        margin-left     : 45px;
+        
+        background-color: black;
+
+    }
+
+    .panelRoot .contactListWrapper .addNewContact > .dropDownContent > .wrapper {
+        height       : 30px;
+        width        : 100%;
+        
+        margin-bottom: 1px;
+        
+        display      : flex;
+        align-items  : center;
+        
+        border-radius: 2px;
+
+    }
+
+    .panelRoot .contactListWrapper .addNewContact > .dropDownContent > .wrapper > .title {
+        flex-grow       : 0;
+        flex-shrink     : 0;
+        flex-basis      : 60px;
+        font-size       : small;
+        height          : 100%;
+        
+        display         : grid;
+        align-items     : center;
+        justify-items   : center;
+        
+        background-color: rgb(4, 65, 4);
+        border-radius   : 2px;
+        
+        color           : white;
+    }
+
+    .panelRoot .contactListWrapper .addNewContact > .dropDownContent > .wrapper > .inputWrapper {
+    
+        flex-grow: 1;
+        flex-shrink: 1;
+        flex-basis: 0;
+        height: 100%;
+
+        background-color: white;
+
+    }
+
+    .panelRoot .contactListWrapper .addNewContact > .dropDownContent > .wrapper > .inputWrapper > input {
+        height: 100%;
+        width: 100%;
+        padding: 0px;
+        margin: 0px;
+        border-width: 0px;
+
+        font-size: small;
+        padding-left: 3px;
+        padding-right: 3px;
+
+        box-sizing: border-box;
+
+        background-color: white;
+    }
+
+    .panelRoot .contactListWrapper .addNewContact > .dropDownContent > .wrapper > .inputWrapper .contactCategorySel_item {
+        color: white;
+        height: 20px;
+        width: calc(100% - 3px) ;
+
+        margin-left: 3px;
+    }
+
+    .panelRoot .contactListWrapper .addNewContact > .dropDownContent > .wrapper > .inputWrapper .contactCategorySel_item:hover {
+        font-weight: bold;
+    }
+
+
+    .panelRoot .contactListWrapper .addNewContact > .dropDownContent > .wrapper > .inputWrapper .addNewCategory {
+        height: 30px;
+        display: flex;
+        margin-top: 5px;
+
+        align-items: center;
+    }
+
+    .panelRoot .contactListWrapper .addNewContact > .dropDownContent > .wrapper > .inputWrapper .addNewCategory  .addNewCategoryInputWrapper {
+        flex-grow: 1;
+        flex-basis: 0;
+        height: 100%;
+
+        display: grid;
+        align-items: center;
+        justify-items: center;
+    }
+
+    .panelRoot .contactListWrapper .addNewContact > .dropDownContent > .wrapper > .inputWrapper .addNewCategory  .addNewCategoryInputWrapper  > input {
+        height: 25px;
+        width: 100%;
+        padding: 0px;
+        margin: 0px;
+        border-width: 0px;
+
+        font-size: small;
+        padding-left: 3px;
+        padding-right: 3px;
+
+        box-sizing: border-box;
+
+        background-color: white;
+    }
+
+    .panelRoot .contactListWrapper .addNewContact > .dropDownContent > .wrapper > .inputWrapper .addNewCategory .AddiconWrapper {
+        flex-grow: 0;
+        flex-shrink: 0;
+        flex-basis: 30px;
+        height: 100%;
+
+        display: grid;
+        justify-items: center;
+        align-items: center;
+    }
+
+    .panelRoot .contactListWrapper .addNewContact > .dropDownContent > .submitBottonWrapper {
+        height: 60px;
+        width: 100%;
+        display: grid;
+        justify-items: center;
+        align-items: center;
+    }
+
+    /* for all input under this file */
+    .panelRoot input:focus {
+        outline: none;   
+    }
+
+    .panelRoot .contactListWrapper .addNewContact > .titleNicon > .iconWrapper {
+        flex-grow: 0;
+        flex-shrink: 0;
+        flex-basis: 30px;
+
+        display: grid;
+        align-items: center;
+    }
+
+    .panelRoot .contactListWrapper .categoryWrapper .dropDownClick .contact {
+        margin-left: 15px;
+        height: 55px;
+        width: calc(100% -25px);
+        margin-right: 10px;
+        
+    }
+
+    .panelRoot > .groupListWrapper {
+        min-height: 30px;
+        width: 100%;
+    }
+
+    .panelRoot > .groupListWrapper  .group {
+        margin-left: 40px;
+        margin-right: 10px;
+        height: 55px;
+
+    }
+
+    .panelRoot > .groupListWrapper .addNewContact {
+        margin-bottom: 10px;
+    }
+
+}
+
+
+
+/* ******************** large device******************* */
+@media only screen and (min-width: 600px) {
+
+    .panelRoot p{
+        font-size: small;
+    }
+
+    .panelRoot {
+        width: 100%;
+        height: 100%;
+
+        overflow-y: scroll;
+        overflow-y: scroll;
+        -ms-overflow-style: none; 
+        scrollbar-width: none;
+    }
+
+    .panelRoot::-webkit-scrollbar {
+        display: none;
+    }
+
+
+    .panelRoot > .searchBar {
+        margin-left: 40px;
+        margin-top: 10px;
+        padding: 0px;
+        padding-left: 10px;
+        border: 0;
+        border-radius: 3px;
+        height: 30px;
+        width: calc(100% - 60px);
+    }
+
+    .panelRoot > .whoAmI {
+        margin-left     : 40px;
+        margin-top      : 10px;
+        padding         : 0px;
+        padding-left    : 10px;
+        border          : 0;
+        border-radius   : 3px;
+        height          : 50px;
+        width           : calc(100% - 60px);
+        
+        display         : flex;
+        align-items     : center;
+    }
+
+    .panelRoot > .whoAmI > .myImageWrapper {
+        flex-grow: 0;
+        flex-shrink: 0;
+        flex-basis: 50px;
+        height: 100%;
+        border-radius: 50%;
+        overflow: hidden;
+    }
+
+    .panelRoot > .whoAmI > .myImageWrapper > img {
+        width: 100% ;
+        height: 100%;
+    }
+
+    .panelRoot > .whoAmI > .userName {
+        flex-grow: 1;
+        flex-shrink: 1;
+        flex-basis: 0px;
+        height: 100%;
+        color: white;
+        font-size: 20px;
+        display: grid;
+        align-items: center ;
+        padding-left: 20px
+    }
+
+    .panelRoot > .contactListWrapper {
+        min-height: 30px;
+        margin-top: 10px;
+        width: 100%;
+        
+    }
+
+    .panelRoot .contactListWrapper .categoryWrapper {
+        width: 100%;
+        height: fit-content;
+        min-height: 30px;
+
+    }
+
+    .panelRoot .contactListWrapper .categoryWrapper > .nameNicoWrapper {
+        width: calc(100% - 30px);
+        height: 30px;
+        margin-left: 30px;
+        display: flex;
+        align-items: center;
+        justify-items: center;
+
+    }
+
+    .panelRoot .contactListWrapper .categoryWrapper .nameNicoWrapper .iconWrapper {
+        flex-grow: 0;
+        flex-shrink: 0;
+        flex-basis: 40px;
+        height: 100%;
+
+        display: grid;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .panelRoot .contactListWrapper .categoryWrapper .nameNicoWrapper .menuName {
+        flex-grow: 1;
+        flex-shrink: 0;
+        flex-basis: 0;
+
+        display: grid;
+        align-items: center;
+
+    }
+
+    .panelRoot .contactListWrapper .categoryWrapper .dropDownClick {
+        width: calc(100% - 30px);
+        margin-left: 30px;
+
+        height: fit-content;
+
+    }
+
+    .panelRoot .contactListWrapper > .addNewContact  {
+        width: 100%;
+        height: fit-content;
+    }
+
+    .panelRoot .contactListWrapper  .addNewContact > .titleNicon  {
+        margin-left: 30px;;
+        width: calc(100% - 30px );
+        min-height: 30px;
+
+        display: flex;
+        justify-items: center;
+        align-items: center;
+
+        display: flex;
+        justify-items: center;
+        align-items: center;
+    }
+
+    .panelRoot .contactListWrapper .addNewContact > .titleNicon > .title {
+        flex-grow: 1;
+        flex-shrink: 1;
+        flex-basis: 0px;
+        color:white;
+        font-size: small;
+    }
+
+    .panelRoot .contactListWrapper .addNewContact > .dropDownContent {
+        min-height: 100px;
+        width: calc(100% - 55px);
+        margin-left: 45px;
+
+        background-color: black;
+
+    }
+
+    .panelRoot .contactListWrapper .addNewContact > .dropDownContent > .wrapper {
+        height: 30px;
+        width: 100%;
+
+        margin-bottom: 1px;
+
+        display: flex;
+        align-items: center;
+
+        border-radius: 2px;
+
+    }
+
+    .panelRoot .contactListWrapper .addNewContact > .dropDownContent > .wrapper > .title {
+        flex-grow: 0;
+        flex-shrink: 0;
+        flex-basis: 60px;
+        font-size: small;
+        height: 100%;
+        
+        display: grid;
+        align-items: center;
+        justify-items: center;
+
+        background-color: rgb(4, 65, 4);
+        border-radius: 2px;
+
+        color: white;
+    }
+
+    .panelRoot .contactListWrapper .addNewContact > .dropDownContent > .wrapper > .inputWrapper {
+    
+        flex-grow: 1;
+        flex-shrink: 1;
+        flex-basis: 0;
+        height: 100%;
+
+        background-color: white;
+
+    }
+
+    .panelRoot .contactListWrapper .addNewContact > .dropDownContent > .wrapper > .inputWrapper > input {
+        height: 100%;
+        width: 100%;
+        padding: 0px;
+        margin: 0px;
+        border-width: 0px;
+
+        font-size: small;
+        padding-left: 3px;
+        padding-right: 3px;
+
+        box-sizing: border-box;
+
+        background-color: white;
+    }
+
+    .panelRoot .contactListWrapper .addNewContact > .dropDownContent > .wrapper > .inputWrapper .contactCategorySel_item {
+        color: white;
+        height: 20px;
+        width: calc(100% - 3px) ;
+
+        margin-left: 3px;
+    }
+
+    .panelRoot .contactListWrapper .addNewContact > .dropDownContent > .wrapper > .inputWrapper .contactCategorySel_item:hover {
+        font-weight: bold;
+    }
+
+
+    .panelRoot .contactListWrapper .addNewContact > .dropDownContent > .wrapper > .inputWrapper .addNewCategory {
+        height: 30px;
+        display: flex;
+        margin-top: 5px;
+
+        align-items: center;
+    }
+
+    .panelRoot .contactListWrapper .addNewContact > .dropDownContent > .wrapper > .inputWrapper .addNewCategory  .addNewCategoryInputWrapper {
+        flex-grow: 1;
+        flex-basis: 0;
+        height: 100%;
+
+        display: grid;
+        align-items: center;
+        justify-items: center;
+    }
+
+    .panelRoot .contactListWrapper .addNewContact > .dropDownContent > .wrapper > .inputWrapper .addNewCategory  .addNewCategoryInputWrapper  > input {
+        height: 25px;
+        width: 100%;
+        padding: 0px;
+        margin: 0px;
+        border-width: 0px;
+
+        font-size: small;
+        padding-left: 3px;
+        padding-right: 3px;
+
+        box-sizing: border-box;
+
+        background-color: white;
+    }
+
+    .panelRoot .contactListWrapper .addNewContact > .dropDownContent > .wrapper > .inputWrapper .addNewCategory .AddiconWrapper {
+        flex-grow: 0;
+        flex-shrink: 0;
+        flex-basis: 30px;
+        height: 100%;
+
+        display: grid;
+        justify-items: center;
+        align-items: center;
+    }
+
+    .panelRoot .contactListWrapper .addNewContact > .dropDownContent > .submitBottonWrapper {
+        height: 60px;
+        width: 100%;
+        display: grid;
+        justify-items: center;
+        align-items: center;
+    }
+
+    /* for all input under this file */
+    .panelRoot input:focus {
+        outline: none;   
+    }
+
+    .panelRoot .contactListWrapper .addNewContact > .titleNicon > .iconWrapper {
+        flex-grow: 0;
+        flex-shrink: 0;
+        flex-basis: 30px;
+
+        display: grid;
+        align-items: center;
+    }
+
+    .panelRoot .contactListWrapper .categoryWrapper .dropDownClick .contact {
+        margin-left: 15px;
+        height: 55px;
+        width: calc(100% -25px);
+        margin-right: 10px;
+        
+    }
+
+    .panelRoot > .groupListWrapper {
+        min-height: 30px;
+        width: 100%;
+    }
+
+    .panelRoot > .groupListWrapper  .group {
+        margin-left: 40px;
+        margin-right: 10px;
+        height: 55px;
+
+    }
+
+    .panelRoot > .groupListWrapper .addNewContact {
+        margin-bottom: 10px;
+    }
+
+}

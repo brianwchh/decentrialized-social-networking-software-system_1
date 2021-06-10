@@ -1,0 +1,43 @@
+/* ******************** small device******************* */
+@media only screen and (max-width: 600px) {
+    .mySubscriptionRoot {
+        height: fit-content;
+        width: 100%;
+    }
+
+    .mySubscriptionRoot   .item {
+        height: 30px;
+        width: 100%;
+
+    }
+
+    .mySubscriptionRoot .expand {
+        height: fit-content;
+        width: 100%;
+    }
+
+}
+
+
+
+
+
+/* ******************** large device******************* */
+@media only screen and (min-width: 600px) {
+    .mySubscriptionRoot {
+        height: 100%;
+        width: 100%;
+    }
+
+    .mySubscriptionRoot   .item {
+        height: 30px;
+        width: 100%;
+
+    }
+
+}
+
+
+
+
+

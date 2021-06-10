@@ -1,0 +1,187 @@
+
+/*
+_________________________________________________________________________________________________________________________________________________ 
+
+    small device 
+_________________________________________________________________________________________________________________________________________________
+*/
+@media screen and (max-width: 600px) {
+
+    .courseSectionRoot > .sectionNameAndDuration {
+        height: 60px;
+        width: 100%;
+
+        background-color: rgb(238, 234, 222);
+
+        display: flex;
+        align-items: center;
+        justify-items: center;
+    }
+
+    .courseSectionRoot > .sectionNameAndDuration > .icon {
+        flex-grow: 0;
+        flex-shrink: 0;
+        flex-basis: 40px;
+
+        display: grid;
+        align-items: center;
+        justify-items: center;
+    }
+
+    .courseSectionRoot > .sectionNameAndDuration > .sectionName {
+        flex-grow: 1;
+        flex-shrink: 1;
+        flex-basis: 0px;
+
+        font-size: small;
+    }
+
+    .courseSectionRoot > .sectionNameAndDuration> .duration {
+        flex-grow: 0;
+        flex-shrink: 0;
+        flex-basis: 250px;
+
+        display: none;
+    }
+
+    .courseSectionRoot > .sectionItems {
+        width: 100%;
+        height: fit-content;
+
+    }
+
+    .courseSectionRoot > .sectionItems > .item {
+        width: 100%;
+        height: 40px;
+
+        display: flex;
+        align-items: center;
+        justify-items: center;
+    }
+
+    .courseSectionRoot > .sectionItems > .item > .icon {
+        flex-grow: 0;
+        flex-shrink: 0;
+        flex-basis: 40px;
+
+        display: grid;
+        align-items: center;
+        justify-items: center;
+    }
+
+    .courseSectionRoot > .sectionItems > .item > .lessionName {
+        flex-grow: 1;
+        flex-shrink: 1;
+        flex-basis: 0px;
+
+        font-size: x-small;
+    }
+
+    .courseSectionRoot > .sectionItems > .item > .preview {
+        flex-grow: 0;
+        flex-shrink: 0;
+        flex-basis: 30px;
+
+        font-size: x-small;
+    }
+
+    .courseSectionRoot > .sectionItems > .item > .duration {
+        flex-grow: 0;
+        flex-shrink: 0;
+        flex-basis: 50px;
+
+        font-size: x-small;
+    }
+
+}
+
+
+/*
+_________________________________________________________________________________________________________________________________________________ 
+
+    large device 
+_________________________________________________________________________________________________________________________________________________
+*/
+@media only screen and (min-width: 600px) {
+
+    .courseSectionRoot > .sectionNameAndDuration {
+        height: 60px;
+        width: 100%;
+
+        background-color: rgb(238, 234, 222);
+
+        display: flex;
+        align-items: center;
+        justify-items: center;
+    }
+
+    .courseSectionRoot > .sectionNameAndDuration > .icon {
+        flex-grow: 0;
+        flex-shrink: 0;
+        flex-basis: 40px;
+
+        display: grid;
+        align-items: center;
+        justify-items: center;
+    }
+
+    .courseSectionRoot > .sectionNameAndDuration > .sectionName {
+        flex-grow: 1;
+        flex-shrink: 1;
+        flex-basis: 0px;
+    }
+
+    .courseSectionRoot > .sectionNameAndDuration> .duration {
+        flex-grow: 0;
+        flex-shrink: 0;
+        flex-basis: 250px;
+    }
+
+    .courseSectionRoot > .sectionItems {
+        width: 100%;
+        height: fit-content;
+
+    }
+
+    .courseSectionRoot > .sectionItems > .item {
+        width: 100%;
+        height: 40px;
+
+        display: flex;
+        align-items: center;
+        justify-items: center;
+    }
+
+    .courseSectionRoot > .sectionItems > .item > .icon {
+        flex-grow: 0;
+        flex-shrink: 0;
+        flex-basis: 40px;
+
+        display: grid;
+        align-items: center;
+        justify-items: center;
+    }
+
+    .courseSectionRoot > .sectionItems > .item > .lessionName {
+        flex-grow: 1;
+        flex-shrink: 1;
+        flex-basis: 0px;
+
+    }
+
+    .courseSectionRoot > .sectionItems > .item > .preview {
+        flex-grow: 0;
+        flex-shrink: 0;
+        flex-basis: 100px;
+    }
+
+    .courseSectionRoot > .sectionItems > .item > .duration {
+        flex-grow: 0;
+        flex-shrink: 0;
+        flex-basis: 150px;
+    }
+
+}
+
+
+

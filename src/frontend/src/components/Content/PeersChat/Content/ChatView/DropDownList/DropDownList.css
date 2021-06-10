@@ -1,0 +1,140 @@
+/* ******************** small device******************* */
+@media only screen and (max-width: 600px) {
+
+    .dropDownListRoot {
+        width: 100%;
+        height: fit-content;
+    }
+
+    .dropDownListRoot > .aTagAndIcon {
+        height: 30px;
+        width: calc(100% - 0px);
+
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+
+    .dropDownListRoot > .aTagAndIcon > .aTag {
+        flex-basis: 0;
+        flex-grow: 1;
+        flex-shrink: 0;
+        
+        padding-left: 30px;
+
+        display: flex;
+        align-items: center;
+
+        text-decoration: none;
+
+    }
+
+    .dropDownListRoot > .aTagAndIcon > .aTag > span {
+        font-size: small;
+    }
+
+    .dropDownListRoot > .aTagAndIcon > .iconWrapper {
+        flex-basis: 40px;
+        flex-grow: 0;
+        flex-shrink: 0;
+
+        display: grid;
+        align-items: center;
+        justify-items: center;
+
+    }
+
+    .dropDownListRoot > .menuContent {
+        width: calc(100%-30px);
+        margin-left: 30px;
+        display: none;
+
+
+    }
+
+    /* ********************** checked actions ********************** */
+    .dropDownListRoot > input:checked ~ .menuContent {
+        display: block;
+    }
+
+    /* ******************** items hiden ******************* */
+    .dropDownListRoot > input {
+        display: none;
+    }
+}
+
+
+
+
+
+
+/* ***** large device **************************** */
+@media only screen and (min-width: 600px) {
+
+    .dropDownListRoot {
+        width: 100%;
+        height: 100%;
+    }
+
+    .dropDownListRoot > .aTagAndIcon {
+        height: 30px;
+        width: calc(100% - 0px);
+
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+
+    .dropDownListRoot > .aTagAndIcon > .aTag {
+        flex-basis: 0;
+        flex-grow: 1;
+        flex-shrink: 0;
+        
+        padding-left: 30px;
+        height: 100%;
+
+        display: flex;
+        align-items: center;
+
+        text-decoration: none;
+
+    }
+
+    .dropDownListRoot > .aTagAndIcon > .aTag > span {
+        font-size: small;
+    }
+
+    .dropDownListRoot > .aTagAndIcon > .iconWrapper {
+        flex-basis: 40px;
+        flex-grow: 0;
+        flex-shrink: 0;
+
+        height: 100%;
+
+        display: grid;
+        align-items: center;
+        justify-items: center;
+
+    }
+
+    .dropDownListRoot > .menuContent {
+        width: calc(100%-30px);
+        margin-left: 30px;
+        display: none;
+
+
+    }
+
+    /* ********************** checked actions ********************** */
+    .dropDownListRoot > input:checked ~ .menuContent {
+        display: block;
+    }
+
+    /* ******************** items hiden ******************* */
+    .dropDownListRoot > input {
+        display: none;
+    }
+
+}

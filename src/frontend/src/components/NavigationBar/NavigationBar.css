@@ -1,0 +1,86 @@
+/* ******************** small device******************* */
+@media only screen and (max-width: 600px) {
+
+    .navigationBarRoot {
+        width: 100%;
+        height: 100%;
+        position: relative;
+
+        background-color: white;
+        z-index: 200;
+
+    }
+
+    .navigationBarRoot > .logoWrapper {
+        width: 100%;
+        height: 100%;
+
+    }
+
+    .navigationBarRoot > .menuWrapper {
+        height: fit-content;
+
+        width: 0%;
+
+        top: 100%;
+        left: 0px;
+        overflow: hidden;
+
+        position: absolute;
+
+        background-color: white;
+
+        transition: width 0.5s ease-in-out;
+
+    }
+
+
+    /* *************** checked actions ************* */
+    .navigationBarRoot > .ckeckbox:checked ~ .menuWrapper {
+        width: 100%;
+    }
+
+    /* ***************** hidden items **************** */
+    .navigationBarRoot > .ckeckbox {
+        display: none;
+    }
+
+}
+
+
+
+/* ***** large device **************************** */
+@media only screen and (min-width: 600px) {
+
+    .navigationBarRoot {
+        width: 100%;
+        height: 100%;
+
+        display: flex;
+        background-color: white;
+
+        border-style: solid;
+        border-width: 1px;
+        border-color: rgb(240,240,240);
+    }
+
+    .navigationBarRoot > .logoWrapper {
+        flex-grow: 1;
+        flex-shrink: 0;
+        flex-basis: 200px;
+    }
+
+    .navigationBarRoot > .menuWrapper {
+        flex-grow: 0;
+        flex-shrink: 2;
+        flex-basis: 900px;
+        min-width: 800px;
+        margin-right: 50px;
+    }
+
+    /* ***************** hidden items **************** */
+    .navigationBarRoot > .ckeckbox {
+        display: none;
+    }
+
+}

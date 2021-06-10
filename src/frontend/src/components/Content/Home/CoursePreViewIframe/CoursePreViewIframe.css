@@ -1,0 +1,161 @@
+/*
+_________________________________________________________________________________________________________________________________________________ 
+
+    small device 
+_________________________________________________________________________________________________________________________________________________
+*/
+@media screen and (max-width: 600px) {
+
+    .coursePreViewIframeRoot {
+        width: 100%;
+        height: 100%;
+
+        display:  flex;
+        flex-direction: column;
+
+    }
+
+    .coursePreViewIframeRoot .iframeTopBar {
+        flex-grow: 0;
+        flex-shrink: 0;
+        height: 50px;
+        width: 100%;
+
+        display: flex;
+        align-items: center;
+
+        background-color: white;
+    }
+
+    .coursePreViewIframeRoot .iframeTopBar .visitMore {
+        flex-grow: 0;
+        flex-shrink: 0;
+        width: 150px;
+        height: 100%;
+
+        display: grid;
+        align-items: center;
+        justify-items: center;
+    }
+
+    .coursePreViewIframeRoot .iframeTopBar .visitMore .visitMoreLink {
+        text-decoration: none;
+        color: black;
+    }
+
+    .coursePreViewIframeRoot .iframeTopBar .spacer {
+        flex-grow: 1;
+        flex-shrink: 1;
+        flex-basis: 0px;
+    }
+
+    .coursePreViewIframeRoot .iframeTopBar .closeIconWrapper {
+        flex-grow: 0;
+        flex-shrink: 0;
+        width: 100px;
+        height: 100%;
+
+        display: grid;
+        align-items: center;
+        justify-items: center;
+    }
+
+
+    .coursePreViewIframeRoot .preViewWindow {
+        flex-grow: 1;
+        flex-shrink: 1;
+        flex-basis: 0px;
+
+        overflow: hidden;
+
+    } /* it takes the whole bottom space of the iframe */
+}
+
+
+
+
+
+/*
+_________________________________________________________________________________________________________________________________________________ 
+
+    large device 
+_________________________________________________________________________________________________________________________________________________
+*/
+@media screen and (min-width: 600px) { 
+
+
+    .coursePreViewIframeRoot {
+        width: 100%;
+        height: 100%;
+
+        display:  flex;
+        flex-direction: column;
+
+    }
+
+
+    .coursePreViewIframeRoot .iframeTopBar {
+        flex-grow: 0;
+        flex-shrink: 0;
+        height: 50px;
+        width: 100%;
+
+        display: flex;
+        align-items: center;
+
+        background-color: white;
+        
+        border-width: 0px;
+        border-bottom-width: 1px;
+        border-style: solid;
+        border-color: rgb(233, 228, 228);
+    }
+
+    .coursePreViewIframeRoot .iframeTopBar .visitMore {
+        flex-grow: 0;
+        flex-shrink: 0;
+        width: 250px;
+        height: 100%;
+
+        display: grid;
+        align-items: center;
+        justify-items: center;
+    }
+
+    .coursePreViewIframeRoot .iframeTopBar .visitMore .visitMoreLink {
+        text-decoration: none;
+        color: black;
+        font-size: large;
+
+        margin-left: 10px;
+        text-decoration: none;
+    }
+
+    .coursePreViewIframeRoot .iframeTopBar .spacer {
+        flex-grow: 1;
+        flex-shrink: 1;
+        flex-basis: 0px;
+    }
+
+    .coursePreViewIframeRoot .iframeTopBar .closeIconWrapper {
+        flex-grow: 0;
+        flex-shrink: 0;
+        width: 100px;
+        height: 100%;
+
+        display: grid;
+        align-items: center;
+        justify-items: center;
+    }
+
+    .coursePreViewIframeRoot .preViewWindow {
+        flex-grow: 1;
+        flex-shrink: 1;
+        flex-basis: 0px;
+
+        overflow: hidden;
+
+    } /* it takes the whole bottom space of the iframe */
+
+
+}

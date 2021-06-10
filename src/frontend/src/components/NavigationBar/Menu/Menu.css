@@ -1,0 +1,55 @@
+/* ******************** small device******************* */
+@media only screen and (max-width: 600px) {
+    .menuRoot {
+        width: 100%;
+        height: fit-content;
+        padding-bottom: 30px;
+    }
+
+    .menuRoot > .munuItem {
+        height: 30px;
+        width: 100%;
+
+    }
+
+    .menuRoot > .munuItem:nth-child(odd) {
+        background-color: rgb(250, 249, 249);
+    }
+
+    .menuRoot .expandItem {
+        width: 100%;
+        height: fit-content;
+        min-height: 30px;
+    } 
+
+}
+
+
+
+
+/* ***** large device **************************** */
+@media only screen and (min-width: 600px) {
+
+    .menuRoot {
+        width: 100%;
+        height: 100%;
+
+        display: flex;
+    }
+
+    .menuRoot > .munuItem {
+        width: 100%;
+        height: 100%;
+
+        flex-basis: 0;
+        flex-grow: 1;
+        flex-shrink: 0;
+
+    }
+
+    .menuRoot > .munuItem:nth-child(odd) {
+        background-color: rgb(250, 250, 250);
+    }
+    
+
+}

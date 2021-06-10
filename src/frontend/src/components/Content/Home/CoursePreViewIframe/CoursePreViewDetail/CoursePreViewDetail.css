@@ -1,0 +1,488 @@
+
+/* ******************** small device******************* */
+@media only screen and (max-width: 600px) {
+
+    .coursePreViewDetailRoot {
+        width: 100%;
+        height: 100%;
+
+        display: grid;
+        grid-template-rows: 100%;
+        align-items: start;
+        justify-items: center;
+        background-color: white;
+
+        position: relative;
+
+        overflow-y: hidden;
+    }
+
+    .coursePreViewDetailRoot > .imageDetail {
+        width: 100%;
+        height: calc(100% - 100px);
+
+        overflow: hidden;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-items: center;
+        z-index: 100;
+
+        transition: height 1.2s ease-in-out;
+
+    }
+
+    .coursePreViewDetailRoot > .imageDetail > .imageWrapper {
+        flex-grow: 1;
+        flex-shrink: 1;
+        flex-basis: 0;
+
+        width: 100%;
+    
+        display: grid;
+        align-items: center;
+        justify-items: center;
+
+        position: relative;
+        overflow: hidden;
+        
+    }
+
+    .coursePreViewDetailRoot > .imageDetail > .imageWrapper > .playerSymbol {
+        z-index: 200;
+    }
+
+    .coursePreViewDetailRoot > .imageDetail > .imageWrapper > img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+
+        position: absolute;
+        top: 0px;
+        left: 0px;
+
+        z-index: 100;
+    }
+
+    .coursePreViewDetailRoot > .imageDetail > .info {
+        flex-grow: 0;
+        flex-shrink: 0;
+        flex-basis:  200px ;
+
+        width: 100%;
+
+        height: 100%;
+        overflow-y: scroll;
+        overflow-x: hidden;
+
+    }
+    .coursePreViewDetailRoot > .imageDetail > .info  .name {
+
+        text-decoration: none;
+
+        height: 80px;
+        width: 100%;
+
+        display: grid;
+        align-items: center;
+
+    }  
+
+    .coursePreViewDetailRoot > .imageDetail > .info  .name span {
+
+        margin-left: 20px;
+
+        font-size: large;
+        color:black;
+
+    }
+
+    .coursePreViewDetailRoot > .imageDetail > .info > hr {
+        margin-top: 5px;
+        margin-bottom: 5px;
+        margin-left: 10px;
+        color: rgb(88, 88, 88);
+    }
+
+    .coursePreViewDetailRoot > .imageDetail > .info > .description {
+        color: black;
+        margin-left: 5px;
+        margin-right: 5px;
+    }
+
+    .coursePreViewDetailRoot > .imageList {
+        position: absolute;
+        top: calc(100% - 100px);
+        left: 0px;
+        height: 100px;
+        width: 100%;
+
+        display: flex;
+        flex-direction: row;
+        overflow-y: hidden;
+        overflow-x: scroll;
+        -ms-overflow-style: none; 
+        scrollbar-width: none;
+        
+        z-index: 180;
+
+        background-color: whitesmoke;
+
+        /* transition: height 1.2s ease-in-out; */
+        transition: top 1.2s ease-in-out;
+
+    }
+
+    .coursePreViewDetailRoot > .imageList::-webkit-scrollbar {
+        display: none;
+    }
+
+    .coursePreViewDetailRoot > .imageList .album {
+        flex-grow: 0;
+        flex-shrink: 0;
+        flex-basis: auto;
+        width: 100px;
+        height: 100%;
+
+        margin: 2px;
+
+        display: grid;
+        align-items: center;
+        justify-items: center;
+
+        position: relative;
+    }
+
+    .coursePreViewDetailRoot > .imageList .album > img {
+        width: 98%;
+        height: 80%;
+        object-fit: cover;
+    }
+
+    .coursePreViewDetailRoot > .imageList .album > .profileName {
+        position: absolute;
+        bottom: 10px;
+        left: 5px;
+
+        color: black;
+        font-size: xx-small;
+    }
+
+
+    .coursePreViewDetailRoot > .imageDetail > .arrowForwardIconWrapper {
+        position: absolute ; /* gobal document is the relative*/
+        z-index: 200;
+
+        top: 30%;
+        right: 3%;
+        width: 30px;
+        height: 30px;
+
+        opacity: 0.5;
+
+        display: grid;
+        align-items: center;
+        justify-items: center;
+
+        /* background-color: black; */
+    }
+
+    .coursePreViewDetailRoot > .imageDetail  > .arrowBackIconWrapper {
+        position: absolute ; /* gobal document is the relative*/
+        z-index: 200;
+
+        top: 30%;
+        left: 3%;
+        width: 30px;
+        height: 30px;
+
+        opacity: 0.5;
+
+        display: grid;
+        align-items: center;
+        justify-items: center;
+
+        /* background-color: black; */
+    }
+
+    .coursePreViewDetailRoot > .imageDetail > .icoMenuWrapper {
+        position: absolute;
+
+        bottom: 100px;
+        left: 0px;
+
+        transition: bottom 1.2s ease-in-out;
+
+    }
+
+
+    /* ************************** hidden component  ******************************/
+    #imageDetalViewRootCheckbox {
+        display: none;
+    }
+
+    /* *********************  checked actions ************************* */
+
+    #imageDetalViewRootCheckbox:checked ~  .imageList {
+        top: calc(100% - 0px);
+        /* height: 0%; */
+    }
+
+    #imageDetalViewRootCheckbox:checked ~  .imageDetail {
+        height: 100%;
+    }
+
+    #imageDetalViewRootCheckbox:checked ~  .imageDetail > .icoMenuWrapper {
+        bottom: 0px;
+    }
+
+
+}
+
+
+
+
+
+/* ******************** large device******************* */
+@media only screen and (min-width: 600px) {
+    .coursePreViewDetailRoot {
+        width: 100%;
+        height: 100%;
+
+        display: grid;
+        grid-template-rows: 100%;
+        align-items: start;
+        justify-items: center;
+        background-color: white;
+
+        position: relative;
+
+        overflow-y: hidden;
+    }
+
+    .coursePreViewDetailRoot > .imageDetail {
+        width: 80%;
+        height: calc(100% - 100px);
+
+        overflow: hidden;
+
+        display: flex;
+        align-items: center;
+        justify-items: center;
+        z-index: 100;
+
+        transition: height 1.2s ease-in-out;
+
+    }
+
+    .coursePreViewDetailRoot > .imageDetail > .imageWrapper {
+        flex-grow: 1;
+        flex-shrink: 1;
+
+        height: 100%;
+
+        display: grid;
+        align-items: center;
+        justify-items: center;
+
+        position: relative;
+        overflow: hidden;
+        
+    }
+
+    .coursePreViewDetailRoot > .imageDetail > .imageWrapper > .playerSymbol {
+        z-index: 200;
+    }
+
+    .coursePreViewDetailRoot > .imageDetail > .imageWrapper > img {
+        height: 100%;
+        width: auto;
+        max-width: 99.8%;
+        /* object-fit: cover; */
+
+        position: absolute;
+        top: 0px;
+        left: 0px;
+
+        z-index: 100;
+
+    }
+
+    .coursePreViewDetailRoot > .imageDetail > .info {
+        flex-grow: 0;
+        flex-shrink: 0;
+        flex-basis:  300px ;
+
+        height: 100%;
+        overflow-y: scroll;
+        overflow-x: hidden;
+
+        border-width: 0px;
+        border-left-width: 1px;
+        border-style: solid;
+        border-color: rgb(233, 228, 228);
+
+    }
+
+    .coursePreViewDetailRoot > .imageDetail > .info  .name {
+
+        text-decoration: none;
+
+        height: 80px;
+        width: 100%;
+
+        display: grid;
+        align-items: center;
+
+    }  
+
+    .coursePreViewDetailRoot > .imageDetail > .info  .name span {
+
+        margin-left: 20px;
+
+        font-size: large;
+        color:black;
+
+    } 
+
+    .coursePreViewDetailRoot > .imageDetail > .info > hr {
+        margin-top: 0px;
+        margin-bottom: 40px;
+        margin-left: 10px;
+        color: rgb(88, 88, 88);
+    }
+
+    .coursePreViewDetailRoot > .imageDetail > .info > .description {
+        color: black;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+    .coursePreViewDetailRoot > .imageList {
+        position: absolute;
+        top: calc(100% - 100px);
+        left: 0px;
+        height: 100px;
+        width: 100%;
+
+        display: flex;
+        flex-direction: row;
+        overflow-y: hidden;
+        overflow-x: scroll;
+        -ms-overflow-style: none; 
+        scrollbar-width: none;
+        
+        z-index: 180;
+
+        background-color: black;
+
+        /* transition: height 1.2s ease-in-out; */
+        transition: top 1.2s ease-in-out;
+
+    }
+
+    .coursePreViewDetailRoot > .imageList::-webkit-scrollbar {
+        display: none;
+    }
+
+    .coursePreViewDetailRoot > .imageList .album {
+        flex-grow: 0;
+        flex-shrink: 0;
+        flex-basis: auto;
+        width: 100px;
+        height: 100%;
+
+        margin: 2px;
+
+        display: grid;
+        align-items: center;
+        justify-items: center;
+
+        position: relative;
+    }
+
+    .coursePreViewDetailRoot > .imageList .album > img {
+        width: 98%;
+        height: 80%;
+        object-fit: cover;
+    }
+
+    .coursePreViewDetailRoot > .imageList .album > .profileName {
+        position: absolute;
+        bottom: 10px;
+        left: 5px;
+
+        color: black;
+        font-size: xx-small;
+    }
+
+
+    .coursePreViewDetailRoot > .imageDetail > .arrowForwardIconWrapper {
+        position: absolute ; /* gobal document is the relative*/
+        z-index: 200;
+
+        top: 50%;
+        right: 3%;
+        width: 30px;
+        height: 30px;
+
+        opacity: 0.5;
+
+        display: grid;
+        align-items: center;
+        justify-items: center;
+
+        background-color: white;
+    }
+
+    .coursePreViewDetailRoot > .imageDetail  > .arrowBackIconWrapper {
+        position: absolute ; /* gobal document is the relative*/
+        z-index: 200;
+
+        top: 50%;
+        left: 3%;
+        width: 30px;
+        height: 30px;
+
+        opacity: 0.5;
+
+        display: grid;
+        align-items: center;
+        justify-items: center;
+
+        background-color: white;
+    }
+
+    .coursePreViewDetailRoot > .imageDetail > .icoMenuWrapper {
+        position: absolute;
+
+        bottom: 100px;
+        right: 50px;
+
+        transition: bottom 1.2s ease-in-out;
+
+    }
+
+
+    /* ************************** hidden component  ******************************/
+    #imageDetalViewRootCheckbox {
+        display: none;
+    }
+
+    /* *********************  checked actions ************************* */
+
+    #imageDetalViewRootCheckbox:checked ~  .imageList {
+        top: calc(100% - 0px);
+        /* height: 0%; */
+    }
+
+    #imageDetalViewRootCheckbox:checked ~  .imageDetail {
+        height: 100%;
+    }
+
+    #imageDetalViewRootCheckbox:checked ~  .imageDetail > .icoMenuWrapper {
+        bottom: 0px;
+    }
+
+}

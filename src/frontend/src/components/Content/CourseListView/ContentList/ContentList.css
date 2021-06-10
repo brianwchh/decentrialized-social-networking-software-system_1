@@ -1,0 +1,108 @@
+
+/*
+_________________________________________________________________________________________________________________________________________________ 
+
+    small device 
+_________________________________________________________________________________________________________________________________________________
+*/
+@media screen and (max-width: 600px) {
+
+    .contentListRoot {
+        width: calc(100% - 20px );;
+        height: fit-content;
+        margin-left: 10px;
+        margin-right: 10px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+
+        display: flex;
+        flex-wrap: wrap;
+
+        align-items: center;
+        justify-items: center;
+
+    }
+
+    .contentListRoot .courseItem {
+        width: calc( 100% - 2px );
+        margin: 10px;
+        height: 400px;
+
+        overflow: hidden;
+
+        /* border-style: solid;
+        border-width: 1px;
+        border-color: green;
+        border-radius: 8px;
+
+        box-shadow: 4px 4px 2px 1px rgb(7, 68, 28);  */
+
+    }
+
+    .contentListRoot .courseItem:hover {
+        border-color: white;
+
+        box-shadow: 4px 4px 2px 1px white; 
+
+    }
+
+
+}
+
+
+
+/*
+_________________________________________________________________________________________________________________________________________________ 
+
+    large device 
+_________________________________________________________________________________________________________________________________________________
+*/
+@media only screen and (min-width: 600px) {
+
+    .contentListRoot {
+        width: calc(100% - 20px );;
+        height: fit-content;
+        margin-left: 10px;
+        margin-right: 10px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+
+        display: flex;
+        flex-wrap: wrap;
+
+        align-items: center;
+        justify-items: center;
+
+    }
+
+    .contentListRoot .courseItem {
+        width: calc( 25% - 2px - 4px);
+        margin: 2px;
+        height: 400px;
+
+        overflow: hidden;
+
+        /* border-style: solid;
+        border-width: 1px;
+        border-color: green;
+        border-radius: 8px;
+
+        box-shadow: 4px 4px 2px 1px rgb(7, 68, 28);  */
+
+    }
+
+    .contentListRoot .courseItem:hover {
+        border-color: white;
+
+        box-shadow: 4px 4px 2px 1px white; 
+
+    }
+
+}
+
+
+
+
+
+
+

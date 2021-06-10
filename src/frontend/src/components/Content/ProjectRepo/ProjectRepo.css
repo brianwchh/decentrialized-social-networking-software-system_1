@@ -1,0 +1,62 @@
+
+/* ******************** small device******************* */
+@media only screen and (max-width: 600px) {
+
+
+    .projectRoot {
+        width: 100%;
+        height: calc(100vh - 50px);
+        display: flex;
+        flex-direction: column;
+
+    }
+
+    .projectRoot .clickBelow {
+        margin-top: 180px;
+        margin-left: 10px;
+        width: 100%;
+    }
+
+    .projectRoot > .link {
+        margin-left: 10px;
+        margin-right: 10px;
+        margin-top: 20px;
+        width: calc(100% - 20px);
+        height: 120px;
+
+        color: green;
+        display: grid;
+        align-items: center;
+        justify-items: center;
+
+        word-wrap:break-word;
+        word-break: break-all;
+
+    }
+
+}
+
+
+
+/* ******************** large device******************* */
+@media only screen and (min-width: 600px) {
+
+    .projectRoot {
+        min-width: 100%;
+        height: calc(100vh - 50px);
+        display: flex;
+        flex-direction: column;
+
+    }
+
+    .projectRoot .clickBelow {
+        margin-top: 180px;
+        margin-left: 100px;
+    }
+
+    .projectRoot a {
+        margin-left: 100px;
+        margin-top: 20px;
+    }
+
+}

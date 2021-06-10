@@ -1,0 +1,399 @@
+/* ******************** small device******************* */
+@media only screen and (max-width: 600px) {
+
+    .chatAreaMyGroupRoot {
+        width: 100%;
+        height: 100%;
+
+        display: flex;
+        flex-direction: column;
+
+        overflow: hidden;
+    }
+
+    .chatAreaMyGroupRoot > .contactProfile {
+        flex-basis: 50px;
+        flex-grow: 0;
+        flex-shrink: 0;
+
+        display: flex;
+        flex-direction: row;
+
+        overflow: hidden;
+        background-color: rgb(240, 240, 240);
+    }
+
+    .chatAreaMyGroupRoot > .contactProfile > .profileImg {
+        flex-grow: 0;
+        flex-shrink: 0;
+        width: 60px;
+        height: 50px;
+        display: grid;
+        align-items: center;
+        justify-items: center;
+    }
+
+    .chatAreaMyGroupRoot > .contactProfile > .contactName {
+        flex-grow: 0;
+        flex-shrink: 0;
+        width: 100px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: grid;
+        align-items: center;
+        justify-items: center;
+
+        font-size: small;
+    }
+
+    .chatAreaMyGroupRoot > .contactProfile > .sayUsayMe {
+        flex-grow: 1;
+        flex-shrink: 1;
+        flex-basis: 0;
+
+        display: grid;
+        align-items: center;
+        justify-items: center;
+
+        text-decoration: none;
+        color: black;
+
+        overflow: hidden;
+        font-size: small;
+    }
+
+    .chatAreaMyGroupRoot > .contactProfile > .videoCall {
+        flex-grow: 0;
+        flex-shrink: 0;
+        flex-basis: 50px;
+
+        display: grid;
+        align-items: center;
+        justify-items: center;
+    }
+
+    .chatAreaMyGroupRoot > .contactProfile > .voiceCall {
+        flex-grow: 0;
+        flex-shrink: 0;
+        flex-basis: 50px;
+
+        display: grid;
+        align-items: center;
+        justify-items: center;
+    }
+
+    .chatAreaMyGroupRoot > .contactProfile > .more {
+        flex-grow: 0;
+        flex-shrink: 0;
+        flex-basis: 50px;
+
+        display: grid;
+        align-items: center;
+        justify-items: center;
+
+    }
+
+    .chatAreaMyGroupRoot > .contactProfile > .profileImg > img {
+        border-radius: 50%;
+    }
+
+    .chatAreaMyGroupRoot > .messageArea {
+        flex-basis: 0;
+        flex-grow: 1;
+        /* flex-shrink: 1; */
+
+    }
+
+    .chatAreaMyGroupRoot > .textInput {
+        flex-basis: auto;
+        flex-grow: 0;
+        flex-shrink: 0;
+        width: 100%;
+
+        min-height: 50px;
+        max-height: 200px;
+
+        border-style: solid;
+        border-width: 1px;
+        border-color: rgb(238, 238, 238);
+
+        display: flex;
+        flex-direction: row;
+
+        overflow: hidden;
+        font-size: small;
+    }
+
+    .chatAreaMyGroupRoot > .textInput > .sendFileIcon {
+        flex-grow: 0;
+        flex-shrink: 0;
+        width: 50px;
+        display: grid;
+        justify-items: center;
+        align-items: end;
+        padding-bottom: 10px;
+    }
+
+    .chatAreaMyGroupRoot > .textInput > .typeTextHere {
+        flex-basis: 0;
+        flex-grow: 1;
+
+        border-style: solid;
+        border-width: 1px;
+        border-color: rgb(236, 236, 236);
+        
+        overflow-y: scroll;
+        -ms-overflow-style: none; 
+        scrollbar-width: none;
+
+        min-height: 50px;
+        max-height: 200px;
+        padding: 5px;
+        
+        border-radius: 3px;
+    }
+
+    .chatAreaMyGroupRoot > .textInput > .typeTextHere::-webkit-scrollbar {
+        display: none;
+    }
+
+    .chatAreaMyGroupRoot > .textInput > .typeTextHere:focus {
+        outline: 0px solid transparent;
+    }
+
+    .chatAreaMyGroupRoot > .textInput > .emoji {
+        flex-grow: 0;
+        flex-shrink: 0;
+        width: 50px;
+
+        display: grid;
+        justify-items: center;
+        align-items: end;
+        padding-bottom: 10px;
+
+        /* background-color: rgb(235, 228, 137); */
+
+    }
+    
+    .chatAreaMyGroupRoot > .textInput > .sendIcon {
+        flex-grow: 0;
+        flex-shrink: 0;
+        width: 50px;
+
+        display: grid;
+        justify-items: center;
+        align-items: end;
+        padding-bottom: 10px;
+
+        /* background-color: rgb(235, 228, 137); */
+
+    }
+
+}
+
+
+
+/* ***** large device **************************** */
+@media only screen and (min-width: 600px) {
+
+    .chatAreaMyGroupRoot {
+        width: 100%;
+        height: 100%;
+
+        display: flex;
+        flex-direction: column;
+
+        overflow: hidden;
+    }
+
+    .chatAreaMyGroupRoot > .contactProfile {
+        flex-basis: 50px;
+        flex-grow: 0;
+        flex-shrink: 0;
+
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        overflow: hidden;
+        background-color: green;
+    }
+
+    .chatAreaMyGroupRoot > .contactProfile > .profileImg {
+        flex-grow: 0;
+        flex-shrink: 0;
+        width: 40px;
+        height: 40px;
+        display: grid;
+        margin-left: 10px;
+
+        align-items: center;
+        justify-items: center;
+    }
+
+    .chatAreaMyGroupRoot > .contactProfile > .contactName {
+        flex-grow: 0;
+        flex-shrink: 0;
+        width: 100px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: grid;
+        align-items: center;
+        justify-items: center;
+
+        font-size: medium;
+        color: white;
+    }
+
+    .chatAreaMyGroupRoot > .contactProfile > .sayUsayMe {
+        flex-grow: 1;
+        flex-shrink: 1;
+        flex-basis: 0;
+
+        display: grid;
+        align-items: center;
+        justify-items: center;
+
+        text-decoration: none;
+        color: white;
+
+        overflow: hidden;
+        font-size: small;
+    }
+
+    .chatAreaMyGroupRoot > .contactProfile > .videoCall {
+        flex-grow: 0;
+        flex-shrink: 0;
+        flex-basis: 50px;
+
+        display: grid;
+        align-items: center;
+        justify-items: center;
+    }
+
+    .chatAreaMyGroupRoot > .contactProfile > .voiceCall {
+        flex-grow: 0;
+        flex-shrink: 0;
+        flex-basis: 50px;
+
+        display: grid;
+        align-items: center;
+        justify-items: center;
+    }
+
+    .chatAreaMyGroupRoot > .contactProfile > .more {
+        flex-grow: 0;
+        flex-shrink: 0;
+        flex-basis: 50px;
+
+        display: grid;
+        align-items: center;
+        justify-items: center;
+
+    }
+
+    .chatAreaMyGroupRoot > .contactProfile > .profileImg > img {
+        border-radius: 50%;
+        width: 100%;
+        height: 100%;
+    }
+
+    .chatAreaMyGroupRoot > .messageArea {
+        flex-basis: 0;
+        flex-grow: 1;
+        /* flex-shrink: 1; */
+
+        background-color: white;
+
+    }
+
+    .chatAreaMyGroupRoot > .textInput {
+        flex-basis: auto;
+        flex-grow: 0;
+        flex-shrink: 0;
+        width: 100%;
+
+        min-height: 50px;
+        max-height: 200px;
+
+        border-style: solid;
+        border-width: 1px;
+        border-color: green;
+
+        display: flex;
+        flex-direction: row;
+
+        overflow: hidden;
+        font-size: small;
+    }
+
+    .chatAreaMyGroupRoot > .textInput > .sendFileIcon {
+        flex-grow: 0;
+        flex-shrink: 0;
+        width: 50px;
+        display: grid;
+        justify-items: center;
+        align-items: end;
+        padding-bottom: 10px;
+
+        background-color: green;
+    }
+
+    .chatAreaMyGroupRoot > .textInput > .typeTextHere {
+        flex-basis: 0;
+        flex-grow: 1;
+
+        background-color: white;
+        
+        overflow-y: scroll;
+        -ms-overflow-style: none; 
+        scrollbar-width: none;
+
+        min-height: 50px;
+        max-height: 200px;
+        padding: 5px;
+
+    }
+
+    .chatAreaMyGroupRoot > .textInput > .typeTextHere::-webkit-scrollbar {
+        display: none;
+    }
+
+    .chatAreaMyGroupRoot > .textInput > .typeTextHere:focus {
+        outline: 0px solid transparent;
+    }
+
+    .chatAreaMyGroupRoot > .textInput > .emoji {
+        flex-grow: 0;
+        flex-shrink: 0;
+        width: 50px;
+
+        display: grid;
+        justify-items: center;
+        align-items: end;
+        padding-bottom: 10px;
+
+        background-color: green;
+
+    }
+    
+    .chatAreaMyGroupRoot > .textInput > .sendIcon {
+        flex-grow: 0;
+        flex-shrink: 0;
+        width: 50px;
+
+        display: grid;
+        justify-items: center;
+        align-items: end;
+        padding-bottom: 10px;
+
+        background-color: green;
+    }
+
+}
+
+
+
+

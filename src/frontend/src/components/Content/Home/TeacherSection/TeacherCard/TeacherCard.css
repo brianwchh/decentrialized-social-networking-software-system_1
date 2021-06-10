@@ -1,0 +1,132 @@
+.teacherCardRoot {
+    width: 100%;
+    height: 100%;
+
+    display: grid;
+    align-items: center;
+    justify-items: center;
+
+    background-color: white;
+}
+
+.teacherCardRoot > .innerBox {
+    margin: 10px;
+    width: calc(100% - 20px);
+    height: calc(100% - 20px);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+
+    position: relative;
+
+    overflow: hidden;
+
+    z-index: 100;
+
+    border-style: solid;
+    border-width: 1px;
+    border-color: green;
+    border-radius: 8px;
+
+    box-shadow: 4px 4px 2px 1px rgb(7, 68, 28); 
+
+}
+
+.teacherCardRoot > .innerBox > .imageWrapper {
+    position: absolute;  
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+
+    z-index: 100;
+
+}
+
+.teacherCardRoot > .innerBox > .imageWrapper > img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+
+    
+}
+
+.teacherCardRoot > .innerBox > .albumNameWrapper {
+    flex-basis: 0;
+    flex-grow: 6;
+    flex-shrink: 0;
+
+    width: 100%;
+
+    z-index: inherit;
+
+    display: grid;
+    justify-items: center;
+    align-items: end;
+}
+
+.teacherCardRoot  > .innerBox > .clickForMoreWrapper {
+    flex-basis: 0;
+    flex-grow: 4;
+    flex-shrink: 0;
+
+    width: 100%;
+
+    z-index: inherit;
+
+    display: grid;
+    justify-items: center;
+
+}
+
+.teacherCardRoot >  .innerBox > .albumNameWrapper > .albumName {
+
+    color: white;
+    font-weight: bold;
+    font-size: x-large;
+
+    margin-bottom: 20px;
+
+}
+
+.teacherCardRoot > .innerBox > .clickForMoreWrapper > .clickForMore {
+
+    margin-top: 10px;
+
+    width: fit-content;
+    height: 35px;
+    padding-left: 30px;
+    padding-right: 30px;
+
+    z-index: 200;
+    
+
+    display: grid;
+    align-items: center;
+    justify-items: center;
+
+    border-style: solid;
+    border-width: 1px;
+    border-color: white;
+
+    color: white;
+    font-size: small;
+
+    text-decoration: none;
+
+}
+
+
+/* ***************** hover actions ******************** */
+.teacherCardRoot > .innerBox > .clickForMoreWrapper > .clickForMore:hover {
+    background-color: white;
+    color: black;
+}
+
+.teacherCardRoot > .innerBox:hover .imageWrapper > img {
+    opacity: 0.8;
+
+    filter: brightness(.6);
+}

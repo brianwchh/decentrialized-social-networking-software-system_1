@@ -1,0 +1,142 @@
+/* ******************** small device******************* */
+@media only screen and (max-width: 600px) {
+
+    .contactRoot {
+        width: 100%;
+        height: 100%;
+
+        display: flex;
+        align-items: center;
+        justify-items: center;
+    }
+
+    .contactRoot > .contactImageWrapper {
+        flex-grow: 0;
+        flex-shrink: 0;
+        flex-basis: 45px;
+        height: 45px;
+
+    }
+
+    .contactRoot > .contactImageWrapper > img {
+
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+    }
+
+    .contactRoot > .nameAndNotification {
+        flex-grow: 1;
+        flex-shrink: 1;
+        flex-basis: 0px;
+        height: 100%;
+
+        display: flex;
+
+    }
+
+    .contactRoot > .nameAndNotification > .name {
+        flex-grow: 1;
+        flex-shrink: 1;
+        flex-basis: 0px;
+
+        display: grid;
+        align-items: center;
+        justify-items: center;
+
+        color: white;
+        font-size: small;
+    }
+
+    .contactRoot > .nameAndNotification > .unReadMsgCnt {
+        flex-grow: 0;
+        flex-shrink: 0;
+        flex-basis: 50px;
+
+        display: grid;
+        align-items: center;
+        justify-items: center;
+
+        font-size: small;
+
+        color: green;
+    }
+
+
+}
+
+
+
+
+
+/* ***** large device **************************** */
+@media only screen and (min-width: 600px) {
+
+    .contactRoot {
+        width: 100%;
+        height: 100%;
+
+        display: flex;
+        align-items: center;
+        justify-items: center;
+    }
+
+    .contactRoot > .contactImageWrapper {
+        flex-grow: 0;
+        flex-shrink: 0;
+        flex-basis: 45px;
+        height: 45px;
+
+    }
+
+    .contactRoot > .contactImageWrapper > img {
+
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+    }
+
+    .contactRoot > .nameAndNotification {
+        flex-grow: 1;
+        flex-shrink: 1;
+        flex-basis: 0px;
+        height: 100%;
+
+        display: flex;
+
+    }
+
+    .contactRoot > .nameAndNotification > .name {
+        flex-grow: 1;
+        flex-shrink: 1;
+        flex-basis: 0px;
+
+        display: grid;
+        align-items: center;
+        justify-items: center;
+
+        color: white;
+        font-size: small;
+    }
+
+    .contactRoot > .nameAndNotification > .unReadMsgCnt {
+        flex-grow: 0;
+        flex-shrink: 0;
+        flex-basis: 50px;
+
+        display: grid;
+        align-items: center;
+        justify-items: center;
+
+        font-size: small;
+
+        color: green;
+    }
+
+
+
+}
+
+
+
+

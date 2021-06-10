@@ -1,0 +1,91 @@
+/* ******************** small device******************* */
+@media only screen and (max-width: 600px) {
+
+    .newSubscriptionRoot {
+        width : 100%;
+        height : 100vh;
+    }
+
+    .newSubscriptionRoot .form {
+        display : flex;
+        flex-direction:column;
+        align-items:center;
+        width : 60%;
+        height : 300px;
+        margin-left: 20%;
+        margin-top: 100px;
+
+    }
+
+    .newSubscriptionRoot .form .inputWrapper {
+        width: 100%;
+        height: 30px;
+
+        margin-top: 30px;
+        display: grid;
+        align-items: center;
+        justify-items: center;
+
+        margin-top: 10%;
+        margin-bottom:20px;
+    }
+
+    .newSubscriptionRoot .form .inputWrapper  input {
+        height:100%;
+        width:100%;
+    }
+
+    .newSubscriptionRoot .form .submit {
+        width:80px;
+        height:30px;
+        display: grid;
+    }
+
+}
+
+
+
+/* ******************** large device******************* */
+@media only screen and (min-width: 600px) {
+
+    .newSubscriptionRoot {
+        width : 100%;
+        height : 100vh;
+    }
+
+    .newSubscriptionRoot .form {
+        display : flex;
+        flex-direction:column;
+        align-items:center;
+        width : 60%;
+        height : 300px;
+        margin-left: 20%;
+        margin-top: 100px;
+
+    }
+
+    .newSubscriptionRoot .form .inputWrapper {
+        width: 300px;
+        height: 30px;
+
+        margin-top: 30px;
+        display: grid;
+        align-items: center;
+        justify-items: center;
+
+        margin-top: 10%;
+        margin-bottom:20px;
+    }
+
+    .newSubscriptionRoot .form .inputWrapper  input {
+        height:100%;
+        width:100%;
+    }
+
+    .newSubscriptionRoot .form .submit {
+        width:80px;
+        height:30px;
+        display: grid;
+    }
+
+}

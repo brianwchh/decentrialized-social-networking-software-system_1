@@ -1,0 +1,1882 @@
+/*
+_________________________________________________________________________________________________________________________________________________ 
+
+    small device 
+_________________________________________________________________________________________________________________________________________________
+*/
+@media screen and (max-width: 600px) {
+
+    .Home {
+
+        width: 100%;
+        min-height: calc(100vh - 50px);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        /* background-color: green; */
+
+    }
+
+    .Home .Banner {
+        height: calc(100vh - 50px);
+        width: 100%;
+        position: relative;
+
+    }
+
+    .Home .Banner>.imageWrapper {
+        top: 0px;
+        left: 0px;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: black;
+
+    }
+
+    .Home .Banner>.imageWrapper img {
+        width: 100%;
+        height: 100%;
+        opacity: 0.4;
+    }
+
+    .Home .Banner>.textArea {
+        position: absolute;
+        top: 30px;
+        left: 40px;
+        width: calc(100% - 60px); 
+
+    }
+
+    .Home .Banner>.textArea>.header1  {
+        width:100%;
+        color: white;
+
+        display: grid;
+        align-items: center;
+        justify-items: center;
+
+        font-family: 'Permanent Marker', cursive;
+        font-size: 30px;
+    }
+
+    .Home .Banner>.textArea>.header2  {
+        width:100%;
+        color: white;
+
+        display: grid;
+        align-items: center;
+        justify-items: center;
+
+        font-family: 'Lobster', cursive;
+        font-size: 20px;
+    }
+
+    .Home .Banner>.textArea > .bulletPoint {
+        margin-top: 5px;
+        margin-left: 0px;
+        margin-right: 10px;
+        width:calc(100% - 20px);
+
+        display: flex;
+
+    }
+
+    .Home .Banner > .textArea>.bulletPoint>.iconWrapper{
+        width:20px;
+        height:20px;
+        display: grid;
+        align-items: center;
+        justify-items: center;
+        border-style: solid;
+        border-width: 1px;
+        border-color: rgb(105, 105, 105);
+        border-radius: 5px;
+    }
+
+    /* Indie Flower */
+    .Home .Banner>.textArea >.bulletPoint > .buletText {
+        color: whitesmoke;
+        font-family: 'Indie Flower', cursive;
+        font-size: 15px;
+        margin-left: 10px;
+        font-weight: bold;
+    } 
+
+    .Home .Banner>.textArea >.bulletPoint > .buletText:hover {
+        transition: all 0.5s ease-in-out;
+        font-weight: bold;
+    }
+
+    .Home .Banner > .textArea > .bulletPoint > .buletText > .emphas {
+        color: red;
+        font-size: 18px;
+    }  
+
+    .Home .Banner>.textArea > .firstRow {
+        margin-top:20px;
+    }
+
+    .Home .Banner > .textArea > .click2Watch {
+        margin-left: calc(25% - 25px);
+        margin-top: 20px;
+        width: 120px;
+        height: 30px;
+        border-radius: 8px;
+        background-color: rgb(26, 126, 26);
+        display: grid;
+        align-items: center;
+        justify-items: center;
+        color: whitesmoke;
+        font-family: 'Permanent Marker', cursive;
+    }
+
+    .Home .Banner > .textArea > .click2Watch:hover {
+        background-color: yellowgreen;
+        transition: all 0.5s ease-in-out;
+        font-weight: bold;
+    }
+
+    /*  social media pigs  */
+    .Home .socialMeidaPig {
+        width: 100%;
+        height: 500px;
+        background-color: black;
+        position: relative;
+        margin-top: 1px;
+
+        display: flex;
+        position: relative;
+    }
+
+    .Home .socialMeidaPig .left {
+        top: 0px;
+        left: 0px;
+        height: 100%;
+        opacity: 1.0;
+        position: absolute;
+
+        background-color: black;
+    }
+
+    .Home .socialMeidaPig .left img {
+        width: 100%;
+        height: 100%;
+        object-fit: center;
+        opacity: 0.7;
+    }
+
+    .Home .socialMeidaPig .right {
+        flex-grow: 1;
+        flex-shrink: 1;
+        flex-basis: 0px;
+        height: 100%;
+        position: relative;
+    }
+
+    .Home .socialMeidaPig .right .textContainer {
+        position: absolute;
+        top: 40px;
+        width: 100%;
+    }
+
+    .Home .socialMeidaPig .right .textContainer .header1 {
+        margin-top: 10px;
+        color: white;
+        font-family: 'Lobster', cursive;
+        font-size: 15px;
+        display: grid;
+        justify-items: center;
+    }
+
+    .Home .socialMeidaPig .right .textContainer .header2 {
+        margin-top: 0px;
+        color: white;
+        font-family: 'Permanent Marker', cursive;
+        font-size: 20px;
+        display: grid;
+        justify-items: center;
+    }
+
+    .Home .socialMeidaPig .right .textContainer .header2-1 {
+        margin-top: 90px;
+        color: red;
+    }
+
+    .Home .socialMeidaPig .right .imageWrapper {
+        display: none;
+    }
+
+
+    /* ************************** ecosystem ********************************** */
+    .Home .ecosystem {
+        width: 100%;
+        height: 500px;
+        background-color: black;
+        margin-top: 1px;
+        position: relative;
+    }
+
+    .Home .ecosystem .imageWrapper {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 100%;
+        height: 100%;
+    }
+
+    .Home .ecosystem .imageWrapper > img {
+        width: 100%;
+        height: 100%;
+        opacity: 0.2;
+    }
+
+
+
+    /* ************************** ecosystem ********************************** */
+    .Home .ecosystem {
+        width: 100%;
+        height: 2000px;
+        background-color: black;
+        margin-top: 1px;
+        position: relative;
+    }
+
+    .Home .ecosystem .imageWrapperMain {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 100%;
+        height: 100%;
+    }
+
+    .Home .ecosystem .imageWrapperMain > img {
+        width: 100%;
+        height: 100%;
+        opacity: 0.2;
+    }
+
+    .Home .ecosystem .header1 {
+        position: absolute;
+        top: 20px;
+        left: 5px;
+        color: green;
+        font-family: 'Permanent Marker', cursive;
+        font-size: 22px;
+        display: grid;
+        justify-items: center;
+        transform: rotate(-5deg);
+    }
+
+    .Home .ecosystem .websiteOwner {
+        position: absolute;
+        top: 90px;
+        left: 20px;
+
+        height: 500px;
+        width: 80%;
+        min-width: 300px;
+        border-style: dashed solid;
+        border-color: rgb(103, 103, 103);
+        border-width: 2px;
+
+        transform: rotate(-3deg);
+    }
+
+    .Home .ecosystem .websiteOwner .top {
+        width: 100%;
+        height: 50px;
+        background-color: rgb(103, 103, 103);
+        display: grid;
+        align-items: center;
+        justify-items: center;
+        color: white;
+        font-family: 'Permanent Marker', cursive;
+        font-size: 20px;
+    }
+
+    .Home .ecosystem .websiteOwner .contentWrapper {
+        width: 100%;
+        height: calc(100% - 50px);
+        position: relative;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .Home .ecosystem .websiteOwner .contentWrapper .bulletPoint {
+        margin-top: 15px;
+        margin-left: 10px;
+        margin-right: 10px;
+        width: calc(100% - 20px);
+
+        display: flex;
+    }
+
+    .Home .ecosystem .websiteOwner .contentWrapper .bulletPoint>.iconWrapper{
+        width:30px;
+        height:30px;
+        display: grid;
+        align-items: center;
+        justify-items: center;
+        border-style: solid;
+        border-width: 1px;
+        border-color: rgb(105, 105, 105);
+        border-radius: 5px;
+    }
+
+    /* Indie Flower */
+    .Home .ecosystem .websiteOwner .contentWrapper >.bulletPoint > .buletText {
+        color: whitesmoke;
+        font-family: 'Indie Flower', cursive;
+        font-size: 15px;
+        margin-left: 10px;
+        font-weight: bold;
+        transition: all 0.5s ease-in-out;
+        z-index: 200;
+    }
+
+    .Home .ecosystem .websiteOwner .contentWrapper >.bulletPoint > .buletText:hover {
+        color: greenyellow;
+    }
+
+    .Home .ecosystem .websiteOwner .contentWrapper .imageWrapper {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 100%;
+        height: calc(100% - 0px);
+    }
+
+    .Home .ecosystem .websiteOwner .contentWrapper .imageWrapper img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0.2;
+    }
+
+    .Home .ecosystem .webDesigner {
+        position: absolute;
+        top: calc(90px + 500px);
+        left: 20px;
+
+        height: 500px;
+        width: 80%;
+        min-width: 300px;
+        border-style: dashed solid;
+        border-color: rgb(207, 194, 5);
+        border-width: 2px;
+
+        transform: rotate(3deg);
+    }
+
+    .Home .ecosystem .webDesigner .contentWrapper {
+        width: 100%;
+        height: calc(100% - 50px);
+        position: relative;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .Home .ecosystem .webDesigner .contentWrapper .bulletPoint {
+        margin-top: 15px;
+        margin-left: 10px;
+        margin-right: 10px;
+        width: calc(100% - 20px);
+
+        display: flex;
+    }
+
+    .Home .ecosystem .webDesigner .contentWrapper .bulletPoint>.iconWrapper{
+        width:30px;
+        height:30px;
+        display: grid;
+        align-items: center;
+        justify-items: center;
+        border-style: solid;
+        border-width: 1px;
+        border-color: rgb(105, 105, 105);
+        border-radius: 5px;
+    }
+
+    /* Indie Flower */
+    .Home .ecosystem .webDesigner .contentWrapper >.bulletPoint > .buletText {
+        color: whitesmoke;
+        font-family: 'Indie Flower', cursive;
+        font-size: 15px;
+        margin-left: 10px;
+        font-weight: bold;
+        z-index: 200;
+        transition: color 0.5s ease-in-out;
+    }
+
+    .Home .ecosystem .webDesigner .contentWrapper >.bulletPoint > .buletText:hover {
+        color: greenyellow;
+    }
+
+    .Home .ecosystem .webDesigner .contentWrapper .imageWrapper {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 100%;
+        height: calc(100% - 0px);
+    }
+
+    .Home .ecosystem .webDesigner .contentWrapper .imageWrapper img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0.2;
+    }
+
+    .Home .ecosystem .webDesigner .top {
+        width: 100%;
+        height: 50px;
+        background-color: rgb(207, 194, 5);
+        display: grid;
+        align-items: center;
+        justify-items: center;
+        color: white;
+        font-family: 'Permanent Marker', cursive;
+        font-size: 20px;
+    }
+
+    .Home .ecosystem .vpsProvider {
+        position: absolute;
+        top: calc(90px + 500px + 500px);
+        left: 20px;
+
+        height: 500px;
+        width: 80%;
+        min-width: 300px;
+        border-style: dashed solid;
+        border-color: rgb(23, 85, 4);
+        border-width: 2px;
+
+        transform: rotate(-3deg);
+    }
+
+    .Home .ecosystem .vpsProvider .contentWrapper {
+        width: 100%;
+        height: calc(100% - 50px);
+        position: relative;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .Home .ecosystem .vpsProvider .contentWrapper .bulletPoint {
+        margin-top: 15px;
+        margin-left: 10px;
+        margin-right: 10px;
+        width: calc(100% - 20px);
+
+        display: flex;
+    }
+
+    .Home .ecosystem .vpsProvider .contentWrapper .bulletPoint>.iconWrapper{
+        width:30px;
+        height:30px;
+        display: grid;
+        align-items: center;
+        justify-items: center;
+        border-style: solid;
+        border-width: 1px;
+        border-color: rgb(105, 105, 105);
+        border-radius: 5px;
+    }
+
+    /* Indie Flower */
+    .Home .ecosystem .vpsProvider .contentWrapper >.bulletPoint > .buletText {
+        color: whitesmoke;
+        font-family: 'Indie Flower', cursive;
+        font-size: 15px;
+        margin-left: 10px;
+        font-weight: bold;
+        transition: all 0.5s ease-in-out;
+        z-index: 200;
+    }
+
+    .Home .ecosystem .vpsProvider .contentWrapper >.bulletPoint > .buletText:hover {
+        color: greenyellow;
+    }
+
+    .Home .ecosystem .vpsProvider .contentWrapper .imageWrapper {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 100%;
+        height: calc(100% - 0px);
+    }
+
+    .Home .ecosystem .vpsProvider .contentWrapper .imageWrapper img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0.2;
+    }
+
+    .Home .ecosystem .vpsProvider .top {
+        width: 100%;
+        height: 50px;
+        background-color: rgb(23, 85, 4);
+        display: grid;
+        align-items: center;
+        justify-items: center;
+        color: white;
+        font-family: 'Permanent Marker', cursive;
+        font-size: 20px;
+    }
+
+    .Home .ecosystem .future {
+        position: absolute;
+        top: calc(90px + 500px + 500px + 500px + 30px);
+        left: 20px;
+        margin-right: 20px;
+        color: green;
+        font-family: 'Indie Flower', cursive;
+        font-size: 25px;
+        z-index: 200;
+    }
+
+    .Home .ecosystem .flower {
+        position: absolute;
+        top: calc(100% - 0px - 300px);
+        right: 0px;
+        width: 200px;
+        height: 300px;
+        z-index: 100;
+    }
+
+    .Home .ecosystem .flower img {
+        width: 100%;
+        height: 100%;
+        opacity: 0.9;
+    }
+
+
+    /* ***********************   comparison  **************************** */
+    .Home .comparison {
+        width: 100%;
+        height: fit-content;
+        background-color: black;
+        margin-top: 1px;
+
+        display: flex;
+        flex-direction: column;
+    }
+
+    .Home .comparison > .topBar {
+        height: fit-content;
+        width: 100%;
+        
+        display: flex;
+        flex-direction: column;
+
+    }
+
+    .Home .comparison > .topBar > .centralized {
+        height: 80px;
+        width: 100%;
+        color: white;
+        font-family: 'Permanent Marker', cursive;
+        font-size: 15px;
+
+        display: grid;
+        align-items: center;
+        justify-items: center;
+
+    }
+
+    .Home .comparison > .topBar > .vs {
+        height: 30px;
+        width: 100%;
+
+        color: green;
+        display: grid;
+        align-items: center;
+        justify-items: center;
+
+    }
+
+    .Home .comparison > .topBar > .decentralized {
+        height: 80px;
+        width: 100%;
+
+        color: white;
+        font-family: 'Permanent Marker', cursive;
+        font-size: 15px;
+
+        display: grid;
+        align-items: center;
+        justify-items: center;
+
+    }
+
+    .Home .comparison .imageWrapper-centralized {
+        width: 100%;
+        height: auto;
+
+        background-color: black;
+
+        z-index: 100;
+    }
+
+    .Home .comparison .imageWrapper-centralized img {
+        width: 100%;
+        height: 100%;
+        opacity: 0.6;
+        border-radius: 5px;
+
+        transition: all 0.5s ease-in-out;
+    }
+
+    .Home .comparison .imageWrapper-centralized img:hover {
+        opacity: 1;
+    }
+
+    .Home .comparison .contentWrapper1 {
+        height: 520px;
+        width: 100%;
+        border-style: solid;
+        border-width: 2px;
+        border-color: rgba(194, 152, 14,0.8);
+        z-index: 10;
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+
+        background-color:black;
+        transition: all 0.5s ease-in-out;
+    }
+
+    .Home .comparison .contentWrapper1:hover {
+        z-index: 200;
+    }
+
+    .Home .comparison .contentWrapper1 > .contentTopBar {
+        flex-grow: 0;
+        height: 50px;
+        width: 100%;
+        background-color:rgba(194, 152, 14,0.8);
+        color: rgb(34, 33, 32);
+        font-family: 'Lobster', cursive;
+        font-size: 20px;
+        display: grid;
+        align-items: center;
+        justify-items: center;
+        z-index: inherit;
+    }
+
+    .Home .comparison .contentWrapper1 .bulletPoint {
+        margin-top: 20px;
+        margin-left: 10px;
+        margin-right: 10px;
+        width: calc(100% - 20px);
+
+        display: flex;
+    }
+
+    .Home .comparison .contentWrapper1 .bulletPoint>.iconWrapper{
+        width:30px;
+        height:30px;
+        display: grid;
+        align-items: center;
+        justify-items: center;
+        border-style: solid;
+        border-width: 1px;
+        border-color: rgb(105, 105, 105);
+        border-radius: 5px;
+    }
+
+    /* Indie Flower */
+    .Home .comparison .contentWrapper1 >.bulletPoint > .buletText {
+        color: rgb(192, 166, 20);
+        font-family: 'Indie Flower', cursive;
+        font-size: 15px;
+        margin-left: 10px;
+        font-weight: bold;
+        z-index: 200;
+        transition: color 0.5s ease-in-out;
+    }
+
+    .Home .comparison .contentWrapper1 >.bulletPoint > .buletText:hover {
+        color: rgb(255, 4, 4);
+    }
+
+    .Home .comparison .contentWrapper2 {
+        height: 520px;
+        width: 100%;
+        border-style: solid;
+        border-width: 2px;
+        border-color: rgba(116, 115, 112, 0.8);
+        z-index: 5;
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+        background-color:black;
+
+        transition: all 0.5s ease-in-out;
+    }
+
+    .Home .comparison .contentWrapper2:hover {
+        z-index: 200;
+    }
+
+    .Home .comparison .contentWrapper2 > .contentTopBar {
+        flex-grow: 0;
+        height: 50px;
+        width: 100%;
+        background-color:rgba(116, 115, 112, 0.8);
+        color: rgba(194, 152, 14,0.8);
+        font-family: 'Lobster', cursive;
+        font-size: 20px;
+        display: grid;
+        align-items: center;
+        justify-items: center;
+        z-index: inherit;
+    }
+
+    .Home .comparison .contentWrapper2 > .bulletPoint {
+        margin-top: 20px;
+        margin-left: 10px;
+        margin-right: 10px;
+        width: calc(100% - 20px);
+
+        display: flex;
+    }
+
+    .Home .comparison .contentWrapper2 > .bulletPoint>.iconWrapper{
+        width:30px;
+        height:30px;
+        display: grid;
+        align-items: center;
+        justify-items: center;
+        border-style: solid;
+        border-width: 1px;
+        border-color: rgb(105, 105, 105);
+        border-radius: 5px;
+    }
+
+    /* Indie Flower */
+    .Home .comparison .contentWrapper2 >.bulletPoint > .buletText {
+        color: rgba(116, 115, 112, 0.8);
+        font-family: 'Indie Flower', cursive;
+        font-size: 15px;
+        margin-left: 10px;
+        font-weight: bold;
+        z-index: 200;
+        transition: color 0.5s ease-in-out;
+    }
+
+    .Home .comparison .contentWrapper2 >.bulletPoint > .buletText:hover {
+        color: greenyellow;
+    }
+
+
+    .Home .comparison .imageWrapper-decentralized {
+        width: 100%;
+        height: auto;
+
+        transition: all 0.5s ease-in-out;
+
+        background-color: black;
+
+        z-index: 100;
+    }
+
+    .Home .comparison .imageWrapper-decentralized img {
+        width: 100%;
+        height: 100%;
+        opacity: 0.6;
+        border-radius: 5px;
+
+    }
+
+
+    .Home .comparison .imageWrapper-decentralized:hover img{
+        opacity: 1;
+        z-index: 300;
+    }
+
+
+    /* *********************** video player **************************** */
+    .Home .videoPlayerWrapper {
+        width: 100%;
+        height: fit-content;
+        margin-top: 1px;
+        padding-top: 10px;
+        background-color: black;
+
+        display: flex;
+        flex-direction: column;
+    }
+
+    .Home .videoPlayerWrapper .contentWrapper {
+        width: 100%;
+        height: 200px;
+
+        background-color: black;
+    }
+
+    .Home .videoPlayerWrapper .contentWrapper .header1 {
+        color: white;
+        font-family: 'Permanent Marker', cursive;
+        font-size: 20px;
+        margin-top: 20px;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+    .Home .videoPlayerWrapper .contentWrapper .vodDemoNotes {
+        width: 100%;
+        margin-top: 20px;
+        color: white;
+        font-family: 'Indie Flower', cursive;
+        font-size: 15px;
+
+        display: grid;
+        align-items: center;
+        justify-items: center;
+    }
+
+    .Home .videoPlayerWrapper .playerWrapper {
+        width: 100%;
+
+        height: 400px;
+
+        display: flex;
+        align-items: center;
+        justify-items: center;
+        z-index: 100;
+
+        overflow: hidden;
+    }    
+
+
+    .Home .videoPlayerWrapper .playerWrapper  > .imageWrapper {
+        flex-grow: 1;
+        flex-shrink: 1;
+
+        height: 100%;
+        width: 100%;
+
+        display: grid;
+        align-items: center;
+        justify-items: center;
+
+        position: relative;
+        overflow: hidden;
+        
+    }
+
+    .Home .videoPlayerWrapper .playerWrapper  > .imageWrapper > .playerSymbol {
+        z-index: 200;
+    }
+
+    .Home .videoPlayerWrapper .playerWrapper  > .imageWrapper > .image {
+        height: 100%;
+        width: 100%;
+
+        position: absolute;
+        top: 0px;
+        left: 0px;
+
+        background-color: black;
+    }
+
+    .Home .videoPlayerWrapper .playerWrapper > .imageWrapper > .banFromSocialMedia {
+        position: absolute;
+        color: white;
+        font-family: 'Permanent Marker', cursive;
+        font-size: 17px;
+
+        top: 230px;
+        left: 0px;
+        width: 100%;
+
+        display: grid;
+        justify-items: center;
+        align-items: center;
+
+        z-index: 100;
+    }
+
+    .Home .videoPlayerWrapper .playerWrapper >  .imageWrapper > .image > img {
+        height: 100%;
+        width: 100%;
+        opacity: 0.2;
+        border-radius: 5px;
+
+        z-index: 10;
+
+    }
+}
+
+
+
+/*
+_________________________________________________________________________________________________________________________________________________ 
+
+    large device 
+_________________________________________________________________________________________________________________________________________________
+*/
+@media screen and (min-width: 600px) {
+
+    .Home {
+
+        width: 100%;
+        min-width: 800px;
+        min-height: calc(100vh - 50px);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        /* background-color: green; */
+    }
+
+    .Home .Banner {
+        height: calc(100vh - 50px);
+        width: 100%;
+        position: relative;
+
+    }
+
+    .Home .Banner>.imageWrapper {
+        top: 0px;
+        left: 0px;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: black;
+
+    }
+
+    .Home .Banner>.imageWrapper img {
+        width: 100%;
+        height: 100%;
+        opacity: 0.4;
+    }
+
+
+    .Home .Banner>.textArea {
+        position: absolute;
+        top: 80px;
+        left: 30px;
+        width: calc(100% - 60px); 
+
+    }
+
+    .Home .Banner>.textArea>.header1  {
+        width:100%;
+        color: white;
+
+        display: grid;
+        align-items: center;
+        justify-items: center;
+
+        font-family: 'Permanent Marker', cursive;
+        font-size: 60px;
+    }
+
+    .Home .Banner>.textArea>.header2  {
+        width:100%;
+        color: white;
+
+        display: grid;
+        align-items: center;
+        justify-items: center;
+
+        font-family: 'Lobster', cursive;
+        font-size: 50px;
+    }
+
+    .Home .Banner>.textArea > .bulletPoint {
+        margin-top: 5px;
+        margin-left: calc(50% - 350px);
+        width: 700px;
+
+        display: flex;
+
+    }
+
+    .Home .Banner > .textArea>.bulletPoint>.iconWrapper{
+        width:30px;
+        height:30px;
+        display: grid;
+        align-items: center;
+        justify-items: center;
+        border-style: solid;
+        border-width: 1px;
+        border-color: rgb(105, 105, 105);
+        border-radius: 5px;
+    }
+
+    /* Indie Flower */
+    .Home .Banner>.textArea >.bulletPoint > .buletText {
+        color: whitesmoke;
+        font-family: 'Indie Flower', cursive;
+        font-size: 25px;
+        margin-left: 10px;
+        font-weight: bold;
+    }
+
+    .Home .Banner>.textArea >.bulletPoint > .buletText:hover {
+        transition: all 0.5s ease-in-out;
+        color: greenyellow;
+    }
+
+    .Home .Banner > .textArea > .bulletPoint > .buletText > .emphas {
+        color: red;
+        font-size: 25px;
+    }  
+
+    .Home .Banner>.textArea > .firstRow {
+        margin-top:20px;
+    }
+
+    .Home .Banner > .textArea > .click2Watch {
+        margin-left: calc(50% - 25px);
+        margin-top: 50px;
+        width: 120px;
+        height: 30px;
+        border-radius: 8px;
+        background-color: rgb(26, 126, 26);
+        display: grid;
+        align-items: center;
+        justify-items: center;
+        color: whitesmoke;
+        font-family: 'Permanent Marker', cursive;
+        cursor: pointer;
+    }
+
+    .Home .Banner > .textArea > .click2Watch:hover {
+        background-color: yellowgreen;
+        transition: all 0.5s ease-in-out;
+        font-weight: bold;
+    }
+
+
+    /*  social media pigs  */
+    .Home .socialMeidaPig {
+        width: 100%;
+        height: 700px;
+        background-color: black;
+        position: relative;
+        margin-top: 1px;
+
+        display: flex;
+    }
+
+    .Home .socialMeidaPig .left {
+        flex-grow: 1;
+        flex-shrink: 1;
+        flex-basis: 0px;
+        height: 100%;
+        opacity: 1.0;
+        z-index: 150;
+
+        background-color: black;
+    }
+
+    .Home .socialMeidaPig .left img {
+        width: 100%;
+        height: 100%;
+        object-fit: center;
+        opacity: 0.8;
+    }
+
+    .Home .socialMeidaPig .left img:hover {
+        opacity: 0.3;
+        transition: all 0.5s ease-in-out;
+    }
+
+    .Home .socialMeidaPig .right {
+        flex-grow: 1.8;
+        flex-shrink: 1.8;
+        min-width: 800px;
+        flex-basis: 0px;
+        height: 100%;
+        position: relative;
+    }
+
+    .Home .socialMeidaPig .right .textContainer {
+        position: absolute;
+        top: 40px;
+        width: 100%;
+    }
+
+    .Home .socialMeidaPig .right .textContainer .header1 {
+        margin-top: 10px;
+        color: white;
+        font-family: 'Lobster', cursive;
+        font-size: 40px;
+        display: grid;
+        justify-items: center;
+    }
+
+    .Home .socialMeidaPig .right .textContainer .header2 {
+        margin-top: 0px;
+        color: white;
+        font-family: 'Permanent Marker', cursive;
+        font-size: 40px;
+        display: grid;
+        justify-items: center;
+    }
+
+    .Home .socialMeidaPig .right .textContainer .header2-1 {
+        margin-top: 50px;
+        color: red;
+    }
+
+    .Home .socialMeidaPig .right .textContainer .header2-2 {
+        margin-top: 50px;
+    }
+
+    .Home .socialMeidaPig .right .imageWrapper {
+        width: 100%;
+        height: 100%;
+    }
+
+    .Home .socialMeidaPig .right .imageWrapper > img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0.5;
+        transition: all 0.5s ease-in-out;
+    }
+
+
+    /* ************************** ecosystem ********************************** */
+    .Home .ecosystem {
+        width: 100%;
+        min-width: 900px;
+        height: 1200px;
+        background-color: black;
+        margin-top: 1px;
+        position: relative;
+    }
+
+    .Home .ecosystem .imageWrapperMain {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 100%;
+        height: 100%;
+    }
+
+    .Home .ecosystem .imageWrapperMain > img {
+        width: 100%;
+        height: 100%;
+        opacity: 0.2;
+    }
+
+    .Home .ecosystem .header1 {
+        position: absolute;
+        top: 30px;
+        left: 120px;
+        color: green;
+        font-family: 'Permanent Marker', cursive;
+        font-size: 50px;
+        display: grid;
+        justify-items: center;
+        transform: rotate(-5deg);
+    }
+
+    .Home .ecosystem .websiteOwner {
+        position: absolute;
+        top: 200px;
+        left: 30px;
+
+        height: 700px;
+        width: 30%;
+        min-width: 300px;
+        border-style: dashed solid;
+        border-color: rgb(103, 103, 103);
+        border-width: 2px;
+
+        transition: all 0.5s ease-in-out;
+        transform: rotate(3deg);
+    }
+
+    .Home .ecosystem .websiteOwner:hover {
+        left: calc(30px + 20px);
+        border-width: 4px;
+        z-index: 300;
+    }
+
+    
+
+    .Home .ecosystem .websiteOwner .top {
+        width: 100%;
+        height: 50px;
+        background-color: rgb(103, 103, 103);
+        display: grid;
+        align-items: center;
+        justify-items: center;
+        color: white;
+        font-family: 'Permanent Marker', cursive;
+        font-size: 20px;
+    }
+
+    .Home .ecosystem .websiteOwner .contentWrapper {
+        width: 100%;
+        height: calc(100% - 50px);
+        position: relative;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .Home .ecosystem .websiteOwner .contentWrapper .imageWrapper {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 100%;
+        height: calc(100% - 0px);
+    }
+
+    .Home .ecosystem .websiteOwner .contentWrapper .imageWrapper img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0.2;
+    }
+
+    .Home .ecosystem .websiteOwner .contentWrapper .bulletPoint {
+        margin-top: 20px;
+        margin-left: 10px;
+        margin-right: 10px;
+        width: calc(100% - 20px);
+
+        display: flex;
+    }
+
+    .Home .ecosystem .websiteOwner .contentWrapper .bulletPoint>.iconWrapper{
+        width:30px;
+        height:30px;
+        display: grid;
+        align-items: center;
+        justify-items: center;
+        border-style: solid;
+        border-width: 1px;
+        border-color: rgb(105, 105, 105);
+        border-radius: 5px;
+    }
+
+    /* Indie Flower */
+    .Home .ecosystem .websiteOwner .contentWrapper >.bulletPoint > .buletText {
+        color: whitesmoke;
+        font-family: 'Indie Flower', cursive;
+        font-size: 20px;
+        margin-left: 10px;
+        font-weight: bold;
+        transition: all 0.5s ease-in-out;
+        z-index: 200;
+    }
+
+    .Home .ecosystem .websiteOwner .contentWrapper >.bulletPoint > .buletText:hover {
+        color: greenyellow;
+    }
+
+    .Home .ecosystem .webDesigner {
+        position: absolute;
+        top: 150px;
+        left: 33.3%;
+
+        height: 700px;
+        width: 30%;
+        min-width: 300px;
+        border-style: dashed solid;
+        border-color: rgb(207, 194, 5);
+        border-width: 2px;
+
+        transition: all 0.5s ease-in-out;
+        transform: rotate(3deg);
+    }
+
+    .Home .ecosystem .webDesigner:hover {
+        left: calc(33.3% + 20px);
+        border-width: 4px;
+        z-index: 300;
+    }
+
+    .Home .ecosystem .webDesigner .contentWrapper {
+        width: 100%;
+        height: calc(100% - 50px);
+        position: relative;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .Home .ecosystem .webDesigner .contentWrapper .imageWrapper {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 100%;
+        height: calc(100% - 0px);
+    }
+
+    .Home .ecosystem .webDesigner .contentWrapper .imageWrapper img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0.2;
+    }
+
+    .Home .ecosystem .webDesigner .contentWrapper .bulletPoint {
+        margin-top: 20px;
+        margin-left: 10px;
+        margin-right: 10px;
+        width: calc(100% - 20px);
+
+        display: flex;
+    }
+
+    .Home .ecosystem .webDesigner .contentWrapper .bulletPoint>.iconWrapper{
+        width:30px;
+        height:30px;
+        display: grid;
+        align-items: center;
+        justify-items: center;
+        border-style: solid;
+        border-width: 1px;
+        border-color: rgb(105, 105, 105);
+        border-radius: 5px;
+    }
+
+    /* Indie Flower */
+    .Home .ecosystem .webDesigner .contentWrapper >.bulletPoint > .buletText {
+        color: whitesmoke;
+        font-family: 'Indie Flower', cursive;
+        font-size: 20px;
+        margin-left: 10px;
+        font-weight: bold;
+        z-index: 200;
+        transition: color 0.5s ease-in-out;
+    }
+
+    .Home .ecosystem .webDesigner .contentWrapper >.bulletPoint > .buletText:hover {
+        color: greenyellow;
+    }
+
+
+    .Home .ecosystem .webDesigner .top {
+        width: 100%;
+        height: 50px;
+        background-color: rgb(207, 194, 5);
+        display: grid;
+        align-items: center;
+        justify-items: center;
+        color: white;
+        font-family: 'Permanent Marker', cursive;
+        font-size: 20px;
+    }
+
+    .Home .ecosystem .vpsProvider {
+        position: absolute;
+        top: 150px;
+        left: 66%;
+
+        height: 700px;
+        width: 30%;
+        min-width: 300px;
+        border-style: dashed solid;
+        border-color: rgb(23, 85, 4);
+        border-width: 2px;
+
+        transform: rotate(-3deg);
+        transition: all 0.5s ease-in-out;
+
+    }
+
+    .Home .ecosystem .vpsProvider:hover {
+        left: calc(66% - 20px);
+        border-width: 4px;
+        z-index: 300;
+    }
+
+    .Home .ecosystem .vpsProvider .contentWrapper {
+        width: 100%;
+        height: calc(100% - 50px);
+        position: relative;
+
+        display: flex;
+        flex-direction: column;
+    }
+
+    .Home .ecosystem .vpsProvider .contentWrapper .imageWrapper {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 100%;
+        height: calc(100% - 0px);
+
+    }
+
+    .Home .ecosystem .vpsProvider .contentWrapper .imageWrapper img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0.1;
+    }
+
+    .Home .ecosystem .vpsProvider .contentWrapper .bulletPoint {
+        margin-top: 20px;
+        margin-left: 10px;
+        margin-right: 10px;
+        width: calc(100% - 20px);
+
+        display: flex;
+    }
+
+    .Home .ecosystem .vpsProvider .contentWrapper .bulletPoint>.iconWrapper{
+        width:30px;
+        height:30px;
+        display: grid;
+        align-items: center;
+        justify-items: center;
+        border-style: solid;
+        border-width: 1px;
+        border-color: rgb(105, 105, 105);
+        border-radius: 5px;
+    }
+
+    /* Indie Flower */
+    .Home .ecosystem .vpsProvider .contentWrapper >.bulletPoint > .buletText {
+        color: whitesmoke;
+        font-family: 'Indie Flower', cursive;
+        font-size: 20px;
+        margin-left: 10px;
+        font-weight: bold;
+        z-index: 200;
+        transition: color 0.5s ease-in-out;
+    }
+
+    .Home .ecosystem .vpsProvider .contentWrapper >.bulletPoint > .buletText:hover {
+        color: greenyellow;
+    }
+
+
+    .Home .ecosystem .vpsProvider .top {
+        width: 100%;
+        height: 50px;
+        background-color: rgb(23, 85, 4);
+        display: grid;
+        align-items: center;
+        justify-items: center;
+        color: white;
+        font-family: 'Permanent Marker', cursive;
+        font-size: 20px;
+    }
+
+    .Home .ecosystem .future {
+        position: absolute;
+        bottom: 150px;
+        left: 40px;
+        margin-right: 40px;
+        color: green;
+        font-family: 'Indie Flower', cursive;
+        font-size: 35px;
+        transform: rotate(-5deg);
+        z-index: 200;
+        transition: all 0.5s ease-in-out;
+    }
+
+    .Home .ecosystem .future:hover {
+        color: greenyellow;
+    }
+
+    .Home .ecosystem .flower {
+        position: absolute;
+        top: calc(100% - 0px - 300px);
+        right: 20px;
+        width: 200px;
+        height: 300px;
+
+        box-shadow: inset 0px 0px 5px 10px black;
+        z-index: 100;
+
+    }
+
+    .Home .ecosystem .flower img {
+        width: 100%;
+        height: 100%;
+        opacity: 0.9;
+    }
+
+    /* ***********************   comparison  **************************** */
+    .Home .comparison {
+        width: 100%;
+        height: 1200px;
+        background-color: black;
+        margin-top: 1px;
+
+        position: relative;
+    }
+
+    .Home .comparison .topBar {
+        height: 100px;
+        width: 100%;
+        color: white;
+        font-family: 'Permanent Marker', cursive;
+        font-size: 40px;
+        margin-top: 40px;
+
+        display: flex;
+        align-items: center;
+
+    }
+
+    .Home .comparison .topBar .centralized {
+        flex-grow: 1;
+        flex-shrink: 1;
+        flex-basis: 0px;
+        min-width: 300px;
+        margin-left: 60px;
+        margin-right: 60px;
+    }
+
+    .Home .comparison .topBar .vs {
+        flex-grow: 0;
+        flex-shrink: 0;
+        flex-basis: 200px;
+        color: green;
+        display: grid;
+        align-items: center;
+        justify-items: center;
+
+    }
+
+    .Home .comparison .topBar .decentralized {
+        flex-grow: 1;
+        flex-shrink: 1;
+        flex-basis: 0px;
+        min-width: 300px;
+        margin-right: 60px;
+        margin-left: 60px;
+    }
+
+    .Home .comparison .imageWrapper-centralized {
+        position: absolute;
+        top: 150px;
+        left: 50px;
+        width: 30%;
+        height: 40%;
+
+        background-color: black;
+
+        z-index: 100;
+    }
+
+    .Home .comparison .imageWrapper-centralized img {
+        width: 100%;
+        height: 100%;
+        opacity: 0.6;
+        border-radius: 5px;
+
+        transition: all 0.5s ease-in-out;
+    }
+
+    .Home .comparison .imageWrapper-centralized img:hover {
+        width: 180%;
+        height: 180%;
+        opacity: 1;
+    }
+
+
+    .Home .comparison .imageWrapper-decentralized {
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+        width: 30%;
+        height: 40%;
+
+        transition: all 0.5s ease-in-out;
+
+        background-color: black;
+
+        z-index: 100;
+    }
+
+    .Home .comparison .imageWrapper-decentralized img {
+        width: 100%;
+        height: 100%;
+        opacity: 0.6;
+        border-radius: 5px;
+
+    }
+
+    .Home .comparison .imageWrapper-decentralized:hover {
+        width: 60%;
+        height: 80%;
+    }
+
+    .Home .comparison .imageWrapper-decentralized:hover img{
+        opacity: 1;
+        z-index: 300;
+    }
+
+    .Home .comparison .contentWrapper1 {
+        position: absolute;
+        top: 650px;
+        left: 10px;
+        height: 520px;
+        width: 60%;
+        min-width: 800px;
+        border-style: solid;
+        border-width: 2px;
+        border-color: rgba(194, 152, 14,0.8);
+        z-index: 10;
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+
+        background-color:black;
+        transition: all 0.5s ease-in-out;
+    }
+
+    .Home .comparison .contentWrapper1:hover {
+        z-index: 200;
+    }
+
+    .Home .comparison .contentWrapper1 > .contentTopBar {
+        flex-grow: 0;
+        height: 50px;
+        width: 100%;
+        background-color:rgba(194, 152, 14,0.8);
+        color: rgb(34, 33, 32);
+        font-family: 'Lobster', cursive;
+        font-size: 40px;
+        display: grid;
+        align-items: center;
+        justify-items: center;
+        z-index: inherit;
+    }
+
+    .Home .comparison .contentWrapper1 .bulletPoint {
+        margin-top: 20px;
+        margin-left: 10px;
+        margin-right: 10px;
+        width: calc(100% - 20px);
+
+        display: flex;
+    }
+
+    .Home .comparison .contentWrapper1 .bulletPoint>.iconWrapper{
+        width:30px;
+        height:30px;
+        display: grid;
+        align-items: center;
+        justify-items: center;
+        border-style: solid;
+        border-width: 1px;
+        border-color: rgb(105, 105, 105);
+        border-radius: 5px;
+    }
+
+    /* Indie Flower */
+    .Home .comparison .contentWrapper1 >.bulletPoint > .buletText {
+        color: rgb(192, 166, 20);
+        font-family: 'Indie Flower', cursive;
+        font-size: 25px;
+        margin-left: 10px;
+        font-weight: bold;
+        z-index: 200;
+        transition: color 0.5s ease-in-out;
+    }
+
+    .Home .comparison .contentWrapper1 >.bulletPoint > .buletText:hover {
+        color: rgb(255, 4, 4);
+    }
+
+    .Home .comparison .contentWrapper2 {
+        position: absolute;
+        top: 200px;
+        right: 10px;
+        height: 520px;
+        width: 60%;
+        min-width: 800px;
+        border-style: solid;
+        border-width: 2px;
+        border-color: rgba(116, 115, 112, 0.8);
+        z-index: 5;
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+        background-color:black;
+
+        transition: all 0.5s ease-in-out;
+    }
+
+    .Home .comparison .contentWrapper2:hover {
+        z-index: 200;
+    }
+
+    .Home .comparison .contentWrapper2 > .contentTopBar {
+        flex-grow: 0;
+        height: 50px;
+        width: 100%;
+        background-color:rgba(116, 115, 112, 0.8);
+        color: rgba(194, 152, 14,0.8);
+        font-family: 'Lobster', cursive;
+        font-size: 40px;
+        display: grid;
+        align-items: center;
+        justify-items: center;
+        z-index: inherit;
+    }
+
+    .Home .comparison .contentWrapper2 > .bulletPoint {
+        margin-top: 20px;
+        margin-left: 10px;
+        margin-right: 10px;
+        width: calc(100% - 20px);
+
+        display: flex;
+    }
+
+    .Home .comparison .contentWrapper2 > .bulletPoint>.iconWrapper{
+        width:30px;
+        height:30px;
+        display: grid;
+        align-items: center;
+        justify-items: center;
+        border-style: solid;
+        border-width: 1px;
+        border-color: rgb(105, 105, 105);
+        border-radius: 5px;
+    }
+
+    /* Indie Flower */
+    .Home .comparison .contentWrapper2 >.bulletPoint > .buletText {
+        color: rgba(116, 115, 112, 0.8);
+        font-family: 'Indie Flower', cursive;
+        font-size: 25px;
+        margin-left: 10px;
+        font-weight: bold;
+        z-index: 200;
+        transition: color 0.5s ease-in-out;
+    }
+
+    .Home .comparison .contentWrapper2 >.bulletPoint > .buletText:hover {
+        color: greenyellow;
+    }
+
+    /* ***************** videoPlayer******************** */
+
+    .Home .videoPlayerWrapper {
+        width: 100%;
+        height: 600px;
+        margin-top: 1px;
+        padding-top: 15px;
+        background-color: black;
+
+        display: flex;
+    }
+
+    .Home .videoPlayerWrapper .playerWrapper {
+        flex-grow: 1;
+        flex-shrink: 1;
+        flex-basis: 0px;
+        min-width: 800px;
+    }
+
+    .Home .videoPlayerWrapper .contentWrapper {
+        flex-grow: 0;
+        flex-shrink: 0;
+        flex-basis: 600px;
+        height: 100%;
+
+        display: grid;
+        justify-items: center;
+        align-items: center;
+
+        color: white;
+        font-family: 'Permanent Marker', cursive;
+        font-size: 34px;
+
+        background-color: black;
+
+        position: relative;
+    }
+
+    .Home .videoPlayerWrapper .contentWrapper .vodDemoNotes {
+        position: absolute;
+        bottom: 50px;
+        color: white;
+        font-family: 'Indie Flower', cursive;
+        font-size: 20px;
+    }
+
+
+    .Home .videoPlayerWrapper .playerWrapper {
+        flex-grow: 1;
+        flex-shrink: 1;
+        flex-basis: 0px;
+
+        height: calc(100% - 0px);
+        margin-right: 0px;
+        margin-bottom: 0px;
+        margin-left: 0px;
+
+        display: flex;
+        align-items: center;
+        justify-items: center;
+        z-index: 100;
+
+        overflow: hidden;
+    }    
+
+    .Home .videoPlayerWrapper .playerWrapper  > .imageWrapper {
+        flex-grow: 1;
+        flex-shrink: 1;
+
+        height: 100%;
+        width: 100%;
+
+        display: grid;
+        align-items: center;
+        justify-items: center;
+
+        position: relative;
+        overflow: hidden;
+        
+    }
+
+    .Home .videoPlayerWrapper .playerWrapper  > .imageWrapper > .playerSymbol {
+        z-index: 200;
+    }
+
+    .Home .videoPlayerWrapper .playerWrapper  > .imageWrapper > .image {
+        height: 100%;
+        width: 100%;
+
+        position: absolute;
+        top: 0px;
+        left: 0px;
+
+        background-color: black;
+    }
+
+    .Home .videoPlayerWrapper .playerWrapper > .imageWrapper > .banFromSocialMedia {
+        position: absolute;
+        color: white;
+        font-family: 'Permanent Marker', cursive;
+        font-size: 40px;
+
+        top: 400px;
+        left: 0px;
+        width: 100%;
+
+        display: grid;
+        justify-items: center;
+        align-items: center;
+
+        z-index: 100;
+    }
+
+    .Home .videoPlayerWrapper .playerWrapper >  .imageWrapper > .image > img {
+        height: 100%;
+        width: 100%;
+        opacity: 0.2;
+        border-radius: 5px;
+
+        z-index: 10;
+
+    }
+
+}

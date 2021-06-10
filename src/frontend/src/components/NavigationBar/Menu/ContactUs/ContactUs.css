@@ -1,0 +1,24 @@
+/* ******************** small device******************* */
+@media only screen and (max-width: 600px) {
+    .ContactUsMenuRoot {
+        height: 100%;
+        width: 100%;
+    }
+
+}
+
+
+
+
+
+/* ******************** large device******************* */
+@media only screen and (min-width: 600px) {
+    .ContactUsMenuRoot {
+        height: 100%;
+        width: 100%;
+    }
+
+}
+
+
+

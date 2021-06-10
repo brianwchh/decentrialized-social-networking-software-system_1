@@ -1,0 +1,27 @@
+/* ******************** small device******************* */
+@media only screen and (max-width: 600px) {
+
+    .chatAreaRoot {
+        width: 100%;
+        height: 100%;
+
+    }
+
+}
+
+
+
+/* ***** large device **************************** */
+@media only screen and (min-width: 600px) {
+
+    .chatAreaRoot {
+        width: 100%;
+        height: 100%;
+
+    }
+
+}
+
+
+
+

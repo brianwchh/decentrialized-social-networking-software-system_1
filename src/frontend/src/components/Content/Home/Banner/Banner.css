@@ -1,0 +1,149 @@
+
+/*
+_________________________________________________________________________________________________________________________________________________ 
+
+    small device 
+_________________________________________________________________________________________________________________________________________________
+*/
+@media screen and (max-width: 600px) {
+
+    .bannerRoot {
+        width: 100%;
+        height: 100%;
+    }
+
+    .bannerRoot .bannerVideo {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: -1;
+    }
+
+    .bannerRoot .floatingPanel {
+        position: absolute;
+        top: 30%;
+        /* left: 25%; */
+
+        height: 40%;
+        width: 100%;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-items: center;
+
+    }
+
+    .bannerRoot .floatingPanel .subPanel {
+        flex-grow: 1;
+        width: 100%;
+
+        display: grid;
+        align-items: center;
+        justify-items: center;
+    }
+
+    .bannerRoot .floatingPanel .subPanel_courselist {
+        flex-grow: 4;
+        width: 100%;
+
+        display: grid;
+        align-items: center;
+        justify-items: center;
+    }
+
+    .bannerRoot .floatingPanel .subPanel .lala {
+        font-size: xxx-large;
+        font-weight: bold;
+        color: white;
+    }
+
+    .bannerRoot .floatingPanel .subPanel_courselist .courseList {
+        padding: 10px;
+        padding-left: 30px;
+        padding-right: 30px;
+        border-style: solid;
+        border-width: 2px;
+        border-color: white;
+        color: white;
+        text-decoration: none;
+    }
+
+
+}
+
+
+
+
+/*
+_________________________________________________________________________________________________________________________________________________ 
+
+    large device 
+_________________________________________________________________________________________________________________________________________________
+*/
+@media screen and (min-width: 600px) { 
+
+    .bannerRoot {
+        width: 100%;
+        height: 100%;
+    }
+    
+    .bannerRoot .bannerVideo {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: -1;
+    }
+
+    .bannerRoot .floatingPanel {
+        position: absolute;
+        top: 30%;
+
+        height: 40%;
+        width: 100vw;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-items: center;
+
+    }
+
+    .bannerRoot .floatingPanel .subPanel {
+        flex-grow: 1;
+        width: 100%;
+
+        display: grid;
+        align-items: center;
+        justify-items: center;
+    }
+
+    .bannerRoot .floatingPanel .subPanel_courselist {
+        flex-grow: 4;
+        width: 100%;
+
+        display: grid;
+        align-items: center;
+        justify-items: center;
+
+    }
+
+    .bannerRoot .floatingPanel .subPanel .lala {
+        font-size: xxx-large;
+        font-weight: bold;
+        color: white;
+    }
+
+    .bannerRoot .floatingPanel .subPanel_courselist .courseList {
+        padding: 10px;
+        padding-left: 30px;
+        padding-right: 30px;
+        border-style: solid;
+        border-width: 2px;
+        border-color: white;
+        color: white;
+        text-decoration: none;
+    }
+
+}
+

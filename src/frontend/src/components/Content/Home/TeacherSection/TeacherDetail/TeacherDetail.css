@@ -1,0 +1,480 @@
+
+/* ******************** small device******************* */
+@media only screen and (max-width: 600px) {
+
+    .teacherDetailRoot {
+        width: 100%;
+        height: 100%;
+
+        display: grid;
+        grid-template-rows: 100%;
+        align-items: start;
+        justify-items: center;
+        background-color: white;
+
+        position: relative;
+
+        overflow-y: hidden;
+    }
+
+    .teacherDetailRoot > .imageDetail {
+        width: 100%;
+        height: calc(100% - 100px);
+
+        overflow: hidden;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-items: center;
+        z-index: 100;
+
+        transition: height 1.2s ease-in-out;
+
+    }
+
+    .teacherDetailRoot > .imageDetail > .imageWrapper {
+        flex-grow: 1;
+        flex-shrink: 1;
+        flex-basis: 0;
+
+        width: 100%;
+    
+        display: grid;
+        align-items: center;
+        justify-items: center;
+
+        position: relative;
+        overflow: hidden;
+        
+    }
+
+    .teacherDetailRoot > .imageDetail > .imageWrapper > .playerSymbol {
+        z-index: 200;
+    }
+
+    .teacherDetailRoot > .imageDetail > .imageWrapper > .image {
+        height: 100%;
+        width: 100%;
+
+        position: absolute;
+        top: 0px;
+        left: 0px;
+
+        display: grid;
+        justify-items: center;
+        align-items: center;
+    }
+
+    .teacherDetailRoot > .imageDetail > .imageWrapper > .image > img {
+        height: 100%;
+        width: auto;
+
+        z-index: 100;
+
+    }
+
+    .teacherDetailRoot > .imageDetail > .info {
+        flex-grow: 0;
+        flex-shrink: 0;
+        flex-basis:  200px ;
+
+        width: 100%;
+
+        height: 100%;
+        overflow-y: scroll;
+        overflow-x: hidden;
+
+    }
+
+    .teacherDetailRoot > .imageDetail > .info > .name {
+        margin-top: 5px;
+        margin-left: 5px;
+        margin-right: 5px;
+        color: black;
+        font-size: large;
+        font-weight: bold;
+    }
+
+    .teacherDetailRoot > .imageDetail > .info > hr {
+        margin-top: 5px;
+        margin-bottom: 5px;
+        margin-left: 10px;
+        color: rgb(88, 88, 88);
+    }
+
+    .teacherDetailRoot > .imageDetail > .info > .description {
+        color: black;
+        margin-left: 5px;
+        margin-right: 5px;
+    }
+
+    .teacherDetailRoot > .imageList {
+        position: absolute;
+        top: calc(100% - 100px);
+        left: 0px;
+        height: 100px;
+        width: 100%;
+
+        display: flex;
+        flex-direction: row;
+        overflow-y: hidden;
+        overflow-x: scroll;
+        -ms-overflow-style: none; 
+        scrollbar-width: none;
+        
+        z-index: 180;
+
+        background-color: whitesmoke;
+
+        /* transition: height 1.2s ease-in-out; */
+        transition: top 1.2s ease-in-out;
+
+    }
+
+    .teacherDetailRoot > .imageList::-webkit-scrollbar {
+        display: none;
+    }
+
+    .teacherDetailRoot > .imageList .album {
+        flex-grow: 0;
+        flex-shrink: 0;
+        flex-basis: auto;
+        width: 100px;
+        height: 100%;
+
+        margin: 2px;
+
+        display: grid;
+        align-items: center;
+        justify-items: center;
+
+        position: relative;
+    }
+
+    .teacherDetailRoot > .imageList .album > img {
+        width: 98%;
+        height: 80%;
+        object-fit: cover;
+    }
+
+    .teacherDetailRoot > .imageList .album > .profileName {
+        position: absolute;
+        bottom: 10px;
+        left: 5px;
+
+        color: white;
+        font-size: xx-small;
+    }
+
+
+    .teacherDetailRoot > .imageDetail > .arrowForwardIconWrapper {
+        position: absolute ; /* gobal document is the relative*/
+        z-index: 200;
+
+        top: 30%;
+        right: 3%;
+        width: 30px;
+        height: 30px;
+
+        opacity: 0.5;
+
+        display: grid;
+        align-items: center;
+        justify-items: center;
+
+        /* background-color: black; */
+    }
+
+    .teacherDetailRoot > .imageDetail  > .arrowBackIconWrapper {
+        position: absolute ; /* gobal document is the relative*/
+        z-index: 200;
+
+        top: 30%;
+        left: 3%;
+        width: 30px;
+        height: 30px;
+
+        opacity: 0.5;
+
+        display: grid;
+        align-items: center;
+        justify-items: center;
+
+        /* background-color: black; */
+    }
+
+    .teacherDetailRoot > .imageDetail > .icoMenuWrapper {
+        position: absolute;
+
+        bottom: 100px;
+        left: 0px;
+
+        transition: bottom 1.2s ease-in-out;
+
+    }
+
+
+    /* ************************** hidden component  ******************************/
+    #imageDetalViewRootCheckbox {
+        display: none;
+    }
+
+    /* *********************  checked actions ************************* */
+
+    #imageDetalViewRootCheckbox:checked ~  .imageList {
+        top: calc(100% - 0px);
+        /* height: 0%; */
+    }
+
+    #imageDetalViewRootCheckbox:checked ~  .imageDetail {
+        height: 100%;
+    }
+
+    #imageDetalViewRootCheckbox:checked ~  .imageDetail > .icoMenuWrapper {
+        bottom: 0px;
+    }
+
+
+}
+
+
+
+
+
+/* ******************** large device******************* */
+@media only screen and (min-width: 600px) {
+    .teacherDetailRoot {
+        width: 100%;
+        height: 100%;
+
+        display: grid;
+        grid-template-rows: 100%;
+        align-items: start;
+        justify-items: center;
+        background-color: white;
+
+        position: relative;
+
+        overflow-y: hidden;
+    }
+
+    .teacherDetailRoot > .imageDetail {
+        width: 80%;
+        height: calc(100% - 100px);
+
+        overflow: hidden;
+
+        display: flex;
+        align-items: center;
+        justify-items: center;
+        z-index: 100;
+
+        transition: height 1.2s ease-in-out;
+
+    }
+
+    .teacherDetailRoot > .imageDetail > .imageWrapper {
+        flex-grow: 1;
+        flex-shrink: 1;
+
+        height: 100%;
+
+        display: grid;
+        align-items: center;
+        justify-items: center;
+
+        position: relative;
+        overflow: hidden;
+        
+    }
+
+    .teacherDetailRoot > .imageDetail > .imageWrapper > .playerSymbol {
+        z-index: 200;
+    }
+
+    .teacherDetailRoot > .imageDetail > .imageWrapper > .image {
+        height: 100%;
+        width: 100%;
+
+        position: absolute;
+        top: 0px;
+        left: 0px;
+
+        display: grid;
+        justify-items: center;
+        align-items: center;
+    }
+
+    .teacherDetailRoot > .imageDetail > .imageWrapper > .image > img {
+        height: 100%;
+        width: auto;
+        /* object-fit: cover; */
+        z-index: 100;
+
+    }
+
+    .teacherDetailRoot > .imageDetail > .info {
+        flex-grow: 0;
+        flex-shrink: 0;
+        flex-basis:  300px ;
+
+        height: 100%;
+        overflow-y: scroll;
+        overflow-x: hidden;
+
+        border-width: 0px;
+        border-left-width: 1px;
+        border-style: solid;
+        border-color: rgb(233, 228, 228);
+    }
+
+    .teacherDetailRoot > .imageDetail > .info > .name {
+        margin-top: 30px;
+        margin-left: 10px;
+        margin-right: 10px;
+        color: black;
+        font-size: x-large;
+        font-weight: bold;
+    }
+
+    .teacherDetailRoot > .imageDetail > .info > hr {
+        margin-top: 20px;
+        margin-bottom: 40px;
+        margin-left: 10px;
+        color: rgb(88, 88, 88);
+    }
+
+    .teacherDetailRoot > .imageDetail > .info > .description {
+        color: black;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+    .teacherDetailRoot > .imageList {
+        position: absolute;
+        top: calc(100% - 100px);
+        left: 0px;
+        height: 100px;
+        width: 100%;
+
+        display: flex;
+        flex-direction: row;
+        overflow-y: hidden;
+        overflow-x: scroll;
+        -ms-overflow-style: none; 
+        scrollbar-width: none;
+        
+        z-index: 180;
+
+        background-color: whitesmoke;
+
+        /* transition: height 1.2s ease-in-out; */
+        transition: top 1.2s ease-in-out;
+
+    }
+
+    .teacherDetailRoot > .imageList::-webkit-scrollbar {
+        display: none;
+    }
+
+    .teacherDetailRoot > .imageList .album {
+        flex-grow: 0;
+        flex-shrink: 0;
+        flex-basis: auto;
+        width: 100px;
+        height: 100%;
+
+        margin: 2px;
+
+        display: grid;
+        align-items: center;
+        justify-items: center;
+
+        position: relative;
+    }
+
+    .teacherDetailRoot > .imageList .album > img {
+        width: 98%;
+        height: 80%;
+        object-fit: cover;
+    }
+
+    .teacherDetailRoot > .imageList .album > .profileName {
+        position: absolute;
+        bottom: 10px;
+        left: 5px;
+
+        color: white;
+        font-size: xx-small;
+    }
+
+
+    .teacherDetailRoot > .imageDetail > .arrowForwardIconWrapper {
+        position: absolute ; /* gobal document is the relative*/
+        z-index: 200;
+
+        top: 50%;
+        right: 3%;
+        width: 30px;
+        height: 30px;
+
+        opacity: 0.5;
+
+        display: grid;
+        align-items: center;
+        justify-items: center;
+
+        background-color: white;
+    }
+
+    .teacherDetailRoot > .imageDetail  > .arrowBackIconWrapper {
+        position: absolute ; /* gobal document is the relative*/
+        z-index: 200;
+
+        top: 50%;
+        left: 3%;
+        width: 30px;
+        height: 30px;
+
+        opacity: 0.5;
+
+        display: grid;
+        align-items: center;
+        justify-items: center;
+
+        background-color: white;
+    }
+
+    .teacherDetailRoot > .imageDetail > .icoMenuWrapper {
+        position: absolute;
+
+        bottom: 100px;
+        right: 50px;
+
+        transition: bottom 1.2s ease-in-out;
+
+    }
+
+
+    /* ************************** hidden component  ******************************/
+    #imageDetalViewRootCheckbox {
+        display: none;
+    }
+
+    /* *********************  checked actions ************************* */
+
+    #imageDetalViewRootCheckbox:checked ~  .imageList {
+        top: calc(100% - 0px);
+        /* height: 0%; */
+    }
+
+    #imageDetalViewRootCheckbox:checked ~  .imageDetail {
+        height: 100%;
+    }
+
+    #imageDetalViewRootCheckbox:checked ~  .imageDetail > .icoMenuWrapper {
+        bottom: 0px;
+    }
+
+}
