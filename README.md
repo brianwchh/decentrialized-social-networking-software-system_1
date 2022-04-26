@@ -1,5 +1,5 @@
 # World is Changed when our websites talk to each other - A social network revolution
-## demo website : https://decensormedia.org/
+## demo website : http://decensormedia.org/
 ![alt text](https://raw.githubusercontent.com/brianwchh/decentrialized-social-networking-software-system_1/master/pic/systemDiagram.png)
 ####
 click below image to watch video on youtube.
